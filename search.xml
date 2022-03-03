@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>js-3-springmvc</title>
-    <url>/2022/02/06/js-3-springmvc/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-mysql-1</title>
     <url>/2022/02/05/js-2-mysql/</url>
     <content><![CDATA[<p><strong>简介：</strong>MySQL的简介和安装</p>
@@ -279,70 +246,43 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2, 将问题转化，将所有非零元素往前移，然后再将后面多出的元素设为0</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">moveZeros</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = removeElement(nums,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(; p &lt; nums.length; p++)&#123;</span><br><span class="line">        nums[p] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> slow = <span class="number">0</span>,fast = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(slow &lt; nums.length &amp;&amp; fast &lt; nums.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[fast] != val)&#123;</span><br><span class="line">                nums[slow] = nums[fast];</span><br><span class="line">                slow++;</span><br><span class="line">            &#125;</span><br><span class="line">            fast++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="（8）单链表解题技巧总结"><a href="#（8）单链表解题技巧总结" class="headerlink" title="（8）单链表解题技巧总结"></a>（8）单链表解题技巧总结</h3><p>单链表中，比较常用的操作有：1）合并两个有序链表    2）合并 k 个有序链表    3）寻找单链表的倒数第 k 个节点    4）寻找单链表的中点    5）寻找单链表的中点    6）寻找单链表的中点 。这些解法都⽤到了双指针技巧  ，下面以具体的题来说明</p>
+<p><strong>（力扣21——合并两个有序链表）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-26.png" alt="sf-1-26"></p>
+<p>说明：</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-3-springmvc</title>
+    <url>/2022/02/06/js-3-springmvc/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
 ]]></content>
       <categories>
         <category>xxx</category>
@@ -1173,6 +1113,22 @@
 <p>在 SQL 标准中定义了 4 种隔离级别，每一种级别都规定了一个事务中所做的修改，哪些是在事务内和事务间可见的，哪些是不可见的。较低级别的隔离通常可以执行更高的并发，系统的开销也更低。</p>
 <p> SQL 标准定义的四个隔离级别为： Read Uncommitted （ 未提交读 ） 、 Read Committed （提交读）、 Repeatable Read （可重复读）、 Serializable （可串行化） ，隔离级别越高，并发性能越低。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-1-26.png" alt="js-1-26"></p>
+<p><strong>Spring事务传播机制</strong></p>
+<p>@Transactional(propagation&#x3D;Propagation.REQUIRED)<br>如果有事务, 那么加入事务, 没有的话新建一个(默认情况下)<br>        @Transactional(propagation&#x3D;Propagation.NOT_SUPPORTED)<br>容器不为这个方法开启事务<br>        @Transactional(propagation&#x3D;Propagation.REQUIRES_NEW)<br>不管是否存在事务,都创建一个新的事务,原来的挂起,新的执行完毕,继续执行老的事务<br>        @Transactional(propagation&#x3D;Propagation.MANDATORY)<br>必须在一个已有的事务中执行,否则抛出异常<br>        @Transactional(propagation&#x3D;Propagation.NEVER)<br>必须在一个没有的事务中执行,否则抛出异常(与Propagation.MANDATORY相反)<br>        @Transactional(propagation&#x3D;Propagation.SUPPORTS)<br>如果其他bean调用这个方法,在其他bean中声明事务,那就用事务.如果其他bean没有声明事务,那就不用事务.</p>
+<p><a href="https://blog.csdn.net/qq_26323323/article/details/81908955">参考示例</a></p>
+<h3 id="（3）PlatformTransactionManager接口（事务管理器）"><a href="#（3）PlatformTransactionManager接口（事务管理器）" class="headerlink" title="（3）PlatformTransactionManager接口（事务管理器）"></a>（3）PlatformTransactionManager接口（事务管理器）</h3><p>Spring 并不会直接管理事务，而是通过事务管理器对事务进行管理的。</p>
+<p>在 Spring 中提供了一个 org.springframework.transaction.PlatformTransactionManager 接口，这个接口被称为 Spring 的事务管理器，其源码和三个接口的功能如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PlatformTransactionManager</span> <span class="keyword">extends</span> <span class="title">TransactionManager</span> </span>&#123;</span><br><span class="line">    <span class="function">TransactionStatus <span class="title">getTransaction</span><span class="params">(<span class="meta">@Nullable</span> TransactionDefinition definition)</span> <span class="keyword">throws</span> TransactionException</span>;<span class="comment">//用于获取事务的状态信息</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">commit</span><span class="params">(TransactionStatus status)</span> <span class="keyword">throws</span> TransactionException</span>;<span class="comment">//用于提交事务</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rollback</span><span class="params">(TransactionStatus status)</span> <span class="keyword">throws</span> TransactionException</span>;<span class="comment">//	用于回滚事务</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//该接口对于不同的持久化框架或平台有不同的实现，对于JDBC来说，实现类是org.springframework.jdbc.datasource.DataSourceTransactionManager</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）TransactionDefinition-接口"><a href="#（4）TransactionDefinition-接口" class="headerlink" title="（4）TransactionDefinition 接口"></a>（4）TransactionDefinition 接口</h3><p>Spring 将 XML 配置中的事务信息封装到对象 TransactionDefinition 中，然后通过事务管理器的 getTransaction() 方法获得事务的状态（TransactionStatus），并对事务进行下一步的操作。</p>
+<p>TransactionDefinition 接口提供了获取事务相关信息的方法，接口定义如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TransactionDefinition</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getPropagationBehavior</span><span class="params">()</span></span>;<span class="comment">//获取事务的传播行为</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getIsolationLevel</span><span class="params">()</span></span>;<span class="comment">//获取事务的隔离级别</span></span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;<span class="comment">//获取事务的名称</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getTimeout</span><span class="params">()</span></span>;<span class="comment">//获取事务的超时时间</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isReadOnly</span><span class="params">()</span></span>;<span class="comment">//获取事务是否只读</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（5）TransactionStatus-接口"><a href="#（5）TransactionStatus-接口" class="headerlink" title="（5）TransactionStatus 接口"></a>（5）TransactionStatus 接口</h3><p>TransactionStatus 接口提供了一些简单的方法，来控制事务的执行、查询事务的状态，接口定义如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TransactionStatus</span> <span class="keyword">extends</span> <span class="title">SavepointManager</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isNewTransaction</span><span class="params">()</span></span>;<span class="comment">//获取是否是新事务</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasSavepoint</span><span class="params">()</span></span>;<span class="comment">//获取是否存在保存点</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setRollbackOnly</span><span class="params">()</span></span>;<span class="comment">//设置事务回滚</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isRollbackOnly</span><span class="params">()</span></span>;<span class="comment">//获取事务是否回滚</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCompleted</span><span class="params">()</span></span>;<span class="comment">//获取事务是否完成</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="3，Spring基于XML实现事务管理"><a href="#3，Spring基于XML实现事务管理" class="headerlink" title="3，Spring基于XML实现事务管理"></a>3，Spring基于XML实现事务管理</h2><h2 id="4，Spring基于注解实现事务管理"><a href="#4，Spring基于注解实现事务管理" class="headerlink" title="4，Spring基于注解实现事务管理"></a>4，Spring基于注解实现事务管理</h2><h1 id="八，Spring整合日志框架"><a href="#八，Spring整合日志框架" class="headerlink" title="八，Spring整合日志框架"></a>八，Spring整合日志框架</h1>]]></content>
       <categories>
         <category>Spring框架</category>
