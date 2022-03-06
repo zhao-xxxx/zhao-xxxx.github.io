@@ -119,8 +119,16 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-31.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-32.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-33.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-34.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-35.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-36.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-38.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-40.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-39.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-41.png">
 <meta property="article:published_time" content="2022-02-07T02:17:16.000Z">
-<meta property="article:modified_time" content="2022-03-05T06:24:33.468Z">
+<meta property="article:modified_time" content="2022-03-06T12:17:11.332Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -429,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11.2k
+                  11.7k
                 </span>
               
 
@@ -445,7 +453,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  48
+                  50
                 </span>
               
             </div>
@@ -715,7 +723,168 @@
 
 
 
-<h3 id="（9）递归操作链表"><a href="#（9）递归操作链表" class="headerlink" title="（9）递归操作链表"></a>（9）递归操作链表</h3>
+<h3 id="（9）递归操作链表"><a href="#（9）递归操作链表" class="headerlink" title="（9）递归操作链表"></a>（9）递归操作链表</h3><p><strong>（力扣——206）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-34.png" alt="sf-1-34"></p>
+<p><strong>说明</strong>：本题有两种做法，非递归和递归方法，先说比较简单但不是重点的非递归</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归解法，这里比较好理解就不多解释了</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode p1 = head, p2 = head.next, p3 = head.next.next;</span><br><span class="line">        p1.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            p2.next = p1;</span><br><span class="line">            <span class="keyword">if</span>(p3 == <span class="keyword">null</span>) <span class="keyword">break</span>;</span><br><span class="line">            p1 = p2;</span><br><span class="line">            p2 = p3;</span><br><span class="line">            p3 = p3.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归解法，看下面的补充进行理解</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode last = reverseList(head.next);</span><br><span class="line">        head.next.next = head;</span><br><span class="line">        head.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> last;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充</strong>：整个reverse函数的目标是——输⼊⼀个节点 head，将「以 head 为起点」的链表反转，并返回反转之后的头结点，我们可以根据以下几个图来理解整个步骤</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-35.png" alt="sf-1-35"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-36.png" alt="sf-1-36"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-37.png" alt="sf-1-37"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-38.png" alt="sf-1-38"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-40.png" alt="sf-1-40"></p>
+<p><strong>（反转链表的前N个节点）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-39.png" alt="sf-1-39"></p>
+<p>说明：这个似乎在力扣上没有对应的题，这里在上题的基础上，可以写出下面的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ListNode successor = <span class="keyword">null</span>;<span class="comment">//这里设计一个后驱节点</span></span><br><span class="line"><span class="comment">//反转以head为起点的n个节点，返回新的头结点</span></span><br><span class="line"><span class="function">ListNode <span class="title">reverseN</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//记录第n + 1个节点（也处理了一个节点的情况）</span></span><br><span class="line">        successor = head.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以head.next为起点，需要反转前n - 1个节点</span></span><br><span class="line">    ListNode last = reverseN(head.next, n - <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//反转完过后，将节点指向互换，并将head指向后一个节点（就像图中的1指向4）</span></span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = successor;</span><br><span class="line">    <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>力扣92——反转链表</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-41.png" alt="sf-1-41"></p>
+<p><strong>说明</strong>：此题在使用前面函数的基础上，用递归的思想能够很快写出如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1，如果left为1，其实就是上题的反转形式</span></span><br><span class="line">        <span class="keyword">if</span>(left == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> reverseN(head,right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//2，我们要想办法把left变为1，那么也就是把head的位置往后移动，head每往后移动一个位置，其实反转的区间的相对位置就会减1.</span></span><br><span class="line">        head.next = reverseBetween(head.next, left - <span class="number">1</span>, right - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
     
@@ -923,7 +1092,7 @@
 				  </li>
 			    
 				  <li class="recent_posts_li">
-				    <a href="/2022/02/06/js-1-spring/" title="Spring知识点" target="_blank">Spring知识点</a>
+				    <a href="/2022/02/06/js-1-spring/" title="" target="_blank"></a>
 				  </li>
 			    
 				  <li class="recent_posts_li">
@@ -993,7 +1162,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32k</span>
+    <span title="Site words total count">37k</span>
   
 </div>
 
