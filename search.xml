@@ -42,6 +42,263 @@
       </tags>
   </entry>
   <entry>
+    <title>js-3-springmvc</title>
+    <url>/2022/02/06/js-3-springmvc/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：快速了解Spring的用法，能够对Spring形成自己的框架。本文的学习基于<a href="http://c.biancheng.net/spring_mvc/mvc.html">C语言中文网</a>，尚硅谷Spring讲解</p>
+<span id="more"></span>
+
+<h1 id="一，MVC设计模式简介"><a href="#一，MVC设计模式简介" class="headerlink" title="一，MVC设计模式简介"></a>一，MVC设计模式简介</h1><h2 id="1，认识MVC"><a href="#1，认识MVC" class="headerlink" title="1，认识MVC"></a>1，认识MVC</h2><p>MVC 设计模式一般指 MVC 框架，M（Model）指数据模型层，V（View）指视图层，C（Controller）指控制层。使用 MVC 的目的是将 M 和 V 的实现代码分离，使同一个程序可以有不同的表现形式。其中，View 的定义比较清晰，就是用户界面。</p>
+<ul>
+<li>视图层（View）：负责格式化数据并把它们呈现给用户，包括数据展示、用户交互、数据验证、界面设计等功能。</li>
+<li>控制层（Controller）：负责接收并转发请求，对请求进行处理后，指定视图并将响应结果发送给客户端。</li>
+<li>数据模型层（Model）：模型对象拥有最多的处理任务，是应用程序的主体部分，它负责数据逻辑（业务规则）的处理和实现数据操作（即在数据库中存取数据）。</li>
+</ul>
+<h2 id="2，MVC优缺点"><a href="#2，MVC优缺点" class="headerlink" title="2，MVC优缺点"></a>2，MVC优缺点</h2><p>优点</p>
+<ul>
+<li>多视图共享一个模型，大大提高了代码的可重用性</li>
+<li>MVC 三个模块相互独立，松耦合架构</li>
+<li>控制器提高了应用程序的灵活性和可配置性</li>
+<li>有利于软件工程化管理</li>
+</ul>
+<p>总之，我们通过 MVC 设计模式最终可以打造出一个松耦合+高可重用性+高可适用性的完美架构。</p>
+<p>缺点</p>
+<ul>
+<li>原理复杂</li>
+<li>增加了系统结构和实现的复杂性</li>
+<li>视图对模型数据的低效率访问</li>
+</ul>
+<p>MVC 并不适合小型甚至中型规模的项目，花费大量时间将 MVC 应用到规模并不是很大的应用程序，通常得不偿失，所以对于 MVC 设计模式的使用要根据具体的应用场景来决定。</p>
+<h1 id="二，Spring-MVC是什么？"><a href="#二，Spring-MVC是什么？" class="headerlink" title="二，Spring MVC是什么？"></a>二，Spring MVC是什么？</h1><h2 id="1，认识Spring-MVC"><a href="#1，认识Spring-MVC" class="headerlink" title="1，认识Spring MVC"></a>1，认识Spring MVC</h2><p>Spring MVC 是 Spring 提供的一个基于 MVC 设计模式的轻量级 Web 开发框架，本质上相当于 Servlet。在 Spring MVC 框架中，Controller 替换 Servlet 来担负控制器的职责，用于接收请求，调用相应的 Model 进行处理，处理器完成业务处理后返回处理结果。Controller 调用相应的 View 并对处理结果进行视图渲染，最终客户端得到响应信息。</p>
+<p>Spring MVC 的注解驱动和对 REST 风格的支持，也是它最具特色的功能。无论是在框架设计，还是扩展性、灵活性等方面都全面超越了 Struts2 等 MVC 框架。并且由于 Spring MVC 本身就是 Spring 框架的一部分，所以可以说与 Spring 框架是无缝集成，性能方面具有先天的优越性</p>
+<h2 id="2-Spring-MVC的优缺点"><a href="#2-Spring-MVC的优缺点" class="headerlink" title="2,Spring MVC的优缺点"></a>2,Spring MVC的优缺点</h2><ul>
+<li>清晰地角色划分，Spring MVC 在 Model、View 和 Controller 方面提供了一个非常清晰的角色划分，这 3 个方面真正是各司其职，各负其责。</li>
+<li>灵活的配置功能，可以把类当作 Bean 通过 XML 进行配置。</li>
+<li>提供了大量的控制器接口和实现类，开发者可以使用 Spring 提供的控制器实现类，也可以自己实现控制器接口。</li>
+<li>真正做到与 View 层的实现无关。它不会强制开发者使用 JSP，可以根据项目需求使用 Velocity、FreeMarker 等技术。</li>
+<li>国际化支持</li>
+<li>面向接口编程</li>
+<li>与 Spring 框架无缝集成</li>
+</ul>
+<h1 id="三，第一个Spring-MVC程序"><a href="#三，第一个Spring-MVC程序" class="headerlink" title="三，第一个Spring MVC程序"></a>三，第一个Spring MVC程序</h1><h2 id="1，创建Web应用并引入Jar包"><a href="#1，创建Web应用并引入Jar包" class="headerlink" title="1，创建Web应用并引入Jar包"></a>1，创建Web应用并引入Jar包</h2><p>这些包中，前面的是Spring的核心包，后面两个是进行Spring MVC开发的包。（当然，如果项目是maven项目，相关依赖可以自行百度，但是要注意版本）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-1.png" alt="js-3-1"></p>
+<h2 id="2，Spring-MVC配置"><a href="#2，Spring-MVC配置" class="headerlink" title="2，Spring MVC配置"></a>2，Spring MVC配置</h2><p>Spring MVC 是基于 Servlet 的，DispatcherServlet 是整个 Spring MVC 框架的核心，主要负责截获请求并将其分派给相应的处理器处理。所以配置 Spring MVC，首先要定义 DispatcherServlet。跟所有 Servlet 一样，<strong>用户必须在 web.xml 中进行配置</strong>。</p>
+<h3 id="1）在web-xml中定义DispatcherServlet"><a href="#1）在web-xml中定义DispatcherServlet" class="headerlink" title="1）在web.xml中定义DispatcherServlet"></a>1）在web.xml中定义DispatcherServlet</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee&quot;</span> <span class="attr">xmlns:web</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">version</span>=<span class="string">&quot;3.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 部署 DispatcherServlet --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注意，如果该配置文件不是放在默认的 WEB-INF文件夹下的话，就需要下面的Init-param中的contextConfigLocation参数来设置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表示容器再启动时立即加载servlet --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 处理所有URL，因为这里根本没限制 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Spring MVC 初始化时，加载web.xml，然后根据配置的servlet信息，在应用程序的 WEB-INF 目录下查找配置文件，该配置文件的命名规则是“servletName-servlet.xml”，例如 springmvc-servlet.xml。</p>
+<h3 id="2）创建Spring-MVC配置文件"><a href="#2）创建Spring-MVC配置文件" class="headerlink" title="2）创建Spring MVC配置文件"></a>2）创建Spring MVC配置文件</h3><p>在 WEB-INF 目录下创建 springmvc-servlet.xml 文件，如下所示。（这里和网上的还不一样，网上直接就上注解了，这里还没）</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LoginController控制器类，映射到&quot;/login&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;/login&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;net.biancheng.controller.LoginController&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LoginController控制器类，映射到&quot;/register&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;/register&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;net.biancheng.controller.RegisterController&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3，创建Controller"><a href="#3，创建Controller" class="headerlink" title="3，创建Controller"></a>3，创建Controller</h2><p>在src目录下创建com.zhao.controller，并在该包中创建 RegisterController 和 LoginController 两个<strong>传统风格</strong>（现在用的少）的控制器类（实现 Controller 接口），分别处理首页中“注册”和“登录”超链接的请求</p>
+<p>RegisterController 的具体代码如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> <span class="keyword">implements</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest arg0,</span></span></span><br><span class="line"><span class="params"><span class="function">            HttpServletResponse arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/WEB-INF/jsp/register.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>LoginController 的具体代码如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterController</span> <span class="keyword">implements</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest arg0,</span></span></span><br><span class="line"><span class="params"><span class="function">            HttpServletResponse arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/WEB-INF/jsp/login.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4，创建View"><a href="#4，创建View" class="headerlink" title="4，创建View"></a>4，创建View</h2><p>index.jsp代码如下（这个页面的位置其实可以不用很讲究，此处还么有引入web环境，所以是直接打开此页面开始的）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    未注册的用户，请</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath &#125;/register&quot;</span>&gt;</span> 注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span>！</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span> 已注册的用户，去</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath &#125;/login&quot;</span>&gt;</span> 登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span>！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 WEB-INF 下创建 jsp 文件夹，将 login.jsp 和 register.jsp 放到 jsp 文件夹下。login.jsp 代码如下</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登录页面！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">         pageEncoding=&quot;UTF-8&quot; %&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    注册页面！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-部署运行"><a href="#5-部署运行" class="headerlink" title="5,部署运行"></a>5,部署运行</h3><p>将 springmvcDemo 项目部署到 Tomcat 服务器，首先访问 index.jsp 页面，如下图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-2.png" alt="js-3-2"></p>
+<p>在上图所示的页面中，当用户单击“注册”超链接时，根据 springmvc-servlet.xml 文件中的映射将请求转发给 RegisterController 控制器处理，处理后跳转到 &#x2F;WEB-INF&#x2F;jsp 下的 register.jsp 视图。同理，当单击“登录”超链接时，控制器处理后转到 &#x2F;WEB-INF&#x2F;jsp下的 login.jsp 视图。</p>
+<h1 id="四，Spring-MVC-和Structs2的区别"><a href="#四，Spring-MVC-和Structs2的区别" class="headerlink" title="四，Spring MVC 和Structs2的区别"></a>四，Spring MVC 和Structs2的区别</h1><p>这里了解即可，这里不再花篇幅说明</p>
+<h1 id="五，Spring-MVC视图解析器（ViewResolver）"><a href="#五，Spring-MVC视图解析器（ViewResolver）" class="headerlink" title="五，Spring MVC视图解析器（ViewResolver）"></a>五，Spring MVC视图解析器（ViewResolver）</h1><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-3.png" alt="js-3-3"></p>
+<p>视图解析器（ViewResolver）是 Spring MVC 的重要组成部分，负责将逻辑视图名解析为具体的视图对象。Spring MVC提供了上面几种视图解析器，下面介绍1个常用的视图解析器，其他视图解析器如何配置这里不再赘述</p>
+<h2 id="（1）InternalResourceViewResolver"><a href="#（1）InternalResourceViewResolver" class="headerlink" title="（1）InternalResourceViewResolver"></a>（1）InternalResourceViewResolver</h2><p>InternalResourceViewResolver 为“内部资源视图解析器”，是日常开发中最常用的视图解析器类型。它是 URLBasedViewResolver 的子类，拥有 URLBasedViewResolver 的一切特性。</p>
+<p>InternalResourceViewResolver 能自动将返回的视图名称解析为 InternalResourceView 类型的对象。InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中，然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;viewResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--前缀--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/pages/&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--后缀--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.jsp&quot;</span>/&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="六，Spring-MVC执行流程"><a href="#六，Spring-MVC执行流程" class="headerlink" title="六，Spring MVC执行流程"></a>六，Spring MVC执行流程</h1><h2 id="1，图解执行流程"><a href="#1，图解执行流程" class="headerlink" title="1，图解执行流程"></a>1，图解执行流程</h2><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-4.png" alt="js-3-4" style="zoom:50%;" />
+
+<p>SpringMVC 的执行流程如下。</p>
+<ol>
+<li>用户点击某个请求路径，发起一个 HTTP request 请求，该请求会被提交到 DispatcherServlet（前端控制器）；</li>
+<li>由 DispatcherServlet 请求一个或多个 HandlerMapping（处理器映射器），并返回一个执行链给DispatcherServlet（HandlerExecutionChain）。</li>
+<li>DispatcherServlet 将执行链返回的 Handler 信息发送给 HandlerAdapter（处理器适配器）；</li>
+<li>HandlerAdapter 根据 Handler 信息找到并执行相应的 Handler（常称为 Controller）；</li>
+<li>Handler 执行完毕后会返回给 HandlerAdapter 一个 ModelAndView 对象（Spring MVC的底层对象，包括 Model 数据模型和 View 视图信息）；</li>
+<li>HandlerAdapter 接收到 ModelAndView 对象后，将其返回给 DispatcherServlet ；</li>
+<li>DispatcherServlet 接收到 ModelAndView 对象后，会请求 ViewResolver（视图解析器）对视图进行解析；</li>
+<li>ViewResolver 根据 View 信息匹配到相应的视图结果，并返回给 DispatcherServlet；</li>
+<li>DispatcherServlet 接收到具体的 View 视图后，进行视图渲染，将 Model 中的模型数据填充到 View 视图中的 request 域，生成最终的 View（视图）；</li>
+<li>视图负责将结果显示到浏览器（客户端）。</li>
+</ol>
+<h2 id="2，Spring-MVC接口"><a href="#2，Spring-MVC接口" class="headerlink" title="2，Spring MVC接口"></a>2，Spring MVC接口</h2><p>Spring MVC 涉及到的组件有 DispatcherServlet（前端控制器）、HandlerMapping（处理器映射器）、HandlerAdapter（处理器适配器）、Handler（处理器）、ViewResolver（视图解析器）和 View（视图）。下面对各个组件的功能说明如下。</p>
+<h4 id="1）DispatcherServlet"><a href="#1）DispatcherServlet" class="headerlink" title="1）DispatcherServlet"></a>1）DispatcherServlet</h4><p>DispatcherServlet 是前端控制器，从图 1 可以看出，Spring MVC 的所有请求都要经过 DispatcherServlet 来统一分发。DispatcherServlet 相当于一个转发器或中央处理器，控制整个流程的执行，对各个组件进行统一调度，以降低组件之间的耦合性，有利于组件之间的拓展。</p>
+<h4 id="2）HandlerMapping"><a href="#2）HandlerMapping" class="headerlink" title="2）HandlerMapping"></a>2）HandlerMapping</h4><p>HandlerMapping 是处理器映射器，其作用是根据请求的 URL 路径，通过注解或者 XML 配置，寻找匹配的处理器（Handler）信息。</p>
+<h4 id="3）HandlerAdapter"><a href="#3）HandlerAdapter" class="headerlink" title="3）HandlerAdapter"></a>3）HandlerAdapter</h4><p>HandlerAdapter 是处理器适配器，其作用是根据映射器找到的处理器（Handler）信息，按照特定规则执行相关的处理器（Handler）。</p>
+<h4 id="4）Handler"><a href="#4）Handler" class="headerlink" title="4）Handler"></a>4）Handler</h4><p>Handler 是处理器，和 Java Servlet 扮演的角色一致。其作用是执行相关的请求处理逻辑，并返回相应的数据和视图信息，将其封装至 ModelAndView 对象中。</p>
+<h4 id="5）View-Resolver"><a href="#5）View-Resolver" class="headerlink" title="5）View Resolver"></a>5）View Resolver</h4><p>View Resolver 是视图解析器，其作用是进行解析操作，通过 ModelAndView 对象中的 View 信息将逻辑视图名解析成真正的视图 View（如通过一个 JSP 路径返回一个真正的 JSP 页面）。</p>
+<h4 id="6）View"><a href="#6）View" class="headerlink" title="6）View"></a>6）View</h4><p>View 是视图，其本身是一个接口，实现类支持不同的 View 类型（JSP、FreeMarker、Excel 等）。</p>
+<p>以上组件中，需要开发人员进行开发的是处理器（Handler，常称Controller）和视图（View）。通俗的说，要开发处理该请求的具体代码逻辑，以及最终展示给用户的界面。这里只是大概的说明了一下，更加具体的应该在后面的运用中加深理解。</p>
+<h3 id="3，更完整的执行流程（加上了拦截器啥的）"><a href="#3，更完整的执行流程（加上了拦截器啥的）" class="headerlink" title="3，更完整的执行流程（加上了拦截器啥的）"></a>3，更完整的执行流程（加上了拦截器啥的）</h3><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-5.png" alt="js-3-5" style="zoom:67%;" />
+
+<h1 id="七，-Controller和-RequestMapping注解"><a href="#七，-Controller和-RequestMapping注解" class="headerlink" title="七，@Controller和@RequestMapping注解"></a>七，@Controller和@RequestMapping注解</h1><h2 id="1，Controller注解"><a href="#1，Controller注解" class="headerlink" title="1，Controller注解"></a>1，Controller注解</h2><p>@Controller 注解用于声明某类的实例是一个控制器。如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理请求的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Spring MVC 使用扫描机制找到应用中所有基于注解的控制器类，所以，为了让控制器类被 Spring MVC 框架扫描到，需要在配置文件中声明 spring-context，并使用 <code>&lt;context:component-scan/&gt;</code> 元素指定控制器类的基本包（请确保所有控制器类都在基本包及其子包下）。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用扫描机制扫描控制器类，控制器类都在com.zhao.controller包及其子包下 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.zhao.controller&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-RequestMapping注解"><a href="#2-RequestMapping注解" class="headerlink" title="2,RequestMapping注解"></a>2,RequestMapping注解</h2><p>一个Controller内有多个处理请求的方法，如 UserController 里通常有增加用户、修改用户信息、删除指定用户、根据条件获取用户列表等。每个方法负责不同的请求操作，而 @RequestMapping 就负责将请求映射到对应的controller法上。</p>
+<p>@RequestMapping 注解可用于类或方法上。用于类上，表示类中的所有响应请求的方法都以该地址作为父路径。</p>
+<p>下面介绍该注解的一些参数</p>
+<h3 id="（1）value-属性"><a href="#（1）value-属性" class="headerlink" title="（1）value 属性"></a>（1）value 属性</h3><p>value 属性是 @RequestMapping 注解的默认属性，因此如果只有 value 属性时，可以省略该属性名，如果有其它属性，则必须写上 value 属性名称。如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;toUser&quot;)</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;toUser&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<p>value 属性支持通配符匹配，如 @RequestMapping(value&#x3D;”toUser&#x2F;*”) 表示 <a href="http://localhost:8080/toUser/1">http://localhost:8080/toUser/1</a> 或 <a href="http://localhost:8080/toUser/hahaha">http://localhost:8080/toUser/hahaha</a> 都能够正常访问。</p>
+<h3 id="（2）path属性"><a href="#（2）path属性" class="headerlink" title="（2）path属性"></a>（2）path属性</h3><p>path 属性和 value 属性都用来作为映射使用。即 @RequestMapping(value&#x3D;”toUser”) 和 @RequestMapping(path&#x3D;”toUser”) 都能访问 toUser() 方法。</p>
+<p>path 属性支持通配符匹配，如 @RequestMapping(path&#x3D;”toUser&#x2F;*”) 表示 <a href="http://localhost:8080/toUser/1">http://localhost:8080/toUser/1</a> 或 <a href="http://localhost:8080/toUser/hahaha">http://localhost:8080/toUser/hahaha</a> 都能够正常访问。</p>
+<h3 id="（3）name属性"><a href="#（3）name属性" class="headerlink" title="（3）name属性"></a>（3）name属性</h3><p>name属性相当于方法的注释，使方法更易理解。如 @RequestMapping(value &#x3D; “toUser”,name &#x3D; “获取用户信息”)。</p>
+<h3 id="（4）method属性"><a href="#（4）method属性" class="headerlink" title="（4）method属性"></a>（4）method属性</h3><p>method 属性用于表示该方法支持哪些 HTTP 请求。如果省略 method 属性，则说明该方法支持全部的 HTTP 请求。</p>
+<p>@RequestMapping(value &#x3D; “toUser”,method &#x3D; RequestMethod.GET) 表示该方法只支持 GET 请求。也可指定多个 HTTP 请求，如 @RequestMapping(value &#x3D; “toUser”,method &#x3D; {RequestMethod.GET,RequestMethod.POST})，说明该方法同时支持 GET 和 POST 请求。</p>
+<h3 id="（5）params属性"><a href="#（5）params属性" class="headerlink" title="（5）params属性"></a>（5）params属性</h3><p>params 属性用于指定请求中规定的参数，代码如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;toUser&quot;,params = &quot;type&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;showUser&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码表示请求中必须包含 type 参数时才能执行该请求。即 <a href="http://localhost:8080/toUser?type=xxx">http://localhost:8080/toUser?type=xxx</a> 能够正常访问 toUser() 方法，而 <a href="http://localhost:8080/toUser">http://localhost:8080/toUser</a> 则不能正常访问 toUser() 方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;toUser&quot;,params = &quot;type=1&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;showUser&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码表示请求中必须包含 type 参数，且 type 参数为 1 时才能够执行该请求。即 <a href="http://localhost:8080/toUser?type=1">http://localhost:8080/toUser?type=1</a> 能够正常访问 toUser() 方法，而 <a href="http://localhost:8080/toUser?type=2">http://localhost:8080/toUser?type=2</a> 则不能正常访问 toUser() 方法。</p>
+<h3 id="（6）header属性"><a href="#（6）header属性" class="headerlink" title="（6）header属性"></a>（6）header属性</h3><p>header 属性表示请求中必须包含某些指定的 header 值。</p>
+<p>@RequestMapping(value &#x3D; “toUser”,headers &#x3D; “Referer&#x3D;<a href="http://www.xxx.com&quot;/">http://www.xxx.com&quot;</a>) 表示请求的 header 中必须包含了指定的“Referer”请求头，以及值为“<a href="http://www.xxx.com”时,才能执行该请求./">http://www.xxx.com”时，才能执行该请求。</a></p>
+<h3 id="（7）consumers属性"><a href="#（7）consumers属性" class="headerlink" title="（7）consumers属性"></a>（7）consumers属性</h3><p>consumers 属性用于指定处理请求的提交内容类型（Content-Type），例如：application&#x2F;json、text&#x2F;html。如<br>@RequestMapping(value &#x3D; “toUser”,consumes &#x3D; “application&#x2F;json”)。</p>
+<h3 id="（8）produces属性"><a href="#（8）produces属性" class="headerlink" title="（8）produces属性"></a>（8）produces属性</h3><p>produces 属性用于指定返回的内容类型，返回的内容类型必须是 request 请求头（Accept）中所包含的类型。如 @RequestMapping(value &#x3D; “toUser”,produces &#x3D; “application&#x2F;json”)。</p>
+<p>除此之外，produces 属性还可以指定返回值的编码。如 @RequestMapping(value &#x3D; “toUser”,produces &#x3D; “application&#x2F;json,charset&#x3D;utf-8”)，表示返回 utf-8 编码。</p>
+<h2 id="3，通过请求URL进行映射"><a href="#3，通过请求URL进行映射" class="headerlink" title="3，通过请求URL进行映射"></a>3，通过请求URL进行映射</h2><p>使用 @RequestMapping 来完成映射，具体包括 4 个方面的信息项：请求 URL、请求参数、请求方法和请求头。这里先说明通过请求URL进行映射</p>
+<h3 id="（1）方法级别注解"><a href="#（1）方法级别注解" class="headerlink" title="（1）方法级别注解"></a>（1）方法级别注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/index/login&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/index/register&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;register&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用户可以使用如下 URL 访问 login 方法（请求处理方法），在访问 login 方法之前需要事先在 &#x2F;WEB-INF&#x2F;jsp&#x2F; 目录下创建 login.jsp。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/springmvcDemo/index/login</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）类级别注解"><a href="#（2）类级别注解" class="headerlink" title="（2）类级别注解"></a>（2）类级别注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/index&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/login&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/register&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;register&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在类级别注解的情况下，控制器类中的所有方法都将映射为类级别的请求。用户可以使用如下 URL 访问 login 方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/springmvcDemo/index/login</span><br></pre></td></tr></table></figure>
+
+<h2 id="4，通过请求参数，请求方法进行映射"><a href="#4，通过请求参数，请求方法进行映射" class="headerlink" title="4，通过请求参数，请求方法进行映射"></a>4，通过请求参数，请求方法进行映射</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/index/success&quot; method=RequestMethod.GET, Params=&quot;username&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">(<span class="meta">@RequestParam</span> String username)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中，@RequestMapping 的 value 表示请求的 URL；method 表示请求方法，此处设置为 GET 请求，若是 POST 请求，则无法进入 success 这个处理方法中。params 表示请求参数，此处参数名为 username。</p>
+<h2 id="5，编写请求处理方法"><a href="#5，编写请求处理方法" class="headerlink" title="5，编写请求处理方法"></a>5，编写请求处理方法</h2><h3 id="（1）请求处理方法中常出现的参数类型"><a href="#（1）请求处理方法中常出现的参数类型" class="headerlink" title="（1）请求处理方法中常出现的参数类型"></a>（1）请求处理方法中常出现的参数类型</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1,请求处理方法中处理Servlet API（有很多，比如session）</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/index&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/login&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(HttpSession session,HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        session.setAttribute(<span class="string">&quot;skey&quot;</span>, <span class="string">&quot;session范围的值&quot;</span>);</span><br><span class="line">        session.setAttribute(<span class="string">&quot;rkey&quot;</span>, <span class="string">&quot;request范围的值&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）请求处理方法常见的返回类型"><a href="#（2）请求处理方法常见的返回类型" class="headerlink" title="（2）请求处理方法常见的返回类型"></a>（2）请求处理方法常见的返回类型</h3><p>求处理方法可以返回如下类型的对象：</p>
+<ul>
+<li>ModelAndView</li>
+<li>Model</li>
+<li>包含模型属性的 Map</li>
+<li>View</li>
+<li>代表逻辑视图名的 String</li>
+<li>void</li>
+<li>其它任意Java类型</li>
+</ul>
+<p>最常见的返回类型就是代表逻辑视图名称的 String 类型，例如前面几节中的请求处理方法。</p>
+]]></content>
+      <categories>
+        <category>Spring框架</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xm-2-MyBatis-Plus</title>
+    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>尚融宝项目背景</title>
+    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
+<span id="more"></span>
+
+<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
+<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
+<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
+<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
+<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
+<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
+<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
+<p>Lombok：简化实体类开发</p>
+<p>Swagger2：Api接口文档生成工具</p>
+<p>Logback：日志系统</p>
+<p>alibaba-easyexcel：Excel读写</p>
+<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
+<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
+<p>Spring Task：定时任务</p>
+<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
+<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
+<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
+<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
+<p>阿里云OSS：分布式文件存储</p>
+<p>资金托管平台API对接：汇付宝</p>
+<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
+<p>ES6：JavaScript的模块化版本</p>
+<p>axios：一个发送Ajax请求的工具</p>
+<p>Vue.js：web 界面的渐进式框架</p>
+<p>Element-UI：前端组件库</p>
+<p>模块化开发：解决javascript变量全局空间污染的问题</p>
+<p>NPM：模块资源管理器</p>
+<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
+<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
+<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
+<ul>
+<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
+</li>
+<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
+</li>
+<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
+<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
+</li>
+</ul>
+<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
+<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
+<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
+<p>3，maven</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
+<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
+<p>5，插件：lombok、MyBatisX</p>
+<p>插件安装这里不再赘述</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+  </entry>
+  <entry>
     <title>labuladong算法秘籍阅读笔记</title>
     <url>/2022/02/07/sf-1-labuladong/</url>
     <content><![CDATA[<p><strong>简介：</strong>该博客为学习labuladong算法笔记过程中的记录和思考，并根据自己的特点（非科班，算法基础薄弱，准备时间短）来进行针对性学习，目标是能够总结出适合自己的一套思路和方法。</p>
@@ -311,280 +568,65 @@
 <p>说明：这个似乎在力扣上没有对应的题，这里在上题的基础上，可以写出下面的代码</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode successor = <span class="keyword">null</span>;<span class="comment">//这里设计一个后驱节点</span></span><br><span class="line"><span class="comment">//反转以head为起点的n个节点，返回新的头结点</span></span><br><span class="line"><span class="function">ListNode <span class="title">reverseN</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//记录第n + 1个节点（也处理了一个节点的情况）</span></span><br><span class="line">        successor = head.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以head.next为起点，需要反转前n - 1个节点</span></span><br><span class="line">    ListNode last = reverseN(head.next, n - <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//反转完过后，将节点指向互换，并将head指向后一个节点（就像图中的1指向4）</span></span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = successor;</span><br><span class="line">    <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>力扣92——反转链表</strong></p>
+<p><strong>（力扣92——反转链表）</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-41.png" alt="sf-1-41"></p>
 <p><strong>说明</strong>：此题在使用前面函数的基础上，用递归的思想能够很快写出如下代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1，如果left为1，其实就是上题的反转形式</span></span><br><span class="line">        <span class="keyword">if</span>(left == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> reverseN(head,right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//2，我们要想办法把left变为1，那么也就是把head的位置往后移动，head每往后移动一个位置，其实反转的区间的相对位置就会减1.</span></span><br><span class="line">        head.next = reverseBetween(head.next, left - <span class="number">1</span>, right - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="3，队列-x2F-栈（不知道为啥就跳到3了）"><a href="#3，队列-x2F-栈（不知道为啥就跳到3了）" class="headerlink" title="3，队列&#x2F;栈（不知道为啥就跳到3了）"></a>3，队列&#x2F;栈（不知道为啥就跳到3了）</h2><h3 id="（1）队列实现栈，以及栈实现队列"><a href="#（1）队列实现栈，以及栈实现队列" class="headerlink" title="（1）队列实现栈，以及栈实现队列"></a>（1）队列实现栈，以及栈实现队列</h3><p><strong>（力扣232——用栈实现队列）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-42.png" alt="sf-1-42"></p>
+<p><strong>说明</strong>：实现和这个代码，我们需要使用到java中的Stack类，这是一个Vector的子类，它的方法有：1）boolean empty()，判断栈是否为空，空返回true；2）Object peek()，返回栈顶元素，但不删除；3）Object pop(Object element)，返回栈顶元素，并删除；4）Object push(Object element)，将元素入栈并返回元素；5）int search(Object element)，寻找某元素并返回到栈顶的偏移量。了解了这个，那这道题就好办了</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">private</span> Stack&lt;Integer&gt; s1, s2;</span><br><span class="line">    <span class="comment">//先在构造器中初始化两个栈，栈需要用泛型来制定存储的类型</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         s1 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">         s2 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//进入队列就直接进入s1</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        s1.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//退出队列，先调用peek将s1中的元素放到s2,s2的栈顶就是最先进入队列的元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        peek();</span><br><span class="line">        <span class="keyword">return</span> s2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回栈顶，那就需要先把s1的元素放到s2，s2的栈顶就是最先进入队列的元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s2.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">while</span>(!s1.isEmpty()) s2.push(s1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s2.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.isEmpty() &amp;&amp; s2.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>（力扣225——用队列实现栈）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-43.png" alt="sf-1-43"></p>
+<p><strong>说明</strong>：这里需要使用到java中的Queue这个类，它的方法有：1）offer()，从队尾压入元素，返回压入的那个元素；2）poll()，删除并返回对队头被删除的那个元素；3）peek()，获取并返回队头元素。具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    Queue&lt;Integer&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> top_elem = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//队列中新添加的元素在队尾，其实就是栈顶元素，所以用top_elem记录一下</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        q.offer(x);</span><br><span class="line">        top_elem = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取栈顶元素直接返回top_elem</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> top_elem;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//想要出栈，直接把队尾之前的元素统统出队再入队，最后队头就是栈顶元素，但是我们出的时候不要一次性出完，还得     //更新一下top_elem的值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = q.size();</span><br><span class="line">        <span class="keyword">while</span>(size &gt; <span class="number">2</span>)&#123;</span><br><span class="line">            q.offer(q.poll());</span><br><span class="line">            size--;</span><br><span class="line">        &#125;</span><br><span class="line">        top_elem = q.peek();</span><br><span class="line">        q.offer(q.poll());</span><br><span class="line">        <span class="keyword">return</span> q.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//直接判断队是不是空就行</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> q.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
+<h3 id="（2）括号匹配问题"><a href="#（2）括号匹配问题" class="headerlink" title="（2）括号匹配问题"></a>（2）括号匹配问题</h3><p><strong>（力扣20——有效的括号）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-44.png" alt="sf-1-44"></p>
+<p><strong>说明</strong>：单纯的统计左括号和有括号的数量是否相同是不行滴，因为位置有可能对不上，既然出现了位置，那么就能使用栈的特性来进行括号的匹配，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注意两点：1）java中Stack的泛型指定只能使用包装类，不过由于自动装箱和自动转换，这个倒是影响不大；2）Stack类的方法要记清楚</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Character&gt; left = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : chars)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span> || c == <span class="string">&#x27;&#123;&#x27;</span> || c == <span class="string">&#x27;[&#x27;</span>)&#123;</span><br><span class="line">                left.push(c);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(!left.empty() &amp;&amp; leftOf(c) == left.peek())&#123;</span><br><span class="line">                    left.pop();</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left.empty();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">leftOf</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;&#125;&#x27;</span>) <span class="keyword">return</span> <span class="string">&#x27;&#123;&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) <span class="keyword">return</span> <span class="string">&#x27;(&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;[&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>（力扣921——使括号有效的最小添加）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-45.png" alt="sf-1-45"></p>
+<p><strong>说明</strong>：原题还说了字符串中只包含’(‘和’)’两种字符。其实和上一题类似，只是这里要设置一个计数器，我们遇到左括号入栈，遇到有括号则检查是不是有对应的左括号（没有的话，计数器加一），最后当遍历完字符串后，计数器再加上栈剩余的元素即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1,使用栈来解决</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minAddToMakeValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] ss = s.toCharArray();</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : ss)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>) stack.push(c);</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(stack.isEmpty())&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    stack.pop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!stack.isEmpty())&#123;</span><br><span class="line">            count++;</span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2，不使用栈,以左括号为基准，通过维护对右括号的需求数 need，来计算最⼩的插⼊次数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minAddToMakeValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> need = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span>[] ss = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : ss)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>) need++;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">            	need--;</span><br><span class="line">                <span class="comment">//当need为-1的时候，意味着需要插入左括号了</span></span><br><span class="line">                <span class="keyword">if</span>(need == -<span class="number">1</span>)&#123;</span><br><span class="line">                    need = <span class="number">0</span>;</span><br><span class="line">                    res++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + need;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>（力扣1541——平衡括号字符串的最好插入次数）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-46.png" alt="sf-1-46"></p>
+<p><strong>说明</strong>：如果按照上一题的维护res和need变量的话，要考虑几个特殊情况：1）一个左括号对应两个右括号，那么遇到左括号，need值应该+2；2）如果need值为-1的话，那么多了一个右括号，此时res应该+1，表明需要一个左括号，并且need重设为1；3）反观第1）步，如果对有括号的需求为奇数，那么只需要插入一个右括号，所以这里需要进行判断。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minInsertions</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>, need = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span>[] ss = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : ss)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)&#123;</span><br><span class="line">                need += <span class="number">2</span>;</span><br><span class="line">                <span class="comment">//res其实对应了右括号的插入，这里need为奇数，表明前面需要一个右括号</span></span><br><span class="line">                <span class="keyword">if</span>(need % <span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                    res++;</span><br><span class="line">                    need--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">                need--;</span><br><span class="line">                <span class="comment">//这里res表明了需要一个左括号的插入，同时需要多对应一个右括号</span></span><br><span class="line">                <span class="keyword">if</span>(need == -<span class="number">1</span>)&#123;</span><br><span class="line">                    res++;</span><br><span class="line">                    need = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + need;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="（3）单调栈"><a href="#（3）单调栈" class="headerlink" title="（3）单调栈"></a>（3）单调栈</h3><p><strong>引入</strong>：单调栈实际上就是栈，只是利⽤了⼀些巧妙的逻辑，使得每次新元素⼊栈后，栈内的元素都保持有序（单调<br>递增或单调递减）。听起来有点像堆（heap）？不是的，单调栈⽤途不太⼴泛，只处理⼀种典型的问题，叫做 Next Greater Element。本⽂⽤讲解单调队列的算法模版解决这类问题，并且探讨处理「循环数组」的策略  </p>
+<p><strong>模板</strong>：给你⼀个数组 nums，请你返回⼀个等⻓的结果数组，结果数组中对应索引存储着下⼀个更⼤元素，如果没有<br>更⼤的元素，就存 -1  。（比如输入nums &#x3D; [2,1,2,4,3]，返回[4,2,4,-1,-1]，也就是第⼀个 2 后⾯⽐ 2 ⼤的数是 4; 1 后⾯⽐ 1 ⼤的数是 2；第⼆个 2 后⾯⽐ 2 ⼤的数是 4; 4 后⾯没有⽐ 4⼤的数，填 -1；3 后⾯没有⽐ 3 ⼤的数，填 -1 ）</p>
+<p>其实没那么复杂，把这一串数字的每一个从后往前放到栈中，然后新的数字来了以后，看栈中的数字大小怎么样，如果比当前的数字小就出栈，否则，你就是它要找的那个数字呀！（这里注意栈空就是表明应该是-1）</p>
+<p>倒着⼊栈，其实是正着出栈。while 循环是把两个「个⼦⾼」元素之间的元素排除，因为他们的存在没有意义，前⾯挡着个「更⾼」的元素，所以他们不可能被作为后续进来的元素的 Next Great Number 了。  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">find</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElement(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">       <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; nums[i] &gt;= stack.peek())&#123;</span><br><span class="line">               stack.pop();</span><br><span class="line">           &#125;</span><br><span class="line">           res[i] = stack.isEmpty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">           stack.push(nums[i]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>(力扣739——每日温度)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-47.png" alt="sf-1-47"></p>
+<p>这里我们把栈里记录的信息改为下标，就可以实现算出气温高的天数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] dailyTemperatures(<span class="keyword">int</span>[] temperatures) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[temperatures.length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = temperatures.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; temperatures[i] &gt;= temperatures[stack.peek()])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            res[i] = stack.isEmpty() ? <span class="number">0</span> : stack.peek() - i;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>（力扣503——处理环形数组）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-48.png" alt="sf-1-48"></p>
+<p><strong>说明</strong>：这题在之前的基础上又麻烦了，两个思路：一个是将数组翻倍，这样的话可以直接套用上面的模板；另一个思路是通过%运算符来实现环形效果。两种方式的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1，扩展数组的写法，这个还比较简单好理解</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElements(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] numsEx = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span> * nums.length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            numsEx[i] = nums[i];</span><br><span class="line">            numsEx[i + nums.length] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length]; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = numsEx.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; numsEx[i] &gt;= stack.peek())&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt;= nums.length - <span class="number">1</span>)&#123;</span><br><span class="line">                res[i] = stack.isEmpty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(numsEx[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2，使用循环数组模拟扩展的方法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElements(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length]; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> * n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; nums[i % n] &gt;= stack.peek())&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            res[i % n] = stack.isEmpty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">            stack.push(nums[i % n]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-3-springmvc</title>
-    <url>/2022/02/06/js-3-springmvc/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：快速了解Spring的用法，能够对Spring形成自己的框架。本文的学习基于<a href="http://c.biancheng.net/spring_mvc/mvc.html">C语言中文网</a>，尚硅谷Spring讲解</p>
-<span id="more"></span>
-
-<h1 id="一，MVC设计模式简介"><a href="#一，MVC设计模式简介" class="headerlink" title="一，MVC设计模式简介"></a>一，MVC设计模式简介</h1><h2 id="1，认识MVC"><a href="#1，认识MVC" class="headerlink" title="1，认识MVC"></a>1，认识MVC</h2><p>MVC 设计模式一般指 MVC 框架，M（Model）指数据模型层，V（View）指视图层，C（Controller）指控制层。使用 MVC 的目的是将 M 和 V 的实现代码分离，使同一个程序可以有不同的表现形式。其中，View 的定义比较清晰，就是用户界面。</p>
-<ul>
-<li>视图层（View）：负责格式化数据并把它们呈现给用户，包括数据展示、用户交互、数据验证、界面设计等功能。</li>
-<li>控制层（Controller）：负责接收并转发请求，对请求进行处理后，指定视图并将响应结果发送给客户端。</li>
-<li>数据模型层（Model）：模型对象拥有最多的处理任务，是应用程序的主体部分，它负责数据逻辑（业务规则）的处理和实现数据操作（即在数据库中存取数据）。</li>
-</ul>
-<h2 id="2，MVC优缺点"><a href="#2，MVC优缺点" class="headerlink" title="2，MVC优缺点"></a>2，MVC优缺点</h2><p>优点</p>
-<ul>
-<li>多视图共享一个模型，大大提高了代码的可重用性</li>
-<li>MVC 三个模块相互独立，松耦合架构</li>
-<li>控制器提高了应用程序的灵活性和可配置性</li>
-<li>有利于软件工程化管理</li>
-</ul>
-<p>总之，我们通过 MVC 设计模式最终可以打造出一个松耦合+高可重用性+高可适用性的完美架构。</p>
-<p>缺点</p>
-<ul>
-<li>原理复杂</li>
-<li>增加了系统结构和实现的复杂性</li>
-<li>视图对模型数据的低效率访问</li>
-</ul>
-<p>MVC 并不适合小型甚至中型规模的项目，花费大量时间将 MVC 应用到规模并不是很大的应用程序，通常得不偿失，所以对于 MVC 设计模式的使用要根据具体的应用场景来决定。</p>
-<h1 id="二，Spring-MVC是什么？"><a href="#二，Spring-MVC是什么？" class="headerlink" title="二，Spring MVC是什么？"></a>二，Spring MVC是什么？</h1><h2 id="1，认识Spring-MVC"><a href="#1，认识Spring-MVC" class="headerlink" title="1，认识Spring MVC"></a>1，认识Spring MVC</h2><p>Spring MVC 是 Spring 提供的一个基于 MVC 设计模式的轻量级 Web 开发框架，本质上相当于 Servlet。在 Spring MVC 框架中，Controller 替换 Servlet 来担负控制器的职责，用于接收请求，调用相应的 Model 进行处理，处理器完成业务处理后返回处理结果。Controller 调用相应的 View 并对处理结果进行视图渲染，最终客户端得到响应信息。</p>
-<p>Spring MVC 的注解驱动和对 REST 风格的支持，也是它最具特色的功能。无论是在框架设计，还是扩展性、灵活性等方面都全面超越了 Struts2 等 MVC 框架。并且由于 Spring MVC 本身就是 Spring 框架的一部分，所以可以说与 Spring 框架是无缝集成，性能方面具有先天的优越性</p>
-<h2 id="2-Spring-MVC的优缺点"><a href="#2-Spring-MVC的优缺点" class="headerlink" title="2,Spring MVC的优缺点"></a>2,Spring MVC的优缺点</h2><ul>
-<li>清晰地角色划分，Spring MVC 在 Model、View 和 Controller 方面提供了一个非常清晰的角色划分，这 3 个方面真正是各司其职，各负其责。</li>
-<li>灵活的配置功能，可以把类当作 Bean 通过 XML 进行配置。</li>
-<li>提供了大量的控制器接口和实现类，开发者可以使用 Spring 提供的控制器实现类，也可以自己实现控制器接口。</li>
-<li>真正做到与 View 层的实现无关。它不会强制开发者使用 JSP，可以根据项目需求使用 Velocity、FreeMarker 等技术。</li>
-<li>国际化支持</li>
-<li>面向接口编程</li>
-<li>与 Spring 框架无缝集成</li>
-</ul>
-<h1 id="三，第一个Spring-MVC程序"><a href="#三，第一个Spring-MVC程序" class="headerlink" title="三，第一个Spring MVC程序"></a>三，第一个Spring MVC程序</h1><h2 id="1，创建Web应用并引入Jar包"><a href="#1，创建Web应用并引入Jar包" class="headerlink" title="1，创建Web应用并引入Jar包"></a>1，创建Web应用并引入Jar包</h2><p>这些包中，前面的是Spring的核心包，后面两个是进行Spring MVC开发的包。（当然，如果项目是maven项目，相关依赖可以自行百度，但是要注意版本）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-1.png" alt="js-3-1"></p>
-<h2 id="2，Spring-MVC配置"><a href="#2，Spring-MVC配置" class="headerlink" title="2，Spring MVC配置"></a>2，Spring MVC配置</h2><p>Spring MVC 是基于 Servlet 的，DispatcherServlet 是整个 Spring MVC 框架的核心，主要负责截获请求并将其分派给相应的处理器处理。所以配置 Spring MVC，首先要定义 DispatcherServlet。跟所有 Servlet 一样，<strong>用户必须在 web.xml 中进行配置</strong>。</p>
-<h3 id="1）在web-xml中定义DispatcherServlet"><a href="#1）在web-xml中定义DispatcherServlet" class="headerlink" title="1）在web.xml中定义DispatcherServlet"></a>1）在web.xml中定义DispatcherServlet</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee&quot;</span> <span class="attr">xmlns:web</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">version</span>=<span class="string">&quot;3.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 部署 DispatcherServlet --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注意，如果该配置文件不是放在默认的 WEB-INF文件夹下的话，就需要下面的Init-param中的contextConfigLocation参数来设置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表示容器再启动时立即加载servlet --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 处理所有URL，因为这里根本没限制 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>Spring MVC 初始化时，加载web.xml，然后根据配置的servlet信息，在应用程序的 WEB-INF 目录下查找配置文件，该配置文件的命名规则是“servletName-servlet.xml”，例如 springmvc-servlet.xml。</p>
-<h3 id="2）创建Spring-MVC配置文件"><a href="#2）创建Spring-MVC配置文件" class="headerlink" title="2）创建Spring MVC配置文件"></a>2）创建Spring MVC配置文件</h3><p>在 WEB-INF 目录下创建 springmvc-servlet.xml 文件，如下所示。（这里和网上的还不一样，网上直接就上注解了，这里还没）</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LoginController控制器类，映射到&quot;/login&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;/login&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;net.biancheng.controller.LoginController&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LoginController控制器类，映射到&quot;/register&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;/register&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;net.biancheng.controller.RegisterController&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3，创建Controller"><a href="#3，创建Controller" class="headerlink" title="3，创建Controller"></a>3，创建Controller</h2><p>在src目录下创建com.zhao.controller，并在该包中创建 RegisterController 和 LoginController 两个<strong>传统风格</strong>（现在用的少）的控制器类（实现 Controller 接口），分别处理首页中“注册”和“登录”超链接的请求</p>
-<p>RegisterController 的具体代码如下。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> <span class="keyword">implements</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest arg0,</span></span></span><br><span class="line"><span class="params"><span class="function">            HttpServletResponse arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/WEB-INF/jsp/register.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>LoginController 的具体代码如下。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterController</span> <span class="keyword">implements</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest arg0,</span></span></span><br><span class="line"><span class="params"><span class="function">            HttpServletResponse arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/WEB-INF/jsp/login.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4，创建View"><a href="#4，创建View" class="headerlink" title="4，创建View"></a>4，创建View</h2><p>index.jsp代码如下（这个页面的位置其实可以不用很讲究，此处还么有引入web环境，所以是直接打开此页面开始的）</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    未注册的用户，请</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath &#125;/register&quot;</span>&gt;</span> 注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span>！</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span> 已注册的用户，去</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath &#125;/login&quot;</span>&gt;</span> 登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span>！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 WEB-INF 下创建 jsp 文件夹，将 login.jsp 和 register.jsp 放到 jsp 文件夹下。login.jsp 代码如下</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登录页面！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">         pageEncoding=&quot;UTF-8&quot; %&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    注册页面！</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-部署运行"><a href="#5-部署运行" class="headerlink" title="5,部署运行"></a>5,部署运行</h3><p>将 springmvcDemo 项目部署到 Tomcat 服务器，首先访问 index.jsp 页面，如下图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-2.png" alt="js-3-2"></p>
-<p>在上图所示的页面中，当用户单击“注册”超链接时，根据 springmvc-servlet.xml 文件中的映射将请求转发给 RegisterController 控制器处理，处理后跳转到 &#x2F;WEB-INF&#x2F;jsp 下的 register.jsp 视图。同理，当单击“登录”超链接时，控制器处理后转到 &#x2F;WEB-INF&#x2F;jsp下的 login.jsp 视图。</p>
-<h1 id="四，Spring-MVC-和Structs2的区别"><a href="#四，Spring-MVC-和Structs2的区别" class="headerlink" title="四，Spring MVC 和Structs2的区别"></a>四，Spring MVC 和Structs2的区别</h1><p>这里了解即可，这里不再花篇幅说明</p>
-<h1 id="五，Spring-MVC视图解析器（ViewResolver）"><a href="#五，Spring-MVC视图解析器（ViewResolver）" class="headerlink" title="五，Spring MVC视图解析器（ViewResolver）"></a>五，Spring MVC视图解析器（ViewResolver）</h1><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-3.png" alt="js-3-3"></p>
-<p>视图解析器（ViewResolver）是 Spring MVC 的重要组成部分，负责将逻辑视图名解析为具体的视图对象。Spring MVC提供了上面几种视图解析器，下面介绍1个常用的视图解析器，其他视图解析器如何配置这里不再赘述</p>
-<h2 id="（1）InternalResourceViewResolver"><a href="#（1）InternalResourceViewResolver" class="headerlink" title="（1）InternalResourceViewResolver"></a>（1）InternalResourceViewResolver</h2><p>InternalResourceViewResolver 为“内部资源视图解析器”，是日常开发中最常用的视图解析器类型。它是 URLBasedViewResolver 的子类，拥有 URLBasedViewResolver 的一切特性。</p>
-<p>InternalResourceViewResolver 能自动将返回的视图名称解析为 InternalResourceView 类型的对象。InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中，然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;viewResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--前缀--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/pages/&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--后缀--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.jsp&quot;</span>/&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="六，Spring-MVC执行流程"><a href="#六，Spring-MVC执行流程" class="headerlink" title="六，Spring MVC执行流程"></a>六，Spring MVC执行流程</h1><h2 id="1，图解执行流程"><a href="#1，图解执行流程" class="headerlink" title="1，图解执行流程"></a>1，图解执行流程</h2><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/js-3-4.png" alt="js-3-4"></p>
-<p>SpringMVC 的执行流程如下。</p>
-<ol>
-<li>用户点击某个请求路径，发起一个 HTTP request 请求，该请求会被提交到 DispatcherServlet（前端控制器）；</li>
-<li>由 DispatcherServlet 请求一个或多个 HandlerMapping（处理器映射器），并返回一个执行链给DispatcherServlet（HandlerExecutionChain）。</li>
-<li>DispatcherServlet 将执行链返回的 Handler 信息发送给 HandlerAdapter（处理器适配器）；</li>
-<li>HandlerAdapter 根据 Handler 信息找到并执行相应的 Handler（常称为 Controller）；</li>
-<li>Handler 执行完毕后会返回给 HandlerAdapter 一个 ModelAndView 对象（Spring MVC的底层对象，包括 Model 数据模型和 View 视图信息）；</li>
-<li>HandlerAdapter 接收到 ModelAndView 对象后，将其返回给 DispatcherServlet ；</li>
-<li>DispatcherServlet 接收到 ModelAndView 对象后，会请求 ViewResolver（视图解析器）对视图进行解析；</li>
-<li>ViewResolver 根据 View 信息匹配到相应的视图结果，并返回给 DispatcherServlet；</li>
-<li>DispatcherServlet 接收到具体的 View 视图后，进行视图渲染，将 Model 中的模型数据填充到 View 视图中的 request 域，生成最终的 View（视图）；</li>
-<li>视图负责将结果显示到浏览器（客户端）。</li>
-</ol>
-<h2 id="2，Spring-MVC接口"><a href="#2，Spring-MVC接口" class="headerlink" title="2，Spring MVC接口"></a>2，Spring MVC接口</h2><p>Spring MVC 涉及到的组件有 DispatcherServlet（前端控制器）、HandlerMapping（处理器映射器）、HandlerAdapter（处理器适配器）、Handler（处理器）、ViewResolver（视图解析器）和 View（视图）。下面对各个组件的功能说明如下。</p>
-<h4 id="1）DispatcherServlet"><a href="#1）DispatcherServlet" class="headerlink" title="1）DispatcherServlet"></a>1）DispatcherServlet</h4><p>DispatcherServlet 是前端控制器，从图 1 可以看出，Spring MVC 的所有请求都要经过 DispatcherServlet 来统一分发。DispatcherServlet 相当于一个转发器或中央处理器，控制整个流程的执行，对各个组件进行统一调度，以降低组件之间的耦合性，有利于组件之间的拓展。</p>
-<h4 id="2）HandlerMapping"><a href="#2）HandlerMapping" class="headerlink" title="2）HandlerMapping"></a>2）HandlerMapping</h4><p>HandlerMapping 是处理器映射器，其作用是根据请求的 URL 路径，通过注解或者 XML 配置，寻找匹配的处理器（Handler）信息。</p>
-<h4 id="3）HandlerAdapter"><a href="#3）HandlerAdapter" class="headerlink" title="3）HandlerAdapter"></a>3）HandlerAdapter</h4><p>HandlerAdapter 是处理器适配器，其作用是根据映射器找到的处理器（Handler）信息，按照特定规则执行相关的处理器（Handler）。</p>
-<h4 id="4）Handler"><a href="#4）Handler" class="headerlink" title="4）Handler"></a>4）Handler</h4><p>Handler 是处理器，和 Java Servlet 扮演的角色一致。其作用是执行相关的请求处理逻辑，并返回相应的数据和视图信息，将其封装至 ModelAndView 对象中。</p>
-<h4 id="5）View-Resolver"><a href="#5）View-Resolver" class="headerlink" title="5）View Resolver"></a>5）View Resolver</h4><p>View Resolver 是视图解析器，其作用是进行解析操作，通过 ModelAndView 对象中的 View 信息将逻辑视图名解析成真正的视图 View（如通过一个 JSP 路径返回一个真正的 JSP 页面）。</p>
-<h4 id="6）View"><a href="#6）View" class="headerlink" title="6）View"></a>6）View</h4><p>View 是视图，其本身是一个接口，实现类支持不同的 View 类型（JSP、FreeMarker、Excel 等）。</p>
-<p>以上组件中，需要开发人员进行开发的是处理器（Handler，常称Controller）和视图（View）。通俗的说，要开发处理该请求的具体代码逻辑，以及最终展示给用户的界面。这里只是大概的说明了一下，更加具体的应该在后面的运用中加深理解。</p>
-]]></content>
-      <categories>
-        <category>Spring框架</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>xm-2-MyBatis-Plus</title>
-    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
+<h3 id="（4）单调队列与滑动窗口"><a href="#（4）单调队列与滑动窗口" class="headerlink" title="（4）单调队列与滑动窗口"></a>（4）单调队列与滑动窗口</h3><h3 id="（5）数组去重"><a href="#（5）数组去重" class="headerlink" title="（5）数组去重"></a>（5）数组去重</h3>]]></content>
       <categories>
         <category>xxx</category>
       </categories>
@@ -1547,72 +1589,5 @@
 
 
 <h1 id="八，Spring整合日志框架"><a href="#八，Spring整合日志框架" class="headerlink" title="八，Spring整合日志框架"></a>八，Spring整合日志框架</h1>]]></content>
-  </entry>
-  <entry>
-    <title>尚融宝项目背景</title>
-    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
-<span id="more"></span>
-
-<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
-<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
-<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
-<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
-<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
-<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
-<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
-<p>Lombok：简化实体类开发</p>
-<p>Swagger2：Api接口文档生成工具</p>
-<p>Logback：日志系统</p>
-<p>alibaba-easyexcel：Excel读写</p>
-<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
-<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
-<p>Spring Task：定时任务</p>
-<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
-<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
-<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
-<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
-<p>阿里云OSS：分布式文件存储</p>
-<p>资金托管平台API对接：汇付宝</p>
-<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
-<p>ES6：JavaScript的模块化版本</p>
-<p>axios：一个发送Ajax请求的工具</p>
-<p>Vue.js：web 界面的渐进式框架</p>
-<p>Element-UI：前端组件库</p>
-<p>模块化开发：解决javascript变量全局空间污染的问题</p>
-<p>NPM：模块资源管理器</p>
-<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
-<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
-<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
-<ul>
-<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
-</li>
-<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
-</li>
-<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
-<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
-</li>
-</ul>
-<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
-<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
-<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
-<p>3，maven</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
-<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
-<p>5，插件：lombok、MyBatisX</p>
-<p>插件安装这里不再赘述</p>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
   </entry>
 </search>
