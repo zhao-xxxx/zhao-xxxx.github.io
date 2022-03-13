@@ -42,6 +42,34 @@
       </tags>
   </entry>
   <entry>
+    <title>xm-2-MyBatis-Plus</title>
+    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js-3-springmvc</title>
     <url>/2022/02/06/js-3-springmvc/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：快速了解Spring的用法，能够对Spring形成自己的框架。本文的学习基于<a href="http://c.biancheng.net/spring_mvc/mvc.html">C语言中文网</a>，尚硅谷Spring讲解</p>
@@ -277,6 +305,73 @@
       <tags>
         <tag>SpringMVC</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>尚融宝项目背景</title>
+    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
+<span id="more"></span>
+
+<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
+<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
+<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
+<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
+<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
+<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
+<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
+<p>Lombok：简化实体类开发</p>
+<p>Swagger2：Api接口文档生成工具</p>
+<p>Logback：日志系统</p>
+<p>alibaba-easyexcel：Excel读写</p>
+<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
+<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
+<p>Spring Task：定时任务</p>
+<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
+<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
+<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
+<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
+<p>阿里云OSS：分布式文件存储</p>
+<p>资金托管平台API对接：汇付宝</p>
+<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
+<p>ES6：JavaScript的模块化版本</p>
+<p>axios：一个发送Ajax请求的工具</p>
+<p>Vue.js：web 界面的渐进式框架</p>
+<p>Element-UI：前端组件库</p>
+<p>模块化开发：解决javascript变量全局空间污染的问题</p>
+<p>NPM：模块资源管理器</p>
+<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
+<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
+<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
+<ul>
+<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
+</li>
+<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
+</li>
+<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
+<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
+</li>
+</ul>
+<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
+<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
+<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
+<p>3，maven</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
+<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
+<p>5，插件：lombok、MyBatisX</p>
+<p>插件安装这里不再赘述</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
@@ -1235,101 +1330,6 @@
 <h1 id="八，Spring整合日志框架"><a href="#八，Spring整合日志框架" class="headerlink" title="八，Spring整合日志框架"></a>八，Spring整合日志框架</h1>]]></content>
   </entry>
   <entry>
-    <title>xm-2-MyBatis-Plus</title>
-    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>尚融宝项目背景</title>
-    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
-<span id="more"></span>
-
-<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
-<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
-<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
-<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
-<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
-<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
-<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
-<p>Lombok：简化实体类开发</p>
-<p>Swagger2：Api接口文档生成工具</p>
-<p>Logback：日志系统</p>
-<p>alibaba-easyexcel：Excel读写</p>
-<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
-<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
-<p>Spring Task：定时任务</p>
-<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
-<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
-<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
-<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
-<p>阿里云OSS：分布式文件存储</p>
-<p>资金托管平台API对接：汇付宝</p>
-<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
-<p>ES6：JavaScript的模块化版本</p>
-<p>axios：一个发送Ajax请求的工具</p>
-<p>Vue.js：web 界面的渐进式框架</p>
-<p>Element-UI：前端组件库</p>
-<p>模块化开发：解决javascript变量全局空间污染的问题</p>
-<p>NPM：模块资源管理器</p>
-<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
-<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
-<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
-<ul>
-<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
-</li>
-<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
-</li>
-<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
-<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
-</li>
-</ul>
-<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
-<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
-<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
-<p>3，maven</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
-<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
-<p>5，插件：lombok、MyBatisX</p>
-<p>插件安装这里不再赘述</p>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
-  </entry>
-  <entry>
     <title>labuladong算法秘籍阅读笔记</title>
     <url>/2022/02/07/sf-1-labuladong/</url>
     <content><![CDATA[<p><strong>简介：</strong>该博客为学习labuladong算法笔记过程中的记录和思考，并根据自己的特点（非科班，算法基础薄弱，准备时间短）来进行针对性学习，目标是能够总结出适合自己的一套思路和方法。</p>
@@ -1846,11 +1846,54 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//中序遍历实现不了</span></span><br><span class="line">想实现反序列方法，首先要构造 root 节点。前序遍历得到的 nodes 列表中，第一个元素是 root 节点的值；后序遍历得到的 nodes 列表中，最后一个元素是 root 节点的值。</span><br><span class="line"></span><br><span class="line">你看上面这段中序遍历的代码，root 的值被夹在两棵子树的中间，也就是在 nodes 列表的中间，我们不知道确切的索引位置，所以无法找到 root 节点，也就无法进行反序列化。</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//层次遍历</span></span><br><span class="line"><span class="comment">//1,标准的层次遍历框架（重要）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//1，初始化队列</span></span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty())&#123;</span><br><span class="line">        TreeNode cur = q.poll();</span><br><span class="line">        <span class="comment">//---层次遍历操作位置</span></span><br><span class="line">        System.out.println(root.val);</span><br><span class="line">        <span class="comment">//---</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cur.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">            q.offer(cur.left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cur.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">            q.offer(cur.right);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//++++++++++++++++++++++++++++++++++++++++++++++分割++++++++++++++++++++++++++++++++++++++++++++++++</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//层次遍历</span></span><br><span class="line"><span class="comment">//1,标准的层次遍历框架（重要）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//1，初始化队列</span></span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty())&#123;</span><br><span class="line">        TreeNode cur = q.poll();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//---层次遍历操作位置</span></span><br><span class="line">        System.out.println(root.val);</span><br><span class="line">        <span class="comment">//---层次遍历操作位置</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cur.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">            q.offer(cur.left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cur.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">            q.offer(cur.right);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//+++++++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++++++++++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2,实现序列化实现，题中的序列化结果为[1,2,3,#,#,4,5,#,#,#,#]</span></span><br><span class="line">String spe = <span class="string">&quot;,&quot;</span>;</span><br><span class="line">String NULL = <span class="string">&quot;#&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">String <span class="title">serialize</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    </span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty())&#123;</span><br><span class="line">        TreeNode cur = q.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cur == <span class="keyword">null</span>)&#123;</span><br><span class="line">            sb.append(NULL).append(spe);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sb.append(cur.val).append(spe);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//注意，这里并不会判断是不是NULL，因为就算是，也需要加入到String的信息中去</span></span><br><span class="line">        q.offer(cur.left);</span><br><span class="line">        q.offer(cur.right);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> sb.toString();  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3,实现反序列化,将[1,2,3,#,#,4,5,#,#,#,#]变为数，可以看到，1对应2和3,2对应#和#，3对应4和5，以此类推</span></span><br><span class="line"><span class="comment">//下面代码中的结构和层次遍历的逻辑非常相似，都是将节点存入队列，然后左孩子进队列，右孩子进队列</span></span><br><span class="line"><span class="function">TreeNode <span class="title">deserialize</span><span class="params">(String data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(data.isEmpty()) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    String[] nodes = data.split(spe);</span><br><span class="line">    </span><br><span class="line">    TreeNode root = <span class="keyword">new</span> TreeNode(Integer.parseInt(nodes[<span class="number">0</span>]));</span><br><span class="line">    </span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nodes.length; i++)&#123;</span><br><span class="line">        TreeNode parent = q.poll;</span><br><span class="line">        </span><br><span class="line">        String left = nodes[i++];</span><br><span class="line">        <span class="keyword">if</span>(!left.equals(NULL))&#123;</span><br><span class="line">            parent.left = <span class="keyword">new</span> TreeNode(Integer.parseInt(left));</span><br><span class="line">            q.offer(parent.left);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            parent.left = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        String right = nodes[i++];</span><br><span class="line">        <span class="keyword">if</span>(!right.equals(NULL))&#123;</span><br><span class="line">            parent = right = <span class="keyword">new</span> TreeNode(Integer.parseInt(right));</span><br><span class="line">            q.offer(parent.right);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            parent.right = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="（5）后序遍历"><a href="#（5）后序遍历" class="headerlink" title="（5）后序遍历"></a>（5）后序遍历</h3><h3 id="（6）总结"><a href="#（6）总结" class="headerlink" title="（6）总结"></a>（6）总结</h3><h2 id="2，二叉搜索树"><a href="#2，二叉搜索树" class="headerlink" title="2，二叉搜索树"></a>2，二叉搜索树</h2><h2 id="3，图论"><a href="#3，图论" class="headerlink" title="3，图论"></a>3，图论</h2>]]></content>
+<h3 id="（5）后序遍历"><a href="#（5）后序遍历" class="headerlink" title="（5）后序遍历"></a>（5）后序遍历</h3><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-71.png" alt="sf-1-71"></p>
+<p><strong>思路</strong>：</p>
+<p>不管是什么遍历，最关键的就是梳理思路，明确要记录的值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-72.png" alt="sf-1-72"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxSum = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSumBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        traverse(root);</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] traverse(TreeNode root)&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, Integer.MAX_VALUE, Integer.MIN_VALUE, <span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] left = traverse(root.left);</span><br><span class="line">        <span class="keyword">int</span>[] right = traverse(root.right);</span><br><span class="line">		<span class="comment">//res[0]代表这个子树是不是二叉搜索树,res[1]树的最大值,res[2]树的最小值 ,res[3]整个树的和</span></span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line">        <span class="keyword">if</span>(left[<span class="number">0</span>] == <span class="number">1</span> &amp;&amp; right[<span class="number">0</span>] == <span class="number">1</span> &amp;&amp; root.val &gt; left[<span class="number">2</span>] &amp;&amp; root.val &lt; right[<span class="number">1</span>])&#123;</span><br><span class="line">            res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            res[<span class="number">1</span>] = Math.min(root.val, left[<span class="number">1</span>]);</span><br><span class="line">            res[<span class="number">2</span>] = Math.max(root.val, right[<span class="number">2</span>]);</span><br><span class="line">            res[<span class="number">3</span>] = left[<span class="number">3</span>] + right[<span class="number">3</span>] + root.val;</span><br><span class="line">            maxSum = Math.max(maxSum, res[<span class="number">3</span>]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（6）总结"><a href="#（6）总结" class="headerlink" title="（6）总结"></a>（6）总结</h3><h2 id="2，二叉搜索树"><a href="#2，二叉搜索树" class="headerlink" title="2，二叉搜索树"></a>2，二叉搜索树</h2><h3 id="（1）二叉搜索树——1"><a href="#（1）二叉搜索树——1" class="headerlink" title="（1）二叉搜索树——1"></a>（1）二叉搜索树——1</h3><p><strong>(力扣230——二叉搜索树中第K小的元素)</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-73.png" alt="sf-1-73" style="zoom: 80%;" />
+
+<p><strong>思路</strong>：二叉搜索树的中序遍历就是从小到大排序的，所以这里进行一个简单的中序遍历就行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1,简单的遍历方式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">       preTraverse(root,k);</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preTraverse</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">        preTraverse(root.left, k);</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count == k)&#123;</span><br><span class="line">            res =  root.val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        preTraverse(root.right, k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//+++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++++++++++++++++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2，如果说TreeNode中，每个节点包含自己的排序信息，那么这里的时间复杂度可以降低到O(logN),</span></span><br><span class="line"><span class="comment">//如果节点中有以自己为根的子树的节点数信息，那么排名 = root.val - root.left.val</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	<span class="comment">// 以该节点为根的树的节点总数</span></span><br><span class="line">	<span class="keyword">int</span> size;</span><br><span class="line">	TreeNode left;</span><br><span class="line">	TreeNode right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//那么中序遍历的算法中,就可以直接计算</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preTraverse</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">        preTraverse(root.left, k);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(root.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val - root.left.val == k) res = root.val;<span class="keyword">return</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val == k) res = root.val;<span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        preTraverse(root.right, k);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>（力扣538——把二叉搜索树转化为累加树）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-74.png" alt="sf-1-74"></p>
+<p><strong>思路</strong>：原本的二叉搜索树，中序遍历是按照从左往右，升序打印。如果这里我们能从右往左，降序打印，便可解决</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">convertBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        traverse(root);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        traverse(root.right);</span><br><span class="line">        sum += root.val;</span><br><span class="line">        root.val = sum;</span><br><span class="line">        traverse(root.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）二叉搜索树——2-检查，搜索，插入，删除"><a href="#（2）二叉搜索树——2-检查，搜索，插入，删除" class="headerlink" title="（2）二叉搜索树——2   (检查，搜索，插入，删除)"></a>（2）二叉搜索树——2   (检查，搜索，插入，删除)</h3><p><strong>（判断搜索二叉树的合法性）</strong></p>
+<p><strong>思路</strong>：给了你一个二叉树，如何判断是不是搜索二叉树？可以尝试在前序遍历的时候，对于一个节点，它&gt;左孩子的值并且&lt;右孩子的值，如果有不满足这个条件的，那不是二叉搜索树。</p>
+<p>但是上面的方法并不能完全满足（比如10,5,15,#,#,6,20），因为规则有漏洞，对于一个节点，我们应该比较它与左子树的最大值，和右子树的最小值，以此来判断</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> isValidBST(root, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(TreeNode root, TreeNode min, TreeNode max)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//相等也是不行的</span></span><br><span class="line">    <span class="keyword">if</span>(min != <span class="keyword">null</span> &amp;&amp; root.val &gt;= min.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(max != <span class="keyword">null</span> &amp;&amp; root.val &lt;= max.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> isValid(root.left, min, root) &amp;&amp; isValid(root.right, root, max);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（力扣700——二叉搜索树中搜索）</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-%2076.png" alt="sf-1- 76" style="zoom:80%;" />
+
+<p><strong>思路</strong>：这个简单，但是还是时间复杂度的问题，我们可以采取剪枝的操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    TreeNode res = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">searchBST</span><span class="params">(TreeNode root, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        preTraverse(root, val);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preTraverse</span><span class="params">(TreeNode root, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root.val == val)&#123;</span><br><span class="line">            res = root;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.val &gt; val)&#123;</span><br><span class="line">            preTraverse(root.left, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.val &lt; val)&#123;</span><br><span class="line">            preTraverse(root.right, val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（在BST中插入一个数）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">        return insertBST(root,val);</span><br><span class="line">    &#125;</span><br><span class="line">    TreeNode insertBST(TreeNode root, int val)&#123;</span><br><span class="line">        if(root == null) return new TreeNode(val);</span><br><span class="line"></span><br><span class="line">        if(root.val &gt; val)&#123;</span><br><span class="line">            root.left = insertBST(root.left, val);</span><br><span class="line">        &#125;else if(root.val &lt; val)&#123;</span><br><span class="line">            root.right = insertBST(root.right, val);</span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>（力扣450——删除二叉搜索树中的节点）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-75.png" alt="sf-1-75"></p>
+<p><strong>思路</strong>：整体上的思路是，前序遍历，如果该节点需要删除，则删除，如果不是的话，那么该节点链接删除了的左子树，链接删除了的右子树。也就是上面这个框架</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1，简单框架</span></span><br><span class="line"><span class="function">TreeNode <span class="title">deleteNode</span><span class="params">(TreeNode root, <span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(root.val == key)&#123;</span><br><span class="line">        <span class="comment">//删除操作</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(root.val &gt; key)&#123;</span><br><span class="line">        root.left = deleteNode(root.left, key);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(root.val &lt; key)&#123;</span><br><span class="line">        root.right = deleteNode(root.right, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2，加入删除操作，删除节点有三种情况，每种的解决方式不一样</span></span><br><span class="line"><span class="function">TreeNode <span class="title">deleteNode</span><span class="params">(TreeNode root, <span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(root.val == key)&#123;</span><br><span class="line">        <span class="comment">//这里包含了root节点没有左右孩子，or有左无右，or有右无左的三种情况</span></span><br><span class="line">        <span class="keyword">if</span>(root.left == <span class="keyword">null</span>) <span class="keyword">return</span> root.right;</span><br><span class="line">        <span class="keyword">if</span>(root.right == <span class="keyword">null</span>) <span class="keyword">return</span> root.left;</span><br><span class="line">        <span class="comment">//最麻烦的是root节点左右孩子都有的情况，此时只能将右子树接在左子树最大的节点，或者将左子树接在右子树最小的节点来进行处理，这里我们采用第二种</span></span><br><span class="line">        TreeNode midNode = getMin(root.right);</span><br><span class="line">        root.right = deleteNode(root.right, midNode.val);</span><br><span class="line">        minNode.left = root.left;</span><br><span class="line">        minNode.right = root.right;</span><br><span class="line">        root = minNode;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(root.val &gt; key)&#123;</span><br><span class="line">        root.left = deleteNode(root.left, key);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(root.val &lt; key)&#123;</span><br><span class="line">        root.right = deleteNode(root.right, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode <span class="title">getMin</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// BST 最左边的就是最⼩的</span></span><br><span class="line">	<span class="keyword">while</span> (node.left != <span class="keyword">null</span>) node = node.left;</span><br><span class="line">	<span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>49——5个？？？</p>
+<h3 id="（3）二叉搜索树——3"><a href="#（3）二叉搜索树——3" class="headerlink" title="（3）二叉搜索树——3"></a>（3）二叉搜索树——3</h3><h2 id="3，图论"><a href="#3，图论" class="headerlink" title="3，图论"></a>3，图论</h2>]]></content>
       <categories>
         <category>xxx</category>
       </categories>
