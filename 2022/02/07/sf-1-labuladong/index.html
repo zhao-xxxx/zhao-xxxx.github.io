@@ -218,8 +218,9 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-32.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-33.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-34.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-35.png">
 <meta property="article:published_time" content="2022-02-07T02:17:16.000Z">
-<meta property="article:modified_time" content="2022-03-24T11:33:40.908Z">
+<meta property="article:modified_time" content="2022-03-25T08:09:46.374Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -528,7 +529,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  42.9k
+                  43.2k
                 </span>
               
 
@@ -544,7 +545,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  192
+                  193
                 </span>
               
             </div>
@@ -1499,6 +1500,18 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (N == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[N + <span class="number">1</span>];</span><br><span class="line">	<span class="comment">// base case</span></span><br><span class="line">	dp[<span class="number">0</span>] = <span class="number">0</span>; dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// 状态转移</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[N];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据斐波那契数列的状态转移⽅程，当前状态只和之前的两个状态有关，其实并不需要那么⻓的⼀个 DP table 来存储所有的状态，只要想办法存储之前的两个状态就⾏了.</span></span><br><span class="line"><span class="comment">//这⼀般是动态规划问题的最后⼀步优化，如果我们发现每次状态转移只需要 DP table 中的⼀部分，那么可以尝试缩⼩ DP table 的⼤⼩，只记录必要的数据，从⽽降低空间复杂度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// base case</span></span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 分别代表 dp[i - 1] 和 dp[i - 2]</span></span><br><span class="line">	<span class="keyword">int</span> dp_i_1 = <span class="number">1</span>, dp_i_2 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="comment">// dp[i] = dp[i - 1] + dp[i - 2];</span></span><br><span class="line">		<span class="keyword">int</span> dp_i = dp_i_1 + dp_i_2;</span><br><span class="line">		<span class="comment">// 滚动更新</span></span><br><span class="line">		dp_i_2 = dp_i_1;</span><br><span class="line">		dp_i_1 = dp_i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp_i_1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>(力扣322——零钱兑换)</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-35.png" alt="sf-2-35" style="zoom:80%;" />
+
+<p><strong>思路</strong>：首先明确，该问题具有<strong>最优子结构</strong>（也就是硬币用的数量之间不能有互相的影响，而是每个面额都可以随便用），具体来看就是<strong>原问题</strong>为amount &#x3D; 11时的最小子硬币数，<strong>子问题</strong>为amount &#x3D; 10时的最小子硬币数，那么原问题 &#x3D; 子问题 + 1个硬币即可。确定了最优子结构以后，我们按照三个步骤来完成本题：</p>
+<p>A，<u>明确dp数组的含义</u>：当目标金额为i时，至少要dp[i]个硬币才能凑出来</p>
+<p>B，<u>状态转移方程</u>：dp[i] &#x3D; dp[i - coin] + 1，由于是要找最小且coin的情况有三种，所以这里应该是min{dp[i] &#x3D; dp[i - coin] + 1, dp[i]}</p>
+<p>C,<u>确定初始值</u>：dp[0] &#x3D; 0;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount + <span class="number">1</span>];</span><br><span class="line">        Arrays.fill(dp, amount + <span class="number">1</span>);</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> coin : coins)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i - coin &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i] = Math.min(dp[i], <span class="number">1</span> + dp[i - coin]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (dp[amount] == amount + <span class="number">1</span>) ? -<span class="number">1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h3 id="（2）base-case和备忘录的初试值怎么定"><a href="#（2）base-case和备忘录的初试值怎么定" class="headerlink" title="（2）base case和备忘录的初试值怎么定"></a>（2）base case和备忘录的初试值怎么定</h3><h3 id="（3）最优子结构和dp数组的遍历方向怎么定"><a href="#（3）最优子结构和dp数组的遍历方向怎么定" class="headerlink" title="（3）最优子结构和dp数组的遍历方向怎么定"></a>（3）最优子结构和dp数组的遍历方向怎么定</h3><h3 id="（4）提高刷题幸福感的小技巧"><a href="#（4）提高刷题幸福感的小技巧" class="headerlink" title="（4）提高刷题幸福感的小技巧"></a>（4）提高刷题幸福感的小技巧</h3><h2 id="2，经典动态规划"><a href="#2，经典动态规划" class="headerlink" title="2，经典动态规划"></a>2，经典动态规划</h2><h3 id="（1）最长递增子序列问题"><a href="#（1）最长递增子序列问题" class="headerlink" title="（1）最长递增子序列问题"></a>（1）最长递增子序列问题</h3><h3 id="（2）最大子数组和问题"><a href="#（2）最大子数组和问题" class="headerlink" title="（2）最大子数组和问题"></a>（2）最大子数组和问题</h3><h3 id="（3）最长公共子序列问题"><a href="#（3）最长公共子序列问题" class="headerlink" title="（3）最长公共子序列问题"></a>（3）最长公共子序列问题</h3><h3 id="（4）编辑距离问题"><a href="#（4）编辑距离问题" class="headerlink" title="（4）编辑距离问题"></a>（4）编辑距离问题</h3><h3 id="（5）正则表达式问题"><a href="#（5）正则表达式问题" class="headerlink" title="（5）正则表达式问题"></a>（5）正则表达式问题</h3><h2 id="3，背包问题"><a href="#3，背包问题" class="headerlink" title="3，背包问题"></a>3，背包问题</h2><h3 id="（1）0-1背包问题"><a href="#（1）0-1背包问题" class="headerlink" title="（1）0-1背包问题"></a>（1）0-1背包问题</h3><p>（2）完全背包问题</p>
 <p>（3）子集背包问题</p>
 <h2 id="4，用动态规划解决游戏类问题"><a href="#4，用动态规划解决游戏类问题" class="headerlink" title="4，用动态规划解决游戏类问题"></a>4，用动态规划解决游戏类问题</h2><p>（1）股票买卖类问题</p>
@@ -1787,7 +1800,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.9k</span>
+    <span title="Site words total count">73.1k</span>
   
 </div>
 
