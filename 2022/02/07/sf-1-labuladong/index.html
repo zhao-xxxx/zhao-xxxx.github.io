@@ -229,8 +229,18 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-43.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-44.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-45.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-46.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-47.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-47.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-48.png">
+<meta property="og:image" content="c:/Users/zhao/Desktop/sf-2-49.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-50.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-51.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-53.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-54.png">
 <meta property="article:published_time" content="2022-02-07T02:17:16.000Z">
-<meta property="article:modified_time" content="2022-03-28T07:56:33.045Z">
+<meta property="article:modified_time" content="2022-03-29T07:13:31.494Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -539,7 +549,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  45.9k
+                  47k
                 </span>
               
 
@@ -555,7 +565,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  206
+                  210
                 </span>
               
             </div>
@@ -1589,7 +1599,43 @@
 
 
 
-<h3 id="（4）编辑距离问题"><a href="#（4）编辑距离问题" class="headerlink" title="（4）编辑距离问题"></a>（4）编辑距离问题</h3><h3 id="（5）正则表达式问题"><a href="#（5）正则表达式问题" class="headerlink" title="（5）正则表达式问题"></a>（5）正则表达式问题</h3><h2 id="3，背包问题"><a href="#3，背包问题" class="headerlink" title="3，背包问题"></a>3，背包问题</h2><h3 id="（1）0-1背包问题"><a href="#（1）0-1背包问题" class="headerlink" title="（1）0-1背包问题"></a>（1）0-1背包问题</h3><p>（2）完全背包问题</p>
+<h3 id="（4）编辑距离问题"><a href="#（4）编辑距离问题" class="headerlink" title="（4）编辑距离问题"></a>（4）编辑距离问题</h3><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-46.png" alt="sf-2-46" style="zoom:80%;" />
+
+<p><strong>思路</strong>：还是分为递归和迭代</p>
+<p>A，<u>定义DP函数</u>：对于两个字符串，我们可以从字符串尾开始，如下图，尝试将是b变为s2，我们发现对于i和j指针所指向的字符，包含了三种操作：插入，删除，替换（图中的流程是上帝视角），在这个位置我们到底选择哪种操作，其实是不知道的，必须去找其中最小的那个值；还有一个操作，就是相同的时候啥也别做，减少操作次数。   所以我们可以定义一个DP(s1, i, s2, j)，该函数返回 s1[0..i] 和 s2[0..j] 的最⼩编辑距离 。当i或j为0的时候，就返回另一个字符剩下的长度</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-47.gif" alt="sf-2-47" style="zoom: 50%;" />  <img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-47.png" alt="sf-2-47" style="zoom:50%;" /></p>
+<p>B，<u>明确初始值</u>：DP函数中的Base，当任意一个字符创到结尾时，返回另一个字符串剩下的长度即可。</p>
+<p>C，<u>状态转移方程</u>：DP(s1, i, s2, j) 的值取决于i和j位置处的字符是不是相等的，如果不相等，那就是看插入，删除，还是替换哪种值最小，min(DP(s1, i, s2, j - 1) + 1, DP(s1, i - 1, s2, j) + 1, DP(s1, i - 1 , s2, j - 1) + 1)这三种情况是根据图中以s2位基础修改s1得来的；如果相等，则DP(s1, i, s2, j) &#x3D; DP(s1, i - 1, s2, j - 1)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[][] memo;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = word1.length(), n = word2.length();</span><br><span class="line"></span><br><span class="line">        memo = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">            Arrays.fill(memo[i], -<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> DP(word1, m - <span class="number">1</span>, word2, n - <span class="number">1</span>);  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(String s1, <span class="keyword">int</span> m, String s2, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(m == -<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n == -<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> m + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(memo[m][n] != -<span class="number">1</span>) <span class="keyword">return</span> memo[m][n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(s1.charAt(m) == s2.charAt(n))&#123;</span><br><span class="line">            memo[m][n] = DP(s1, m - <span class="number">1</span>, s2, n - <span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            memo[m][n] = Math.min(DP(s1, m, s2, n - <span class="number">1</span>) + <span class="number">1</span>, Math.min(DP(s1, m - <span class="number">1</span>, s2, n) + <span class="number">1</span>,DP(s1, m - <span class="number">1</span>, s2, n - <span class="number">1</span>) + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A，<u>明确dp含义</u>：s1[0..i] 和 s2[0..j] 的最⼩编辑距离是 dp[i-1][j-1]  </p>
+<p>B，<u>明确初始值</u>：DP[i][0] &#x3D; i ,DP[0][j] &#x3D; j  </p>
+<p>C，<u>状态转移方程</u>：如果说i - 1和j - 1处的字符相同，那么DP[i][j] &#x3D; DP[i - 1][j - 1]。如果不同，则也是分三种情况。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = word1.length(), n = word2.length();</span><br><span class="line">        <span class="keyword">int</span>[][] DP = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) DP[i][<span class="number">0</span>] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) DP[<span class="number">0</span>][j] = j;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(word1.charAt(i - <span class="number">1</span>) == word2.charAt(j - <span class="number">1</span>))&#123;</span><br><span class="line">                    DP[i][j] = DP[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    DP[i][j] = Math.min(DP[i - <span class="number">1</span>][j] + <span class="number">1</span>, Math.min(DP[i][j - <span class="number">1</span>] +<span class="number">1</span>, DP[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> DP[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展</strong>：</p>
+<p>A，字符创比较类问题都可以抽象为下面的图，并且可以看到只有三个状态可以降低空间复杂度</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-48.png" alt="sf-2-48" style="zoom:67%;" /> 
+
+<img src="C:\Users\zhao\Desktop\sf-2-49.png" alt="sf-2-49" style="zoom: 80%;" />
+
+<p>B，可以输出路径</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-50.png" alt="sf-2-50" style="zoom:80%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-51.png" alt="sf-2-51" style="zoom:80%;" />
+
+<h3 id="（5）正则表达式问题"><a href="#（5）正则表达式问题" class="headerlink" title="（5）正则表达式问题"></a>（5）正则表达式问题</h3><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-52.png" alt="sf-2-52"></p>
+<p><strong>思路</strong>：这个匹配的过程要想清楚，我们用两个指针来指向s和p字符串，如果字符串中没有*号的话，那么对于两个指针指向的字符，只要相同或者p中一个 . 我们就认为匹配。比如abbbc和a…c是匹配的</p>
+<p>加入了*号后，稍微有点复杂，p中的某个字符是* ,那么p之前的那个字符，到底匹配了几次呢？或者说，它能够消耗s中的字符吗？消耗1次？n次？还是0次？</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-53.png" alt="sf-2-53" style="zoom:67%;" />
+
+<p>所以本题中的状态就是i和j中指针的位置，选择就是p[j]选择匹配几个字符</p>
+<p>A，<u>定义的dp函数</u>：bool dp(String s, int i, String p, int j)，该函数返回<code>s[i..]</code>是否可以匹配<code>p[j..]</code>，我们的目标就是找到i和j为0的结果</p>
+<p>B，<u>确定初始值</u>：一个 base case 是<code>j == p.size()</code>时，按照<code>dp</code>函数的定义，这意味着模式串<code>p</code>已经被匹配完了，那么应该看看文本串<code>s</code>匹配到哪里了，如果<code>s</code>也恰好被匹配完，则说明匹配成功：另一个比较特殊，下图：</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-54.png" alt="sf-2-54" style="zoom:67%;" />
+
+<p>C，<u>状态转移</u>：其实就是上面的情况中的翻译，先看代码再看解释</p>
+<h2 id="3，背包问题"><a href="#3，背包问题" class="headerlink" title="3，背包问题"></a>3，背包问题</h2><h3 id="（1）0-1背包问题"><a href="#（1）0-1背包问题" class="headerlink" title="（1）0-1背包问题"></a>（1）0-1背包问题</h3><p>（2）完全背包问题</p>
 <p>（3）子集背包问题</p>
 <h2 id="4，用动态规划解决游戏类问题"><a href="#4，用动态规划解决游戏类问题" class="headerlink" title="4，用动态规划解决游戏类问题"></a>4，用动态规划解决游戏类问题</h2><p>（1）股票买卖类问题</p>
 <p>（2）打家劫舍类问题</p>
@@ -1656,6 +1702,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/03/29/xm-3-%E9%A1%B9%E7%9B%AE%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/" rel="prev" title="xm-3-项目基本功能">
+                xm-3-项目基本功能 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1736,7 +1786,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1799,6 +1849,10 @@
 			    
 			    
 				  <li class="recent_posts_li">
+				    <a href="/2022/03/29/xm-3-%E9%A1%B9%E7%9B%AE%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/" title="xm-3-项目基本功能" target="_blank">xm-3-项目基本功能</a>
+				  </li>
+			    
+				  <li class="recent_posts_li">
 				    <a href="/2022/02/07/sf-1-labuladong/" title="labuladong算法秘籍阅读笔记" target="_blank">labuladong算法秘籍阅读笔记</a>
 				  </li>
 			    
@@ -1812,10 +1866,6 @@
 			    
 				  <li class="recent_posts_li">
 				    <a href="/2022/02/06/xm-2-MyBatis-Plus/" title="xm-2-MyBatis-Plus" target="_blank">xm-2-MyBatis-Plus</a>
-				  </li>
-			    
-				  <li class="recent_posts_li">
-				    <a href="/2022/02/05/js-2-mysql/" title="js-mysql-1" target="_blank">js-mysql-1</a>
 				  </li>
 			    
 			  </ul>
@@ -1877,7 +1927,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.9k</span>
+    <span title="Site words total count">77.6k</span>
   
 </div>
 
