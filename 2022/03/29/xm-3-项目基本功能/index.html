@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-3-1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-3-2.png">
 <meta property="article:published_time" content="2022-03-29T10:55:50.000Z">
-<meta property="article:modified_time" content="2022-03-30T12:35:46.646Z">
+<meta property="article:modified_time" content="2022-03-31T11:07:43.184Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.7k
                 </span>
               
 
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -481,6 +481,18 @@
 
 <p><strong>知识点</strong>：（1）设计返回的信息格式；（2）使用枚举类和结果类来辅助返回结果；（3）将接口的返回值直接修改为结果类</p>
 <p><strong>考点</strong>：R类的设计中，使用了静态方法，重载方法，Lombok注解。restful风格的传输中对象转换（@RequestBody 注解修饰的参数接受了Json字符串就自动转换咯，然后报错了就尴尬），</p>
+<h3 id="（7）统一异常处理"><a href="#（7）统一异常处理" class="headerlink" title="（7）统一异常处理"></a>（7）统一异常处理</h3><p><strong>引入</strong>：如果在调用接口的时候出现异常，返回的json可读性不高，并且情况多样，我们需要一个标准的格式和信息</p>
+<p>配置看4.4</p>
+<p><strong>知识点</strong>：（1）使用了@RestControllerAdvice，这是一个切面编程中的通知哦，这样就能在controller层添加通知；（2）添加特定异常是需要对应的包哦（比如sql异常需要jdbc包）；（3）使用一个或较少的异常类，可以捕获和显示所有的异常信息。因此，我们可以创建一个自定义异常类<strong>（必须是运行时异常）</strong>，在程序中抛出这个自定义异常对象，并在统一异常处理器中捕获自定义异常对象（所以遇到新的异常，我们是放在业务的代码中进行处理了）；（4）Assert校验业务的异常，避免写if else；（5）4中说的是controller中的异常，那么如果进入Controller之前发生的异常呢？我们最好分开一下</p>
+<p><strong>考点</strong>：切面编程；java中的异常处理和异常类；无参构造器注解（为什么必须要有呢？）；Assert怎么使用呢？；抽象类的用法</p>
+<h3 id="（8）统一日志处理"><a href="#（8）统一日志处理" class="headerlink" title="（8）统一日志处理"></a>（8）统一日志处理</h3><p><strong>引入</strong>：我们在编程的时候会发现控制台有日志的输出，我们想控制什么样的日志输出，什么样的日志不输出，需要进行统一的管理。日志有等级（观察控制台便可以看出来），分为TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF。默认情况下，spring boot从控制台打印出来的日志级别只有INFO及以上级别(低级别就不打印咯)，我们可以在SpringBoot的配置文件application.yml中进行设置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置日志级别</span></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">ERROR</span></span><br></pre></td></tr></table></figure>
+
+<p> 配置看4.5</p>
+<p><strong>知识点</strong>：</p>
+<p>A，在core中添加Logback-spring.xml配置文件，这是一个可以被自动加载的名称，注意其中的内容，了解即可</p>
+<p><strong>考点</strong>：Spring加载这个配置文件的过程</p>
+<h1 id="二，管理平台前端搭建"><a href="#二，管理平台前端搭建" class="headerlink" title="二，管理平台前端搭建"></a>二，管理平台前端搭建</h1><p>前端这里没记笔记，主要是看培训的记录点</p>
 
       
     </div>
@@ -725,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一，后端接口工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E5%88%9B%E5%BB%BA%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">1，创建接口工程的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E6%A8%A1%E5%9D%97%E5%92%8C%E4%BE%9D%E8%B5%96%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">（1）模块和依赖的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">（2）代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">（3）配置及启动项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%AE%9E%E7%8E%B0%E7%A7%AF%E5%88%86%E7%AD%89%E7%BA%A7%E7%9A%84CRUD"><span class="nav-number">1.1.4.</span> <span class="nav-text">（4）实现积分等级的CRUD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89Swagger%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-number">1.1.5.</span> <span class="nav-text">（5）Swagger的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%90%8C%E4%B8%80%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.6.</span> <span class="nav-text">（6）同一返回结果的定义和使用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一，后端接口工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E5%88%9B%E5%BB%BA%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">1，创建接口工程的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E6%A8%A1%E5%9D%97%E5%92%8C%E4%BE%9D%E8%B5%96%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">（1）模块和依赖的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">（2）代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">（3）配置及启动项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%AE%9E%E7%8E%B0%E7%A7%AF%E5%88%86%E7%AD%89%E7%BA%A7%E7%9A%84CRUD"><span class="nav-number">1.1.4.</span> <span class="nav-text">（4）实现积分等级的CRUD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89Swagger%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-number">1.1.5.</span> <span class="nav-text">（5）Swagger的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%90%8C%E4%B8%80%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.6.</span> <span class="nav-text">（6）同一返回结果的定义和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">1.1.7.</span> <span class="nav-text">（7）统一异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%888%EF%BC%89%E7%BB%9F%E4%B8%80%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86"><span class="nav-number">1.1.8.</span> <span class="nav-text">（8）统一日志处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">二，管理平台前端搭建</span></a></li></ol></div>
             
 
           </div>
@@ -759,7 +771,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.1k</span>
+    <span title="Site words total count">81.7k</span>
   
 </div>
 
