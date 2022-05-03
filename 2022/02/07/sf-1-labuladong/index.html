@@ -285,7 +285,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-99.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-2-100.png">
 <meta property="article:published_time" content="2022-02-07T02:17:16.000Z">
-<meta property="article:modified_time" content="2022-05-02T07:09:08.165Z">
+<meta property="article:modified_time" content="2022-05-03T06:06:14.881Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -594,7 +594,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  59.8k
+                  60.1k
                 </span>
               
 
@@ -610,7 +610,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  271
+                  272
                 </span>
               
             </div>
@@ -728,6 +728,8 @@
 
 <p>滑动窗⼝很多时候都是在处理字符串相关的问题，Java 处理字符串不⽅便，所以本⽂代码为 C++ 实<br>现。不会⽤到什么编程⽅⾯的奇技淫巧，但是还是简单介绍⼀下⼀些⽤到的数据结构，以免有的读者因为语<br>⾔的细节问题阻碍对算法思想的理解：  </p>
 <p>unordered_map 就是哈希表（字典），它的⼀个⽅法 count(key) 相当于 Java 的 containsKey(key)<br>可以判断键 key 是否存在。<br>        可以使⽤⽅括号访问键对应的值 map[key]。需要注意的是，如果该 key 不存在，C++ 会⾃动创建这个<br>key，并把 map[key] 赋值为 0。<br>        所以代码中多次出现的 map[key]++ 相当于 Java 的 map.put(key, map.getOrDefault(key, 0) +1)。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">slidingWindow</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//数组/字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="comment">//双指针，表示当前遍历的区间[left, right]，闭区间</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//定义变量统计 子数组/子区间 是否有效</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//定义变量保存结果</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//右指针遍历到数组尾</span></span><br><span class="line">        <span class="keyword">while</span> (right &lt; n) &#123;</span><br><span class="line">            <span class="comment">//增加当前右指针对应的数值</span></span><br><span class="line">            sum += nums[right];</span><br><span class="line">            <span class="comment">//当在该区间内 sum 超出定义范围</span></span><br><span class="line">            <span class="keyword">while</span> (sum &gt; k) &#123;</span><br><span class="line">                <span class="comment">//移动左指针并调整值</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//到 while 结束时，我们找到了一个符合题意要求的 子数组/子串，更新结果</span></span><br><span class="line">            res = </span><br><span class="line">            <span class="comment">//移动右指针，去探索下一个区间</span></span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：ren-feiye</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/subarray-product-less-than-k/solution/jian-dan-yi-dong-xiang-xi-zhu-jie-shuang-jvy3/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
 <p><strong><u>力扣76——最小覆盖子串</u></strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/sf-1-9.png" alt="sf-1-9"></p>
 <p>这道题我们将代码先贴在下面，然后结合图片观察滑动窗口实现的原理</p>
@@ -2280,7 +2282,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">106k</span>
+    <span title="Site words total count">106.3k</span>
   
 </div>
 
