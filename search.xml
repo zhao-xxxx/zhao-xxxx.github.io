@@ -32,99 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>jc-4-计算机网络</title>
-    <url>/2022/04/25/jc-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jc-5-操作系统</title>
-    <url>/2022/04/25/jc-5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jc-3-多线程</title>
-    <url>/2022/04/25/jc-3-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jc-1-集合</title>
     <url>/2022/04/25/jc-1-%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<p><strong>简介：</strong>本文对集合类的源码进行了初步的学习和消化。</p>
@@ -369,8 +276,235 @@
       </tags>
   </entry>
   <entry>
+    <title>jc-5-操作系统</title>
+    <url>/2022/04/25/jc-5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jc-4-计算机网络</title>
+    <url>/2022/04/25/jc-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jc-6-数据结构</title>
     <url>/2022/04/25/jc-6-%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jc-3-多线程</title>
+    <url>/2022/04/25/jc-3-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-4-Redis</title>
+    <url>/2022/04/25/js-5-Redis/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-3-mybatis</title>
+    <url>/2022/04/25/js-3-mybatis/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-mysql-1</title>
+    <url>/2022/02/05/js-4-mysql/</url>
+    <content><![CDATA[<p><strong>简介：</strong>MySQL的简介和安装</p>
+<span id="more"></span>
+
+<h1 id="一，MySQL介绍"><a href="#一，MySQL介绍" class="headerlink" title="一，MySQL介绍"></a>一，MySQL介绍</h1><p>​     MySQL是一个<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>，由瑞典MySQL AB 公司开发，目前属于 <a href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/Oracle">Oracle</a> 旗下产品。MySQL 是最流行的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>之一，在 WEB 应用方面，MySQL是最好的 <a href="https://baike.baidu.com/item/RDBMS/1048260">RDBMS</a> (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p>   MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+<p>​    MySQL的优点有：1）成本低：开放源代码，一般可免费使用；2）性能高：执行很快；3）简单：容易安装和使用                                                                                                                                                                                                 </p>
+<h1 id="二，Mysql安装（win系统，5-7版本）"><a href="#二，Mysql安装（win系统，5-7版本）" class="headerlink" title="二，Mysql安装（win系统，5.7版本）"></a>二，Mysql安装（win系统，5.7版本）</h1><p><strong>下载地址：</strong></p>
+<p>官网下载(不推荐使用)：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br> 清华镜像站下载(推荐)：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7</a></p>
+<h2 id="1，软件安装版"><a href="#1，软件安装版" class="headerlink" title="1，软件安装版"></a>1，软件安装版</h2><p>软件安装版也就是后缀为.msi的安装包，进行有界面操作的安装，在安装的过程中对相关的属性进行设置，可参考这篇博客：<a href="https://blog.csdn.net/weixin_43790276/article/details/102090540">https://blog.csdn.net/weixin_43790276/article/details/102090540</a></p>
+<h2 id="2，安装包解压版"><a href="#2，安装包解压版" class="headerlink" title="2，安装包解压版"></a>2，安装包解压版</h2><p>使用.zip后缀的安装包进行安装时，需要结合命令行和配置文件进行配置，适合有一定基础的使用，可参考博客：<a href="https://www.jianshu.com/p/ea4accd7afb4%E4%BB%A5%E5%8F%8A%E5%8D%9A%E5%AE%A2%EF%BC%9A">https://www.jianshu.com/p/ea4accd7afb4以及博客：</a></p>
+<p><strong>总结：</strong>上面两种方式各有优点和缺点，选择适合自己的方法进行安装即可。我选择的是.mis安装方式，Windows中的服务名忘了设置，是默认的MySQL57，端口也是3306，用户名和密码都是root（自己学习用就设置简单一点，否则忘了就很麻烦）。最后MySQL的卸载比较麻烦，一定要从软件，安装路径，注册表这三个方面卸载干净。</p>
+<h1 id="三，（补充）关系型数据库"><a href="#三，（补充）关系型数据库" class="headerlink" title="三，（补充）关系型数据库"></a>三，（补充）关系型数据库</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="三，MySQL操作"><a href="#三，MySQL操作" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="三，MySQL操作-1"><a href="#三，MySQL操作-1" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-2"><a href="#1，这是二级标题-2" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-2"><a href="#2，这是二级标题-2" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-6-linux</title>
+    <url>/2022/04/25/js-7-linux/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
@@ -868,78 +1002,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-3-mybatis</title>
-    <url>/2022/04/25/js-3-mybatis/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-mysql-1</title>
-    <url>/2022/02/05/js-4-mysql/</url>
-    <content><![CDATA[<p><strong>简介：</strong>MySQL的简介和安装</p>
-<span id="more"></span>
-
-<h1 id="一，MySQL介绍"><a href="#一，MySQL介绍" class="headerlink" title="一，MySQL介绍"></a>一，MySQL介绍</h1><p>​     MySQL是一个<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>，由瑞典MySQL AB 公司开发，目前属于 <a href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/Oracle">Oracle</a> 旗下产品。MySQL 是最流行的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>之一，在 WEB 应用方面，MySQL是最好的 <a href="https://baike.baidu.com/item/RDBMS/1048260">RDBMS</a> (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
-<p>   MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
-<p>​    MySQL的优点有：1）成本低：开放源代码，一般可免费使用；2）性能高：执行很快；3）简单：容易安装和使用                                                                                                                                                                                                 </p>
-<h1 id="二，Mysql安装（win系统，5-7版本）"><a href="#二，Mysql安装（win系统，5-7版本）" class="headerlink" title="二，Mysql安装（win系统，5.7版本）"></a>二，Mysql安装（win系统，5.7版本）</h1><p><strong>下载地址：</strong></p>
-<p>官网下载(不推荐使用)：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br> 清华镜像站下载(推荐)：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7</a></p>
-<h2 id="1，软件安装版"><a href="#1，软件安装版" class="headerlink" title="1，软件安装版"></a>1，软件安装版</h2><p>软件安装版也就是后缀为.msi的安装包，进行有界面操作的安装，在安装的过程中对相关的属性进行设置，可参考这篇博客：<a href="https://blog.csdn.net/weixin_43790276/article/details/102090540">https://blog.csdn.net/weixin_43790276/article/details/102090540</a></p>
-<h2 id="2，安装包解压版"><a href="#2，安装包解压版" class="headerlink" title="2，安装包解压版"></a>2，安装包解压版</h2><p>使用.zip后缀的安装包进行安装时，需要结合命令行和配置文件进行配置，适合有一定基础的使用，可参考博客：<a href="https://www.jianshu.com/p/ea4accd7afb4%E4%BB%A5%E5%8F%8A%E5%8D%9A%E5%AE%A2%EF%BC%9A">https://www.jianshu.com/p/ea4accd7afb4以及博客：</a></p>
-<p><strong>总结：</strong>上面两种方式各有优点和缺点，选择适合自己的方法进行安装即可。我选择的是.mis安装方式，Windows中的服务名忘了设置，是默认的MySQL57，端口也是3306，用户名和密码都是root（自己学习用就设置简单一点，否则忘了就很麻烦）。最后MySQL的卸载比较麻烦，一定要从软件，安装路径，注册表这三个方面卸载干净。</p>
-<h1 id="三，（补充）关系型数据库"><a href="#三，（补充）关系型数据库" class="headerlink" title="三，（补充）关系型数据库"></a>三，（补充）关系型数据库</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="三，MySQL操作"><a href="#三，MySQL操作" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="三，MySQL操作-1"><a href="#三，MySQL操作-1" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-2"><a href="#1，这是二级标题-2" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-2"><a href="#2，这是二级标题-2" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-5-Dubbo</title>
     <url>/2022/04/25/js-6-Dubbo/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
@@ -949,65 +1011,6 @@
 <h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
 <h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
 <h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-4-Redis</title>
-    <url>/2022/04/25/js-5-Redis/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>xm-2-MyBatis-Plus</title>
-    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
 <h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
 <p>2，<strong>粗体是Ctr+B</strong></p>
 <p>3，<u>下划线是Ctrl+U</u></p>
@@ -1986,15 +1989,79 @@
 <h1 id="八，Spring整合日志框架"><a href="#八，Spring整合日志框架" class="headerlink" title="八，Spring整合日志框架"></a>八，Spring整合日志框架</h1>]]></content>
   </entry>
   <entry>
-    <title>js-6-linux</title>
-    <url>/2022/04/25/js-7-linux/</url>
+    <title>尚融宝项目背景</title>
+    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
+<span id="more"></span>
+
+<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
+<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
+<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
+<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
+<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
+<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
+<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
+<p>Lombok：简化实体类开发</p>
+<p>Swagger2：Api接口文档生成工具</p>
+<p>Logback：日志系统</p>
+<p>alibaba-easyexcel：Excel读写</p>
+<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
+<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
+<p>Spring Task：定时任务</p>
+<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
+<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
+<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
+<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
+<p>阿里云OSS：分布式文件存储</p>
+<p>资金托管平台API对接：汇付宝</p>
+<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
+<p>ES6：JavaScript的模块化版本</p>
+<p>axios：一个发送Ajax请求的工具</p>
+<p>Vue.js：web 界面的渐进式框架</p>
+<p>Element-UI：前端组件库</p>
+<p>模块化开发：解决javascript变量全局空间污染的问题</p>
+<p>NPM：模块资源管理器</p>
+<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
+<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
+<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
+<ul>
+<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
+</li>
+<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
+</li>
+<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
+<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
+</li>
+</ul>
+<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
+<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
+<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
+<p>3，maven</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
+<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
+<p>5，插件：lombok、MyBatisX</p>
+<p>插件安装这里不再赘述</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>xm-2-MyBatis-Plus</title>
+    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
 <h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
 <p>2，<strong>粗体是Ctr+B</strong></p>
 <p>3，<u>下划线是Ctrl+U</u></p>
@@ -2084,73 +2151,6 @@
       <tags>
         <tag>xxx</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>尚融宝项目背景</title>
-    <url>/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<p>**简介：尚融宝是尚硅谷培训机构的一个中等规模的项目，实现了一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。是学习微服务一个不错的项目。</p>
-<span id="more"></span>
-
-<h1 id="一，项目简介"><a href="#一，项目简介" class="headerlink" title="一，项目简介"></a>一，项目简介</h1><h2 id="1，项目的业务流程"><a href="#1，项目的业务流程" class="headerlink" title="1，项目的业务流程"></a>1，项目的业务流程</h2><p>业务流程如下图，从业务流程图可以看出，每个步骤必须有一个开始和结束，中间没有特别复杂的分支，设计业务的时候就应该像这样清晰简洁。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-1.png" alt="xm-1-1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-2.png" alt="xm-1-2"></p>
-<h2 id="2，项目的架构图"><a href="#2，项目的架构图" class="headerlink" title="2，项目的架构图"></a>2，项目的架构图</h2><p>从架构图可以看出，不同服务之间的前端，网关，配置，数据库都可能会不一样，并且在发布时使用了Doker技术</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-3.png" alt="xm-1-3"></p>
-<h1 id="二，技术栈（注意版本）"><a href="#二，技术栈（注意版本）" class="headerlink" title="二，技术栈（注意版本）"></a>二，技术栈（注意版本）</h1><p>首先基础的部分需要掌握：java基础、HTML、CSS、JavaScript、Spring、SpringMVC、MyBatis、SpringBoot、SpringCloud Alibaba，MySQL（5.7及以上）、Redis、RabbitMQ、nginx、idea、maven、VMWare 虚拟机、CentOS 操作系统</p>
-<h2 id="1，后端"><a href="#1，后端" class="headerlink" title="1，后端"></a>1，后端</h2><p><strong>SpringBoot 2.3.4.RELEASE</strong></p>
-<p><strong>SpringCloud Hoxton.SR8：</strong>微服务基础设施 - 服务注册、服务发现、服务熔断、微服务网关、配置中心等</p>
-<p>SpringCloud Alibaba 2.2.2.RELEASE</p>
-<p><strong>MyBatis Plus：持久层框架和代码生成器</strong></p>
-<p>Lombok：简化实体类开发</p>
-<p>Swagger2：Api接口文档生成工具</p>
-<p>Logback：日志系统</p>
-<p>alibaba-easyexcel：Excel读写</p>
-<p><strong>Spring Data Redis：Spring项目中访问Redis缓存</strong></p>
-<p>HTTPClient: 基于Http协议的客户端，用来实现远程调用</p>
-<p>Spring Task：定时任务</p>
-<h2 id="2，数据库和中间件"><a href="#2，数据库和中间件" class="headerlink" title="2，数据库和中间件"></a>2，数据库和中间件</h2><p><strong>MySQL 5.7：关系型数据库   管理工具：Navicat</strong></p>
-<p><strong>Redis 5.0：缓存技术   管理工具：RedisDesktopManager</strong></p>
-<p><strong>RabbitMQ 3.8：消息中间件</strong></p>
-<h2 id="3，三方接口"><a href="#3，三方接口" class="headerlink" title="3，三方接口"></a>3，三方接口</h2><p>阿里云短信：短信网关</p>
-<p>阿里云OSS：分布式文件存储</p>
-<p>资金托管平台API对接：汇付宝</p>
-<h2 id="4，了解即可"><a href="#4，了解即可" class="headerlink" title="4，了解即可"></a>4，了解即可</h2><p>Node.js： JavaScript 运行环境</p>
-<p>ES6：JavaScript的模块化版本</p>
-<p>axios：一个发送Ajax请求的工具</p>
-<p>Vue.js：web 界面的渐进式框架</p>
-<p>Element-UI：前端组件库</p>
-<p>模块化开发：解决javascript变量全局空间污染的问题</p>
-<p>NPM：模块资源管理器</p>
-<p>vue-element-admin：基于Vue.js的后台管理系统UI集成方案</p>
-<p>NuxtJS：基于Vue.js构建的服务器端渲染应用的轻量级框架</p>
-<h1 id="三，开发环境"><a href="#三，开发环境" class="headerlink" title="三，开发环境"></a>三，开发环境</h1><h2 id="1，开发环境检测"><a href="#1，开发环境检测" class="headerlink" title="1，开发环境检测"></a>1，开发环境检测</h2><p>在开始开发之前，需要确定基本的环境是否和开发要求的一致，在本项目中，要检查以下几个方面：</p>
-<ul>
-<li><p>jdk 1.8 配置：JAVA_HOME，path</p>
-</li>
-<li><p>maven 3.6 配置：MAVEN_HOME，本地仓库</p>
-</li>
-<li><p>ideaIU-2020.2.3，尽量在欢迎页面进行设置，这样对所有项目都是普遍有效的，当然给特定项目设置也是可以的，这里注意通过File–&gt;close project来到欢迎界面，如果不想每次打开idea都进入已有的项目（特别是大的项目，加载就得好一会），可以通过在Setting-&gt;System Settings取消勾选Reopen last project on open（如下图）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-4.png" alt="xm-1-4"></p>
-<p><em>注意：在idea的欢迎页面选择Configure &gt; settings</em>（比较新的版本似乎取消了右下角的Configure，比如我的idea 2021，要设置的话可以参考下图）。 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-5.png" alt="xm-1-5"></p>
-</li>
-</ul>
-<p>接着就是在开始一个项目时，一些基础的配置，<em>包括配置：Java Compiler、File Encodings、Maven、Auto Import、Code Completion &gt; Match case（取消）</em>  <em>插件：lombok、MyBatisX</em></p>
-<p>1，Java Compiler。需要在Setting中（搜索Java Compiler），设置编译器为javac，版本为自己安装的版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-6.png" alt="xm-1-6"></p>
-<p>2，File Encodings。同上，如图，需要设置三个地方的编码方式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-7.png" alt="xm-1-7"></p>
-<p>3，maven</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-8.png" alt="xm-1-8"></p>
-<p>4，Auto Import、Code Completion &gt; Match case（取消) 插件：lombok、MyBatisX</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-9.png" alt="xm-1-9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/xm-1-10.png" alt="xm-1-10"></p>
-<p>5，插件：lombok、MyBatisX</p>
-<p>插件安装这里不再赘述</p>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
   </entry>
   <entry>
     <title>labuladong算法秘籍阅读笔记</title>
