@@ -32,8 +32,8 @@
       </tags>
   </entry>
   <entry>
-    <title>jc-4-计算机网络</title>
-    <url>/2022/04/25/jc-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <title>jc-3-多线程</title>
+    <url>/2022/04/25/jc-3-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
@@ -63,8 +63,8 @@
       </tags>
   </entry>
   <entry>
-    <title>jc-3-多线程</title>
-    <url>/2022/04/25/jc-3-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/</url>
+    <title>jc-4-计算机网络</title>
+    <url>/2022/04/25/jc-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
@@ -397,47 +397,6 @@
       </categories>
       <tags>
         <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-mysql-1</title>
-    <url>/2022/02/05/js-4-mysql/</url>
-    <content><![CDATA[<p><strong>简介：</strong>MySQL的简介和安装</p>
-<span id="more"></span>
-
-<h1 id="一，MySQL介绍"><a href="#一，MySQL介绍" class="headerlink" title="一，MySQL介绍"></a>一，MySQL介绍</h1><p>​     MySQL是一个<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>，由瑞典MySQL AB 公司开发，目前属于 <a href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/Oracle">Oracle</a> 旗下产品。MySQL 是最流行的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>之一，在 WEB 应用方面，MySQL是最好的 <a href="https://baike.baidu.com/item/RDBMS/1048260">RDBMS</a> (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
-<p>   MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
-<p>​    MySQL的优点有：1）成本低：开放源代码，一般可免费使用；2）性能高：执行很快；3）简单：容易安装和使用                                                                                                                                                                                                 </p>
-<h1 id="二，Mysql安装（win系统，5-7版本）"><a href="#二，Mysql安装（win系统，5-7版本）" class="headerlink" title="二，Mysql安装（win系统，5.7版本）"></a>二，Mysql安装（win系统，5.7版本）</h1><p><strong>下载地址：</strong></p>
-<p>官网下载(不推荐使用)：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br> 清华镜像站下载(推荐)：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7</a></p>
-<h2 id="1，软件安装版"><a href="#1，软件安装版" class="headerlink" title="1，软件安装版"></a>1，软件安装版</h2><p>软件安装版也就是后缀为.msi的安装包，进行有界面操作的安装，在安装的过程中对相关的属性进行设置，可参考这篇博客：<a href="https://blog.csdn.net/weixin_43790276/article/details/102090540">https://blog.csdn.net/weixin_43790276/article/details/102090540</a></p>
-<h2 id="2，安装包解压版"><a href="#2，安装包解压版" class="headerlink" title="2，安装包解压版"></a>2，安装包解压版</h2><p>使用.zip后缀的安装包进行安装时，需要结合命令行和配置文件进行配置，适合有一定基础的使用，可参考博客：<a href="https://www.jianshu.com/p/ea4accd7afb4%E4%BB%A5%E5%8F%8A%E5%8D%9A%E5%AE%A2%EF%BC%9A">https://www.jianshu.com/p/ea4accd7afb4以及博客：</a></p>
-<p><strong>总结：</strong>上面两种方式各有优点和缺点，选择适合自己的方法进行安装即可。我选择的是.mis安装方式，Windows中的服务名忘了设置，是默认的MySQL57，端口也是3306，用户名和密码都是root（自己学习用就设置简单一点，否则忘了就很麻烦）。最后MySQL的卸载比较麻烦，一定要从软件，安装路径，注册表这三个方面卸载干净。</p>
-<h1 id="三，（补充）关系型数据库"><a href="#三，（补充）关系型数据库" class="headerlink" title="三，（补充）关系型数据库"></a>三，（补充）关系型数据库</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="三，MySQL操作"><a href="#三，MySQL操作" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="三，MySQL操作-1"><a href="#三，MySQL操作-1" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-2"><a href="#1，这是二级标题-2" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-2"><a href="#2，这是二级标题-2" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -909,6 +868,109 @@
       </tags>
   </entry>
   <entry>
+    <title>js-3-mybatis</title>
+    <url>/2022/04/25/js-3-mybatis/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-mysql-1</title>
+    <url>/2022/02/05/js-4-mysql/</url>
+    <content><![CDATA[<p><strong>简介：</strong>MySQL的简介和安装</p>
+<span id="more"></span>
+
+<h1 id="一，MySQL介绍"><a href="#一，MySQL介绍" class="headerlink" title="一，MySQL介绍"></a>一，MySQL介绍</h1><p>​     MySQL是一个<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>，由瑞典MySQL AB 公司开发，目前属于 <a href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/Oracle">Oracle</a> 旗下产品。MySQL 是最流行的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11032386?fromtitle=%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&fromid=696511">关系型数据库管理系统</a>之一，在 WEB 应用方面，MySQL是最好的 <a href="https://baike.baidu.com/item/RDBMS/1048260">RDBMS</a> (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p>   MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+<p>​    MySQL的优点有：1）成本低：开放源代码，一般可免费使用；2）性能高：执行很快；3）简单：容易安装和使用                                                                                                                                                                                                 </p>
+<h1 id="二，Mysql安装（win系统，5-7版本）"><a href="#二，Mysql安装（win系统，5-7版本）" class="headerlink" title="二，Mysql安装（win系统，5.7版本）"></a>二，Mysql安装（win系统，5.7版本）</h1><p><strong>下载地址：</strong></p>
+<p>官网下载(不推荐使用)：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br> 清华镜像站下载(推荐)：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.7</a></p>
+<h2 id="1，软件安装版"><a href="#1，软件安装版" class="headerlink" title="1，软件安装版"></a>1，软件安装版</h2><p>软件安装版也就是后缀为.msi的安装包，进行有界面操作的安装，在安装的过程中对相关的属性进行设置，可参考这篇博客：<a href="https://blog.csdn.net/weixin_43790276/article/details/102090540">https://blog.csdn.net/weixin_43790276/article/details/102090540</a></p>
+<h2 id="2，安装包解压版"><a href="#2，安装包解压版" class="headerlink" title="2，安装包解压版"></a>2，安装包解压版</h2><p>使用.zip后缀的安装包进行安装时，需要结合命令行和配置文件进行配置，适合有一定基础的使用，可参考博客：<a href="https://www.jianshu.com/p/ea4accd7afb4%E4%BB%A5%E5%8F%8A%E5%8D%9A%E5%AE%A2%EF%BC%9A">https://www.jianshu.com/p/ea4accd7afb4以及博客：</a></p>
+<p><strong>总结：</strong>上面两种方式各有优点和缺点，选择适合自己的方法进行安装即可。我选择的是.mis安装方式，Windows中的服务名忘了设置，是默认的MySQL57，端口也是3306，用户名和密码都是root（自己学习用就设置简单一点，否则忘了就很麻烦）。最后MySQL的卸载比较麻烦，一定要从软件，安装路径，注册表这三个方面卸载干净。</p>
+<h1 id="三，（补充）关系型数据库"><a href="#三，（补充）关系型数据库" class="headerlink" title="三，（补充）关系型数据库"></a>三，（补充）关系型数据库</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="三，MySQL操作"><a href="#三，MySQL操作" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="三，MySQL操作-1"><a href="#三，MySQL操作-1" class="headerlink" title="三，MySQL操作"></a>三，MySQL操作</h1><h2 id="1，这是二级标题-2"><a href="#1，这是二级标题-2" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-4"><a href="#（1），这是三级标题-4" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-2"><a href="#2，这是二级标题-2" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-5"><a href="#（1），这是三级标题-5" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-4-Redis</title>
+    <url>/2022/04/25/js-5-Redis/</url>
+    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+<span id="more"></span>
+
+<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
+<p>2，<strong>粗体是Ctr+B</strong></p>
+<p>3，<u>下划线是Ctrl+U</u></p>
+<p>4，<del>删除线是Alt+Shift+5</del></p>
+<blockquote>
+<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
+</blockquote>
+<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
+<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
+<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+]]></content>
+      <categories>
+        <category>xxx</category>
+      </categories>
+      <tags>
+        <tag>xxx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js-5-Dubbo</title>
     <url>/2022/04/25/js-6-Dubbo/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
@@ -940,8 +1002,8 @@
       </tags>
   </entry>
   <entry>
-    <title>js-3-mybatis</title>
-    <url>/2022/04/25/js-3-mybatis/</url>
+    <title>js-6-linux</title>
+    <url>/2022/04/25/js-7-linux/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
@@ -1036,37 +1098,6 @@
       <categories>
         <category>项目</category>
       </categories>
-  </entry>
-  <entry>
-    <title>js-4-Redis</title>
-    <url>/2022/04/25/js-5-Redis/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
   </entry>
   <entry>
     <title></title>
@@ -2025,15 +2056,12 @@
 <h1 id="八，Spring整合日志框架"><a href="#八，Spring整合日志框架" class="headerlink" title="八，Spring整合日志框架"></a>八，Spring整合日志框架</h1>]]></content>
   </entry>
   <entry>
-    <title>js-6-linux</title>
-    <url>/2022/04/25/js-7-linux/</url>
+    <title>xm-2-MyBatis-Plus</title>
+    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
     <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
 <span id="more"></span>
 
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
+<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
 <h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
 <p>2，<strong>粗体是Ctr+B</strong></p>
 <p>3，<u>下划线是Ctrl+U</u></p>
@@ -2116,34 +2144,6 @@
 <p>A，在core中添加Logback-spring.xml配置文件，这是一个可以被自动加载的名称，注意其中的内容，了解即可</p>
 <p><strong>考点</strong>：Spring加载这个配置文件的过程</p>
 <h1 id="二，管理平台前端搭建"><a href="#二，管理平台前端搭建" class="headerlink" title="二，管理平台前端搭建"></a>二，管理平台前端搭建</h1><p>前端这里没记笔记，主要是看培训的记录点</p>
-]]></content>
-      <categories>
-        <category>xxx</category>
-      </categories>
-      <tags>
-        <tag>xxx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>xm-2-MyBatis-Plus</title>
-    <url>/2022/02/06/xm-2-MyBatis-Plus/</url>
-    <content><![CDATA[<p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
-<span id="more"></span>
-
-<h1 id="一，基础知识之字词积累"><a href="#一，基础知识之字词积累" class="headerlink" title="一，基础知识之字词积累"></a>一，基础知识之字词积累</h1><h2 id="1，《斑比出生了》"><a href="#1，《斑比出生了》" class="headerlink" title="1，《斑比出生了》"></a>1，《斑比出生了》</h2><h3 id="（1），几种类型的词语"><a href="#（1），几种类型的词语" class="headerlink" title="（1），几种类型的词语"></a>（1），几种类型的词语</h3><h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
 ]]></content>
       <categories>
         <category>xxx</category>
