@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="xxx," />
+  <meta name="keywords" content="Java基础知识," />
 
 
 
@@ -79,18 +79,25 @@
 
 
 
-<meta name="description" content="简介：该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。">
+<meta name="description" content="简介：虚拟机部分关键知识点学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jc-2-虚拟机">
 <meta property="og:url" content="https://www.noteofzhao.xyz/2022/04/25/jc-2-%E8%99%9A%E6%8B%9F%E6%9C%BA/index.html">
 <meta property="og:site_name" content="zhao-space">
-<meta property="og:description" content="简介：该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。">
+<meta property="og:description" content="简介：虚拟机部分关键知识点学习">
 <meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705215546471.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705220612451.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706114724866.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706162417323.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706163501975.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706170614495.png">
 <meta property="article:published_time" content="2022-04-25T11:14:44.000Z">
-<meta property="article:modified_time" content="2022-04-25T11:14:44.830Z">
+<meta property="article:modified_time" content="2022-07-06T09:12:07.621Z">
 <meta property="article:author" content="George Zhao">
-<meta property="article:tag" content="xxx">
+<meta property="article:tag" content="Java基础知识">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705215546471.png">
 
 
 
@@ -359,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/xxx/" itemprop="url" rel="index">
-                    <span itemprop="name">xxx</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -395,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  272
+                  3.1k
                 </span>
               
 
@@ -411,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  11
                 </span>
               
             </div>
@@ -432,26 +439,129 @@
       
 
       
-        <p><strong>简介：</strong>该文章目标是：xxx，这里主要有x部分内容：1，xxx；2，xxx；3，xxx。</p>
+        <p><strong>简介：</strong>虚拟机部分关键知识点学习</p>
 <span id="more"></span>
 
-<h1 id="一，这是一级标题"><a href="#一，这是一级标题" class="headerlink" title="一，这是一级标题"></a>一，这是一级标题</h1><h2 id="1，这是二级标题"><a href="#1，这是二级标题" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题"><a href="#（1），这是三级标题" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题"><a href="#2，这是二级标题" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-1"><a href="#（1），这是三级标题-1" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h1 id="二，这是一级标题"><a href="#二，这是一级标题" class="headerlink" title="二，这是一级标题"></a>二，这是一级标题</h1><h2 id="1，这是二级标题-1"><a href="#1，这是二级标题-1" class="headerlink" title="1，这是二级标题"></a>1，这是二级标题</h2><h3 id="（1），这是三级标题-2"><a href="#（1），这是三级标题-2" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="2，这是二级标题-1"><a href="#2，这是二级标题-1" class="headerlink" title="2，这是二级标题"></a>2，这是二级标题</h2><h3 id="（1），这是三级标题-3"><a href="#（1），这是三级标题-3" class="headerlink" title="（1），这是三级标题"></a>（1），这是三级标题</h3><p>内容</p>
-<h2 id="3，一些快捷键"><a href="#3，一些快捷键" class="headerlink" title="3，一些快捷键"></a>3，一些快捷键</h2><p>1，<em>斜体是Ctrl+I</em></p>
-<p>2，<strong>粗体是Ctr+B</strong></p>
-<p>3，<u>下划线是Ctrl+U</u></p>
-<p>4，<del>删除线是Alt+Shift+5</del></p>
-<blockquote>
-<p>5，文字引用是Ctrl+Shift+Q（主要功能是引用一些特定的内容）</p>
-</blockquote>
-<p>6，在某一行添加代码，使用<code>int a = 2;</code>，快捷键是Ctrl+Shift+&#96;</p>
-<p>7,添加多行代码，比如下面，快捷键是Ctrl+Shift+K</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">System.out.println(a);</span><br></pre></td></tr></table></figure>
+<h1 id="一，认识JVM"><a href="#一，认识JVM" class="headerlink" title="一，认识JVM"></a>一，认识JVM</h1><h2 id="1，JVM是什么？有什么好处？"><a href="#1，JVM是什么？有什么好处？" class="headerlink" title="1，JVM是什么？有什么好处？"></a>1，JVM是什么？有什么好处？</h2><p>*一次编译，到处运行</p>
+<p>*数组越界检查</p>
+<p>*管理内存</p>
+<h2 id="2，常见的JVM"><a href="#2，常见的JVM" class="headerlink" title="2，常见的JVM"></a>2，常见的JVM</h2><p>hotspot</p>
+<p>按照规范自定义虚拟机</p>
+<h2 id="3，学习路线"><a href="#3，学习路线" class="headerlink" title="3，学习路线"></a>3，学习路线</h2><p>JVM内存结构</p>
+<p>GC垃圾回收机制</p>
+<p>java文件编译优化</p>
+<p>类加载的过程</p>
+<p>运行的优化</p>
+<h1 id="二，内存结构"><a href="#二，内存结构" class="headerlink" title="二，内存结构"></a>二，内存结构</h1><h2 id="1，程序计数器"><a href="#1，程序计数器" class="headerlink" title="1，程序计数器"></a>1，程序计数器</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的<strong>行号指示器</strong></p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用:"></a>作用:</h3><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705215546471.png" alt="image-20220705215546471" style="zoom: 50%;" />
 
-<p>8，添加数学公式，快捷键是Ctrl+Shift+M，<br>$$<br>y &#x3D;x ^ 2<br>$$<br>9，添加超链接的快捷键是Ctrl+K，<a href="www.baidu.com">百度一下</a></p>
-<p>10，图片的命名格式：文章标题缩写+数字（比如，单体模式，其中的第一张图为：dtms-1）</p>
+<p>记住下一条JVM指令的执行地址</p>
+<h3 id="考点："><a href="#考点：" class="headerlink" title="考点："></a>考点：</h3><ul>
+<li><strong>PC寄存器为什么会被设定为线程私有的？</strong></li>
+</ul>
+<p>多线程在一个特定的时间段内只会执行其中某一个线程方法，CPU会不停的做任务切换，这样必然会导致经常中断或恢复。为了能够准确的记录各个线程正在执行的当前字节码指令地址，所以为每个线程都分配了一个PC寄存器，每个线程都独立计算，不会互相影响。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>它是一块很小的内存空间，几乎可以忽略不计。也是运行速度最快的存储区域</p>
+<p>在 JVM 规范中，每个线程都有它自己的程序计数器，是线程私有的，生命周期与线程的生命周期一致</p>
+<p><strong>它是唯一一个在 JVM 规范中没有规定任何 <code>OutOfMemoryError</code> 情况的区域</strong></p>
+<h2 id="2，虚拟机栈"><a href="#2，虚拟机栈" class="headerlink" title="2，虚拟机栈"></a>2，虚拟机栈</h2><h3 id="定义：-1"><a href="#定义：-1" class="headerlink" title="定义："></a>定义：</h3><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705220612451.png" alt="image-20220705220612451" style="zoom: 50%;" />
+
+<p>每个线程在创建的时候都会创建一个虚拟机栈，其内部保存一个个的栈帧(Stack Frame），对应着一次次 Java 方法调用（包括方法的参数，局部变量，返回地址），是线程私有的，生命周期和线程一致。</p>
+<blockquote>
+<p>1，垃圾不涉及栈内存</p>
+<p>2，栈内存越大并不是越好，会导致并发的线程变少</p>
+<p>3，方法内的局部变量，如果没有逃离方法的作用范围，则是线程安全的；如果局部变量引用了对象，并逃离了方法的作用范围，则是线程不安全的</p>
+</blockquote>
+<h3 id="栈运行原理："><a href="#栈运行原理：" class="headerlink" title="栈运行原理："></a>栈运行原理：</h3><p>1，JVM 直接对 Java 栈的操作只有两个，对栈帧的<strong>压栈</strong>和<strong>出栈</strong>，遵循“先进后出&#x2F;后进先出”原则</p>
+<p>2，在一条活动线程中，一个时间点上，只会有一个活动的栈帧。即只有当前正在执行的方法的栈帧（<strong>栈顶栈帧</strong>）是有效的，这个栈帧被称为<strong>当前栈帧</strong>（Current Frame），与当前栈帧对应的方法就是<strong>当前方法</strong>（Current Method），定义这个方法的类就是<strong>当前类</strong>（Current Class）</p>
+<p>3，如果在,当前方法中调用了其他方法，对应的新的栈帧会被创建出来，放在栈的顶端，称为新的当前栈帧（不同线程中所包含的栈帧是不允许存在相互引用的，即不可能在一个栈帧中引用另外一个线程的栈帧）</p>
+<p>4，如果当前方法调用了其他方法，方法返回之际，当前栈帧会传回此方法的执行结果给前一个栈帧，接着，虚拟机会丢弃当前栈帧，使得前一个栈帧重新成为当前栈帧</p>
+<p>5，Java 方法有两种返回函数的方式，<strong>一种是正常的函数返回，使用 return 指令，另一种是抛出异常，不管用哪种方式，都会导致栈帧被弹出</strong></p>
+<h3 id="栈内存溢出："><a href="#栈内存溢出：" class="headerlink" title="栈内存溢出："></a>栈内存溢出：</h3><p>1，递归调用，不断有新的栈帧</p>
+<p>2，栈帧设置过大，也容易栈内存溢出</p>
+<h3 id="栈帧的结构：（扩展）"><a href="#栈帧的结构：（扩展）" class="headerlink" title="栈帧的结构：（扩展）"></a>栈帧的结构：（扩展）</h3><h2 id="3，本地方法栈"><a href="#3，本地方法栈" class="headerlink" title="3，本地方法栈"></a>3，本地方法栈</h2><ul>
+<li><p>Java 虚拟机栈用于管理 Java 方法的调用，而本地方法栈用于管理本地方法的调用，给本地方法的运行提供</p>
+</li>
+<li><p>本地方法栈也是线程私有的</p>
+</li>
+<li><p>在 Hotspot JVM 中，直接将本地方法栈和虚拟机栈合二为一</p>
+</li>
+</ul>
+<blockquote>
+<p>栈是运行时的单位，而堆是存储的单位。</p>
+<p>栈解决程序的运行问题，即程序如何执行，或者说如何处理数据。堆解决的是数据存储的问题，即数据怎么放、放在哪。</p>
+</blockquote>
+<h2 id="4，堆"><a href="#4，堆" class="headerlink" title="4，堆"></a>4，堆</h2><h3 id="定义：-2"><a href="#定义：-2" class="headerlink" title="定义："></a>定义：</h3><p>通过new关键字创建的对象都会使用堆内存。（是线程共享的，需要考虑线程安全；有垃圾回收机制）</p>
+<p>堆内存逻辑上划分为三个区域：</p>
+<ul>
+<li>新生代（年轻代）：新对象和没达到一定年龄的对象</li>
+<li>老年代（养老区）：被长时间使用的对象，内存空间比新生代大</li>
+<li>元空间（jdk1.8之前叫永久代）：一些方法中的操作临时对象等，JDK1.8 之前是占用 JVM 内存，JDK1.8 之后直接使用物理内存</li>
+</ul>
+<h3 id="分区："><a href="#分区：" class="headerlink" title="分区："></a>分区：</h3><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706114724866.png" alt="image-20220706114724866"></p>
+<p><strong>（1）年轻代：</strong>年轻代被分为三个区域，伊甸园（Eden Memory）和两个幸存区（Survivor Memory，被称为from&#x2F;to或s0&#x2F;s1），默认比例是8:1:1</p>
+<blockquote>
+<p>大多数新创建对象都位于Eden内存空间中。Eden被填满时，执行Minor GC，将所有的幸存对象移到某个SM中；过段时间Minor GC还会检查并再次移动幸存对象到另一个SM中，多次GC后存活下来的对象进入老年代</p>
+</blockquote>
+<p><strong>（2）老年代</strong>：旧的一代内存包含那些经过许多轮小型 GC 后仍然存活的对象。通常，垃圾收集是在老年代内存满时执行的。老年代垃圾收集称为 主GC（Major GC），通常需要更长的时间。 </p>
+<blockquote>
+<p>大对象直接进入老年代（大对象是指需要大量连续内存空间的对象）。这样做的目的是避免在 Eden 区和两个Survivor 区之间发生大量的内存拷贝</p>
+</blockquote>
+<p><strong>（3）元空间</strong>：不管是 JDK8 之前的永久代，还是 JDK8 及以后的元空间，都可以看作是 Java 虚拟机规范中方法区的实现。 虽然 Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫 Non-Heap（非堆），目的应该是与 Java 堆区分开。</p>
+<h3 id="堆的设置："><a href="#堆的设置：" class="headerlink" title="堆的设置："></a>堆的设置：</h3><p>（1）参数：</p>
+<ul>
+<li><p><code>-Xms</code> 用来表示堆的起始内存，等价于 <code>-XX:InitialHeapSize</code>（默认初始堆内存大小为：电脑内存大小&#x2F;64）</p>
+</li>
+<li><p><code>-Xmx</code> 用来表示堆的最大内存，等价于 <code>-XX:MaxHeapSize</code>（默认最大堆内存大小为：电脑内存大小&#x2F;4）</p>
+</li>
+</ul>
+<p>（2）堆内存分配</p>
+<p>默认情况下新生代和老年代的比例是 1:2，可以通过 <code>–XX:NewRatio</code> 来配置（新生代中的 <strong>Eden</strong>:<strong>From Survivor</strong>:<strong>To Survivor</strong> 的比例是 <strong>8:1:1</strong>，可以通过 <code>-XX:SurvivorRatio</code> 来配置）</p>
+<p>（3）对象在堆中的生命周期</p>
+<p>3.1 在 JVM 内存模型的堆中，堆被划分为新生代和老年代</p>
+<ul>
+<li>新生代又被进一步划分为 <strong>Eden区</strong> 和 <strong>Survivor区</strong>，Survivor 区由 <strong>From Survivor</strong> 和 <strong>To Survivor</strong> 组成</li>
+</ul>
+<p>3.2 当创建一个对象时，对象会被优先分配到新生代的 Eden 区</p>
+<ul>
+<li>此时 JVM 会给对象定义一个<strong>对象年轻计数器</strong>（<code>-XX:MaxTenuringThreshold</code>）</li>
+</ul>
+<p>3.3 当 Eden 空间不足时，JVM 将执行新生代的垃圾回收（Minor GC）</p>
+<ul>
+<li>JVM 会把存活的对象转移到 Survivor 中，并且对象年龄 +1</li>
+<li>对象在 Survivor 中同样也会经历 Minor GC，每经历一次 Minor GC，对象年龄都会+1</li>
+</ul>
+<p>3.4 如果分配的对象超过了<code>-XX:PetenureSizeThreshold</code>，对象会<strong>直接被分配到老年代</strong></p>
+<p>（4）对象的创建和分配过程</p>
+<p>4.1 new的对象先放在新生代的eden区，当eden区被填满时，则用minor GC进行垃圾回收，销毁没有用的对象，将幸存的对象放进Survivor 1区，然后再放new的对象</p>
+<p>4.2 如果再次触发垃圾回收，此时上次幸存下来的放到Survivor 0 区，如果没有回收，就会放到Survivor  1 区<br>；接着如果再次经历垃圾回收，此时会重新放回Survivor 0 区，接着再去Survivor 1 区</p>
+<p>4.3 默认是 15 次回收标记 在养老区，相对悠闲。当养老区内存不足时，再次触发 Major GC，进行养老区的内存清理 若养老区执行了 Major GC  之后发现依然无法进行对象的保存，就会产生 OOM 异常</p>
+<p>（5）TLAB（Thread Local Allocation Buffer）</p>
+<p>从内存模型而不是垃圾回收的角度，对 Eden 区域继续进行划分，JVM 为每个线程分配了一个私有缓存区域，它包含在 Eden 空间内 多线程同时分配内存时，</p>
+<p>使用 TLAB 可以避免一系列的非线程安全问题，同时还能提升内存分配的吞吐量，因此我们可以将这种内存分配方式称为快速分配策略</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706162417323.png" alt="image-20220706162417323"></p>
+<p>（6）堆是分配对象存储的唯一选择吗（逃逸分析）</p>
+<h2 id="5，方法区"><a href="#5，方法区" class="headerlink" title="5，方法区"></a>5，方法区</h2><h3 id="定义：-3"><a href="#定义：-3" class="headerlink" title="定义："></a>定义：</h3><p>虽然 Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫 Non-Heap（非堆），目的应该是与 Java 堆区分开。不管是 JDK8 之前的永久代，还是 JDK8 及以后的元空间，都可以看作是 Java 虚拟机规范中方法区的实现</p>
+<h3 id="辨析（方法区，永久代，元数据区）："><a href="#辨析（方法区，永久代，元数据区）：" class="headerlink" title="辨析（方法区，永久代，元数据区）："></a>辨析（方法区，永久代，元数据区）：</h3><p><strong>方法区（method area）</strong>只是 JVM 规范中定义的一个概念，用于存储类信息、常量池、静态变量、JIT编译后的代码等数据，并没有规定如何去实现它，不同的厂商有不同的实现。而<strong>永久代（PermGen）</strong>是 Hotspot虚拟机特有的概念， Java8 的时候又被元空间取代了，<strong>永久代和元空间都可以理解为方法区的落地实现。</strong></p>
+<p><strong>永久代</strong>物理上是堆的一部分，和新生代，老年代地址是连续的（受垃圾回收器管理），而<strong>元空间</strong>存在于本地内存（我们常说的堆外内存，不受垃圾回收器管理），这样就不受 JVM 限制了，也比较难发生OOM（都会有溢出异常）</p>
+<p>永久代和元空间存储内容不同，元空间存储类的元信息，静态变量和常量池等并入堆中。相当于永久代的数据被分到了堆和元空间中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706163501975.png" alt="image-20220706163501975"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706170614495.png" alt="image-20220706170614495"></p>
+<h3 id="方法区大小："><a href="#方法区大小：" class="headerlink" title="方法区大小："></a>方法区大小：</h3><p>补充</p>
+<h3 id="内部结构："><a href="#内部结构：" class="headerlink" title="内部结构："></a>内部结构：</h3><p>方法区用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等</p>
+<p>（1）类型信息</p>
+<p>对每个加载的类型（类 class、接口 interface、枚举 enum、注解 annotation），JVM 必须在方法区中存储以下类型信息：全类名+父类全类名（有的话）+访问修饰符+直接接口列表</p>
+<p>（2）域信息</p>
+<p>域的相关信息包括：域名称、域类型、域修饰符（public、private、protected、static、final、volatile、transient 的某个子集）</p>
+<p>（3）方法</p>
+<p>方法名称，返回类型，参数，修饰符，字符码，异常表</p>
+<h3 id="运行时常量池："><a href="#运行时常量池：" class="headerlink" title="运行时常量池："></a>运行时常量池：</h3><p>运行时常量池（Runtime Constant Pool）是方法区的一部分，首先我们需要理解常量池</p>
+<p>（1）常量池：</p>
+<p>一个 Java 源文件中的类、接口，编译后产生一个字节码文件。而 Java 中的字节码需要数据支持，通常这种数据会很大以至于不能直接存到字节码里，换另一种方式，可以存到常量池，这个字节码包含了指向常量池的引用。在动态链接的时候用到的就是运行时常量池。</p>
+<p>（2）运行时常量池：</p>
+<p>在加载了类和结构到虚拟机后，就会创建运行时常量池。</p>
+<p>每个已加载的类型（类或接口）都维护一个常量池。池中的数据项像数组项一样，是通过索引访问的。</p>
+<p>运行时常量池中包含各种不同的常量，包括编译器就已经明确的数值字面量，也包括到运行期解析后才能够获得的方法或字段引用。此时不再是常量池中的符号地址了，这里换为真实地址</p>
+<p>当创建类或接口的运行时常量池时，如果构造运行时常量池所需的内存空间超过了方法区所能提供的最大值，则 JVM 会抛出 OutOfMemoryError 异常。</p>
 
       
     </div>
@@ -472,7 +582,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/xxx/" rel="tag"><i class="fa fa-tag"></i> xxx</a>
+            <a href="/tags/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> Java基础知识</a>
           
         </div>
       
@@ -604,7 +714,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -617,7 +727,7 @@
                  
 					<a href="/tags/index.html">
 					 
-					<span class="site-state-item-count">3</span>
+					<span class="site-state-item-count">4</span>
 					<span class="site-state-item-name">标签</span>
 				</a>
             
@@ -700,7 +810,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">一，这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">1，这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">（1），这是三级标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">2，这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">（1），这是三级标题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">二，这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98-1"><span class="nav-number">2.1.</span> <span class="nav-text">1，这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98-2"><span class="nav-number">2.1.1.</span> <span class="nav-text">（1），这是三级标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98-1"><span class="nav-number">2.2.</span> <span class="nav-text">2，这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98-3"><span class="nav-number">2.2.1.</span> <span class="nav-text">（1），这是三级标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">2.3.</span> <span class="nav-text">3，一些快捷键</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%AE%A4%E8%AF%86JVM"><span class="nav-number">1.</span> <span class="nav-text">一，认识JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CJVM%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1，JVM是什么？有什么好处？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84JVM"><span class="nav-number">1.2.</span> <span class="nav-text">2，常见的JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="nav-number">1.3.</span> <span class="nav-text">3，学习路线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">二，内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1，程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">2.1.2.</span> <span class="nav-text">作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E7%82%B9%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">考点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">2.1.4.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">2.2.</span> <span class="nav-text">2，虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.2.</span> <span class="nav-text">栈运行原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9A"><span class="nav-number">2.2.3.</span> <span class="nav-text">栈内存溢出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%B8%A7%E7%9A%84%E7%BB%93%E6%9E%84%EF%BC%9A%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">2.2.4.</span> <span class="nav-text">栈帧的结构：（扩展）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">2.3.</span> <span class="nav-text">3，本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E5%A0%86"><span class="nav-number">2.4.</span> <span class="nav-text">4，堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-2"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%EF%BC%9A"><span class="nav-number">2.4.2.</span> <span class="nav-text">分区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.4.3.</span> <span class="nav-text">堆的设置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">2.5.</span> <span class="nav-text">5，方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-3"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%A8%E6%9E%90%EF%BC%88%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%8C%E6%B0%B8%E4%B9%85%E4%BB%A3%EF%BC%8C%E5%85%83%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%89%EF%BC%9A"><span class="nav-number">2.5.2.</span> <span class="nav-text">辨析（方法区，永久代，元数据区）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%A4%A7%E5%B0%8F%EF%BC%9A"><span class="nav-number">2.5.3.</span> <span class="nav-text">方法区大小：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">2.5.4.</span> <span class="nav-text">内部结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%9A"><span class="nav-number">2.5.5.</span> <span class="nav-text">运行时常量池：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -734,7 +844,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">106.2k</span>
+    <span title="Site words total count">109k</span>
   
 </div>
 
