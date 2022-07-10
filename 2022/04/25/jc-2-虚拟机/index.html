@@ -90,10 +90,17 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220705220612451.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706114724866.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706162417323.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707160141090.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707162742379.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706163501975.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706170614495.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707172138120.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709153436697.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709154747417.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709155856169.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220710151033082.png">
 <meta property="article:published_time" content="2022-04-25T11:14:44.000Z">
-<meta property="article:modified_time" content="2022-07-06T09:12:07.621Z">
+<meta property="article:modified_time" content="2022-07-10T07:10:49.763Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="Java基础知识">
 <meta name="twitter:card" content="summary">
@@ -402,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k
+                  3.3k
                 </span>
               
 
@@ -540,10 +547,18 @@
 <p>使用 TLAB 可以避免一系列的非线程安全问题，同时还能提升内存分配的吞吐量，因此我们可以将这种内存分配方式称为快速分配策略</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706162417323.png" alt="image-20220706162417323"></p>
 <p>（6）堆是分配对象存储的唯一选择吗（逃逸分析）</p>
+<h3 id="堆内存诊断："><a href="#堆内存诊断：" class="headerlink" title="堆内存诊断："></a>堆内存诊断：</h3><p>（1）jps工具：</p>
+<p>查看当前系统中有哪些java进程</p>
+<p>（2）jmap工具</p>
+<p>查看堆内存占用情况，命令是：jmap -heap 进程id（Heap Usage下的内容）</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707160141090.png" alt="image-20220707160141090" style="zoom:67%;" />
+
 <h2 id="5，方法区"><a href="#5，方法区" class="headerlink" title="5，方法区"></a>5，方法区</h2><h3 id="定义：-3"><a href="#定义：-3" class="headerlink" title="定义："></a>定义：</h3><p>虽然 Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫 Non-Heap（非堆），目的应该是与 Java 堆区分开。不管是 JDK8 之前的永久代，还是 JDK8 及以后的元空间，都可以看作是 Java 虚拟机规范中方法区的实现</p>
 <h3 id="辨析（方法区，永久代，元数据区）："><a href="#辨析（方法区，永久代，元数据区）：" class="headerlink" title="辨析（方法区，永久代，元数据区）："></a>辨析（方法区，永久代，元数据区）：</h3><p><strong>方法区（method area）</strong>只是 JVM 规范中定义的一个概念，用于存储类信息、常量池、静态变量、JIT编译后的代码等数据，并没有规定如何去实现它，不同的厂商有不同的实现。而<strong>永久代（PermGen）</strong>是 Hotspot虚拟机特有的概念， Java8 的时候又被元空间取代了，<strong>永久代和元空间都可以理解为方法区的落地实现。</strong></p>
 <p><strong>永久代</strong>物理上是堆的一部分，和新生代，老年代地址是连续的（受垃圾回收器管理），而<strong>元空间</strong>存在于本地内存（我们常说的堆外内存，不受垃圾回收器管理），这样就不受 JVM 限制了，也比较难发生OOM（都会有溢出异常）</p>
 <p>永久代和元空间存储内容不同，元空间存储类的元信息，静态变量和常量池等并入堆中。相当于永久代的数据被分到了堆和元空间中</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707162742379.png" alt="image-20220707162742379" style="zoom:67%;" />
+
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706163501975.png" alt="image-20220706163501975"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220706170614495.png" alt="image-20220706170614495"></p>
 <h3 id="方法区大小："><a href="#方法区大小：" class="headerlink" title="方法区大小："></a>方法区大小：</h3><p>补充</p>
@@ -555,6 +570,7 @@
 <p>（3）方法</p>
 <p>方法名称，返回类型，参数，修饰符，字符码，异常表</p>
 <h3 id="运行时常量池："><a href="#运行时常量池：" class="headerlink" title="运行时常量池："></a>运行时常量池：</h3><p>运行时常量池（Runtime Constant Pool）是方法区的一部分，首先我们需要理解常量池</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220707172138120.png" alt="image-20220707172138120"></p>
 <p>（1）常量池：</p>
 <p>一个 Java 源文件中的类、接口，编译后产生一个字节码文件。而 Java 中的字节码需要数据支持，通常这种数据会很大以至于不能直接存到字节码里，换另一种方式，可以存到常量池，这个字节码包含了指向常量池的引用。在动态链接的时候用到的就是运行时常量池。</p>
 <p>（2）运行时常量池：</p>
@@ -562,6 +578,21 @@
 <p>每个已加载的类型（类或接口）都维护一个常量池。池中的数据项像数组项一样，是通过索引访问的。</p>
 <p>运行时常量池中包含各种不同的常量，包括编译器就已经明确的数值字面量，也包括到运行期解析后才能够获得的方法或字段引用。此时不再是常量池中的符号地址了，这里换为真实地址</p>
 <p>当创建类或接口的运行时常量池时，如果构造运行时常量池所需的内存空间超过了方法区所能提供的最大值，则 JVM 会抛出 OutOfMemoryError 异常。</p>
+<h3 id="StringTable（字符串常量池）："><a href="#StringTable（字符串常量池）：" class="headerlink" title="StringTable（字符串常量池）："></a>StringTable（字符串常量池）：</h3><p>（1）作用：体现在创建的过程中，直接创建还是说</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709153436697.png" alt="image-20220709153436697" style="zoom:67%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709154747417.png" alt="image-20220709154747417" style="zoom:67%;" />
+
+<p>（2）位置</p>
+<img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220709155856169.png" alt="image-20220709155856169" style="zoom:67%;" />
+
+<p>（3）垃圾回收机制</p>
+<p>会发生垃圾回收</p>
+<p>（4）性能调优</p>
+<p>一个是可以调整 -XX:StringTableSize&#x3D;桶个数（数量越大越快）</p>
+<p>一个是考虑字符串对象是否入池</p>
+<h1 id="三，内存模型"><a href="#三，内存模型" class="headerlink" title="三，内存模型"></a>三，内存模型</h1><h2 id="1，直接内存"><a href="#1，直接内存" class="headerlink" title="1，直接内存"></a>1，直接内存</h2><h3 id="定义：-4"><a href="#定义：-4" class="headerlink" title="定义："></a>定义：</h3><p>直接内存不属于JVM管理，操作系统管理，常见于NIO操作时用作数据缓冲区，分配回收成本较高，读写性能高</p>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220710151033082.png" alt="image-20220710151033082"></p>
 
       
     </div>
@@ -810,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%AE%A4%E8%AF%86JVM"><span class="nav-number">1.</span> <span class="nav-text">一，认识JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CJVM%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1，JVM是什么？有什么好处？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84JVM"><span class="nav-number">1.2.</span> <span class="nav-text">2，常见的JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="nav-number">1.3.</span> <span class="nav-text">3，学习路线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">二，内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1，程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">2.1.2.</span> <span class="nav-text">作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E7%82%B9%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">考点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">2.1.4.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">2.2.</span> <span class="nav-text">2，虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.2.</span> <span class="nav-text">栈运行原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9A"><span class="nav-number">2.2.3.</span> <span class="nav-text">栈内存溢出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%B8%A7%E7%9A%84%E7%BB%93%E6%9E%84%EF%BC%9A%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">2.2.4.</span> <span class="nav-text">栈帧的结构：（扩展）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">2.3.</span> <span class="nav-text">3，本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E5%A0%86"><span class="nav-number">2.4.</span> <span class="nav-text">4，堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-2"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%EF%BC%9A"><span class="nav-number">2.4.2.</span> <span class="nav-text">分区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.4.3.</span> <span class="nav-text">堆的设置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">2.5.</span> <span class="nav-text">5，方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-3"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%A8%E6%9E%90%EF%BC%88%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%8C%E6%B0%B8%E4%B9%85%E4%BB%A3%EF%BC%8C%E5%85%83%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%89%EF%BC%9A"><span class="nav-number">2.5.2.</span> <span class="nav-text">辨析（方法区，永久代，元数据区）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%A4%A7%E5%B0%8F%EF%BC%9A"><span class="nav-number">2.5.3.</span> <span class="nav-text">方法区大小：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">2.5.4.</span> <span class="nav-text">内部结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%9A"><span class="nav-number">2.5.5.</span> <span class="nav-text">运行时常量池：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%AE%A4%E8%AF%86JVM"><span class="nav-number">1.</span> <span class="nav-text">一，认识JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CJVM%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1，JVM是什么？有什么好处？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84JVM"><span class="nav-number">1.2.</span> <span class="nav-text">2，常见的JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="nav-number">1.3.</span> <span class="nav-text">3，学习路线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">二，内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1，程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">2.1.2.</span> <span class="nav-text">作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E7%82%B9%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">考点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">2.1.4.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">2.2.</span> <span class="nav-text">2，虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.2.</span> <span class="nav-text">栈运行原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9A"><span class="nav-number">2.2.3.</span> <span class="nav-text">栈内存溢出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%B8%A7%E7%9A%84%E7%BB%93%E6%9E%84%EF%BC%9A%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">2.2.4.</span> <span class="nav-text">栈帧的结构：（扩展）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">2.3.</span> <span class="nav-text">3，本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E5%A0%86"><span class="nav-number">2.4.</span> <span class="nav-text">4，堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-2"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%EF%BC%9A"><span class="nav-number">2.4.2.</span> <span class="nav-text">分区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.4.3.</span> <span class="nav-text">堆的设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E5%86%85%E5%AD%98%E8%AF%8A%E6%96%AD%EF%BC%9A"><span class="nav-number">2.4.4.</span> <span class="nav-text">堆内存诊断：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">2.5.</span> <span class="nav-text">5，方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-3"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%A8%E6%9E%90%EF%BC%88%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%8C%E6%B0%B8%E4%B9%85%E4%BB%A3%EF%BC%8C%E5%85%83%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%89%EF%BC%9A"><span class="nav-number">2.5.2.</span> <span class="nav-text">辨析（方法区，永久代，元数据区）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%A4%A7%E5%B0%8F%EF%BC%9A"><span class="nav-number">2.5.3.</span> <span class="nav-text">方法区大小：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">2.5.4.</span> <span class="nav-text">内部结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%9A"><span class="nav-number">2.5.5.</span> <span class="nav-text">运行时常量池：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringTable%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%89%EF%BC%9A"><span class="nav-number">2.5.6.</span> <span class="nav-text">StringTable（字符串常量池）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%8C%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三，内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">3.1.</span> <span class="nav-text">1，直接内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A-4"><span class="nav-number">3.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">3.1.2.</span> <span class="nav-text">原理：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -844,7 +875,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">109k</span>
+    <span title="Site words total count">109.2k</span>
   
 </div>
 
