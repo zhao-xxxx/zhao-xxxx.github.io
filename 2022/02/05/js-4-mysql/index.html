@@ -86,11 +86,13 @@
 <meta property="og:site_name" content="zhao-space">
 <meta property="og:description" content="简介：MySQL的简介和安装">
 <meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220719200638902.png">
 <meta property="article:published_time" content="2022-02-05T12:07:51.000Z">
-<meta property="article:modified_time" content="2022-07-13T10:01:21.534Z">
+<meta property="article:modified_time" content="2022-07-19T12:28:56.179Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220719200638902.png">
 
 
 
@@ -395,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  490
+                  833
                 </span>
               
 
@@ -411,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -443,6 +445,19 @@
 <h2 id="1，软件安装版"><a href="#1，软件安装版" class="headerlink" title="1，软件安装版"></a>1，软件安装版</h2><p>软件安装版也就是后缀为.msi的安装包，进行有界面操作的安装，在安装的过程中对相关的属性进行设置，可参考这篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43790276/article/details/102090540">https://blog.csdn.net/weixin_43790276/article/details/102090540</a></p>
 <h2 id="2，安装包解压版"><a href="#2，安装包解压版" class="headerlink" title="2，安装包解压版"></a>2，安装包解压版</h2><p>使用.zip后缀的安装包进行安装时，需要结合命令行和配置文件进行配置，适合有一定基础的使用，可参考博客：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea4accd7afb4%E4%BB%A5%E5%8F%8A%E5%8D%9A%E5%AE%A2%EF%BC%9A">https://www.jianshu.com/p/ea4accd7afb4以及博客：</a></p>
 <p><strong>总结：</strong>上面两种方式各有优点和缺点，选择适合自己的方法进行安装即可。我选择的是.mis安装方式，Windows中的服务名忘了设置，是默认的MySQL57，端口也是3306，用户名和密码都是root（自己学习用就设置简单一点，否则忘了就很麻烦）。最后MySQL的卸载比较麻烦，一定要从软件，安装路径，注册表这三个方面卸载干净。</p>
+<h1 id="三，关系型数据库设计理论"><a href="#三，关系型数据库设计理论" class="headerlink" title="三，关系型数据库设计理论"></a>三，关系型数据库设计理论</h1><h2 id="1，函数依赖是什么？"><a href="#1，函数依赖是什么？" class="headerlink" title="1，函数依赖是什么？"></a>1，函数依赖是什么？</h2><p>记 A-&gt;B 表示 A 函数决定 B，也可以说 B 函数依赖于 A。</p>
+<p>如果 {A1，A2，… ，An} 是关系的一个或多个属性的集合，该集合函数决定了关系的其它所有属性并且是最小的，那么该集合就称为<strong>键码</strong>。</p>
+<p>对于 A-&gt;B，如果能找到 A 的真子集 A’，使得 A’-&gt; B，那么 A-&gt;B 就是<strong>部分函数依赖</strong>，否则就是<strong>完全函数依赖</strong></p>
+<p>对于 A-&gt;B，B-&gt;C，则 A-&gt;C 是一个<strong>传递函数依赖</strong></p>
+<h2 id="2，数据库设计为什么需要遵循范式？"><a href="#2，数据库设计为什么需要遵循范式？" class="headerlink" title="2，数据库设计为什么需要遵循范式？"></a>2，数据库设计为什么需要遵循范式？</h2><h3 id="（1）如果不遵循会有什么问题？"><a href="#（1）如果不遵循会有什么问题？" class="headerlink" title="（1）如果不遵循会有什么问题？"></a>（1）如果不遵循会有什么问题？</h3><img src="https://cdn.jsdelivr.net/gh/zhao-xxxx/Picture/img/image-20220719200638902.png" alt="image-20220719200638902" style="zoom:67%;" />
+
+<p>不符合范式的关系，会产生很多异常，主要有以下四种异常:</p>
+<ul>
+<li><strong>冗余数据</strong>: 例如 <code>学生-2</code> 出现了两次。</li>
+<li><strong>修改异常</strong>: 修改了一个记录中的信息，但是另一个记录中相同的信息却没有被修改。</li>
+<li><strong>删除异常</strong>: 删除一个信息，那么也会丢失其它信息。例如删除了 <code>课程-1</code> 需要删除第一行和第三行，那么 <code>学生-1</code> 的信息就会丢失。</li>
+<li><strong>插入异常</strong>: 例如想要插入一个学生的信息，如果这个学生还没选课，那么就无法插入</li>
+</ul>
 
       
     </div>
@@ -491,7 +506,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/02/05/xm-1-%E8%83%8C%E6%99%AF/" rel="next" title="尚融宝项目背景">
+              <a href="/2022/02/05/%E4%B8%8D%E5%81%9A%E4%BA%86/xm-1-%E8%83%8C%E6%99%AF/" rel="next" title="尚融宝项目背景">
                 <i class="fa fa-chevron-left"></i> 尚融宝项目背景
               </a>
             
@@ -501,7 +516,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/02/06/xm-2-MyBatis-Plus/" rel="prev" title="xm-2-MyBatis-Plus">
+              <a href="/2022/02/06/%E4%B8%8D%E5%81%9A%E4%BA%86/xm-2-MyBatis-Plus/" rel="prev" title="xm-2-MyBatis-Plus">
                 xm-2-MyBatis-Plus <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -691,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8CMySQL%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一，MySQL介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8CMysql%E5%AE%89%E8%A3%85%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%8C5-7%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二，Mysql安装（win系统，5.7版本）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%89%88"><span class="nav-number">2.1.</span> <span class="nav-text">1，软件安装版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%89%E8%A3%85%E5%8C%85%E8%A7%A3%E5%8E%8B%E7%89%88"><span class="nav-number">2.2.</span> <span class="nav-text">2，安装包解压版</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8CMySQL%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一，MySQL介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8CMysql%E5%AE%89%E8%A3%85%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%8C5-7%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二，Mysql安装（win系统，5.7版本）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%89%88"><span class="nav-number">2.1.</span> <span class="nav-text">1，软件安装版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%89%E8%A3%85%E5%8C%85%E8%A7%A3%E5%8E%8B%E7%89%88"><span class="nav-number">2.2.</span> <span class="nav-text">2，安装包解压版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%8C%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA"><span class="nav-number">3.</span> <span class="nav-text">三，关系型数据库设计理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">1，函数依赖是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%81%B5%E5%BE%AA%E8%8C%83%E5%BC%8F%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">2，数据库设计为什么需要遵循范式？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%A6%82%E6%9E%9C%E4%B8%8D%E9%81%B5%E5%BE%AA%E4%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">3.2.1.</span> <span class="nav-text">（1）如果不遵循会有什么问题？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -725,7 +740,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">113.1k</span>
+    <span title="Site words total count">113.4k</span>
   
 </div>
 
