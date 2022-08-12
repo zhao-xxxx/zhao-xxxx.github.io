@@ -86,11 +86,15 @@
 <meta property="og:site_name" content="zhao-space">
 <meta property="og:description" content="简介：多线程与并发知识整理，尽量精简">
 <meta property="og:locale">
+<meta property="og:image" content="c:/Users/zhao/AppData/Roaming/Typora/typora-user-images/image-20220810212801692.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220810213448843.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220810213714334.png">
 <meta property="article:published_time" content="2022-04-25T11:15:08.000Z">
-<meta property="article:modified_time" content="2022-08-01T13:45:24.798Z">
+<meta property="article:modified_time" content="2022-08-11T14:04:37.418Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/zhao/AppData/Roaming/Typora/typora-user-images/image-20220810212801692.png">
 
 
 
@@ -395,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  551
+                  3.6k
                 </span>
               
 
@@ -411,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  12
                 </span>
               
             </div>
@@ -453,6 +457,89 @@
 <p>1，将变量 i 从内存读取到 CPU寄存器；<br>       2，在CPU寄存器中执行 i + 1 操作；<br>       3，将最后的结果i写入内存（缓存机制导致可能写入的是 CPU 缓存而不是内存）。</p>
 </blockquote>
 <p>由于CPU分时复用（线程切换）的存在，xc1 执行了第一条指令后，就切换到 xc2 执行，假如 xc2 执行了这三条指令后，再切换会 xc1 执行后续两条指令，将造成最后写到内存中的i值是2而不是3</p>
+<p><strong>有序性</strong>：即程序执行的顺序按照代码的先后顺序执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;              </span><br><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">i = <span class="number">1</span>;                <span class="comment">//语句1  </span></span><br><span class="line">flag = <span class="keyword">true</span>;          <span class="comment">//语句2</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码的第一行和第二行的顺序不一定是固定的，因为可能会发生指令重排序（Instruction Reorder）。</p>
+<p>重排序分三种类型：</p>
+<ul>
+<li>编译器优化的重排序。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序。</li>
+<li>指令级并行的重排序。现代处理器采用了指令级并行技术来将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。</li>
+<li>内存系统的重排序。由于处理器使用缓存和读 &#x2F; 写缓冲区，这使得加载和存储操作看上去可能是在乱序执行。</li>
+</ul>
+<p>从 java 源代码到最终实际执行的指令序列，会分别经历下面三种重排序：</p>
+<p>源代码–》编译器优化的重排序–》指令级并行的重排序–》内存系统的重排序–》最终执行的指令序列</p>
+<p>对于编译器，JMM 的编译器重排序规则会禁止特定类型的编译器重排序（不是所有的编译器重排序都要禁止）。对于处理器重排序，JMM 的处理器重排序规则会要求 java 编译器在生成指令序列时，插入特定类型的内存屏障（memory barriers，intel 称之为 memory fence）指令，通过内存屏障指令来禁止特定类型的处理器重排序（不是所有的处理器重排序都要禁止）。</p>
+<h3 id="3，JAVA是怎么解决并发问题的-JMM-Java内存模型"><a href="#3，JAVA是怎么解决并发问题的-JMM-Java内存模型" class="headerlink" title="3，JAVA是怎么解决并发问题的: JMM(Java内存模型)"></a>3，JAVA是怎么解决并发问题的: JMM(Java内存模型)</h3><p><strong>第一个维度：核心的几个点</strong></p>
+<p>Java 内存模型规范了 JVM 如何提供按需禁用缓存和编译优化的方法。具体来说，这些方法包括：</p>
+<ul>
+<li>volatile、synchronized 和 final 三个关键字</li>
+<li>Happens-Before 规则</li>
+</ul>
+<p><strong>第二个维度：原子性，可见性，有序性</strong></p>
+<p><em>原子性：</em></p>
+<p>在Java中，对基本数据类型的变量的读取和赋值操作是原子性操作，即这些操作是不可被中断的，要么执行，要么不执行。下面的四个语句中，只有语句1是原子操作，也就是说只有<u>简单的读取、赋值（而且必须是将数字赋值给某个变量，变量之间的相互赋值不是原子操作）才是原子操作</u>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span>;        <span class="comment">//语句1: 直接将数值10赋值给x，也就是说线程执行这个语句的会直接将数值10写入到工作内存中</span></span><br><span class="line">y = x;         <span class="comment">//语句2: 包含2个操作，它先要去读取x的值，再将x的值写入工作内存，虽然读取x的值以及 将x的值写入工作内存 这2个操作都是原子性操作，但是合起来就不是原子性操作了。</span></span><br><span class="line">x++;           <span class="comment">//语句3： x++包括3个操作：读取x的值，进行加1操作，写入新的值。</span></span><br><span class="line">x = x + <span class="number">1</span>;     <span class="comment">//语句4： 同语句3</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>从上面可以看出，Java内存模型只保证了基本读取和赋值是原子性操作，如果要实现更大范围操作的原子性，可以通过synchronized和Lock来实现。由于synchronized和Lock能够保证任一时刻只有一个线程执行该代码块，那么自然就不存在原子性问题了，从而保证了原子性。</p>
+</blockquote>
+<p><em>可见性：</em></p>
+<p>当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。</p>
+<blockquote>
+<p>另外，通过synchronized和Lock也能够保证可见性，synchronized和Lock能保证同一时刻只有一个线程获取锁然后执行同步代码，并且在释放锁之前会将对变量的修改刷新到主存当中。因此可以保证可见性。</p>
+</blockquote>
+<p><em>有序性：</em></p>
+<p>可以通过volatile关键字来保证一定的“有序性”（具体原理在下一节讲述）。另外可以通过synchronized和Lock来保证有序性，很显然，synchronized和Lock保证每个时刻是有一个线程执行同步代码，相当于是让线程顺序执行同步代码，自然就保证了有序性。当然JMM是通过Happens-Before 规则来保证有序性的</p>
+<h3 id="4，关键字，volatile，-Sychronized，final"><a href="#4，关键字，volatile，-Sychronized，final" class="headerlink" title="4，关键字，volatile， Sychronized，final"></a>4，关键字，volatile， Sychronized，final</h3><p><a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-key-synchronized.html">https://pdai.tech/md/java/thread/java-thread-x-key-synchronized.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-key-volatile.html">https://pdai.tech/md/java/thread/java-thread-x-key-volatile.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-key-final.html">https://pdai.tech/md/java/thread/java-thread-x-key-final.html</a></p>
+<h3 id="5，Happens-Before"><a href="#5，Happens-Before" class="headerlink" title="5，Happens-Before"></a>5，Happens-Before</h3><h4 id="（1）单一线程原则"><a href="#（1）单一线程原则" class="headerlink" title="（1）单一线程原则"></a>（1）单一线程原则</h4><p>在一个线程内，在程序前面的操作先行发生于后面的操作。</p>
+<h4 id="（2）管程锁定原则"><a href="#（2）管程锁定原则" class="headerlink" title="（2）管程锁定原则"></a>（2）管程锁定原则</h4><p>一个 unlock 操作先行发生于后面对同一个锁的 lock 操作。</p>
+<img src="C:\Users\zhao\AppData\Roaming\Typora\typora-user-images\image-20220810212801692.png" alt="image-20220810212801692" style="zoom:67%;" />
+
+<h4 id="（3）volatile变量规则"><a href="#（3）volatile变量规则" class="headerlink" title="（3）volatile变量规则"></a>（3）volatile变量规则</h4><p>对一个 volatile 变量的写操作先行发生于后面对这个变量的读操作。</p>
+<h4 id="（4）线程启动规则"><a href="#（4）线程启动规则" class="headerlink" title="（4）线程启动规则"></a>（4）线程启动规则</h4><p>Thread 对象的 start() 方法调用先行发生于此线程的每一个动作。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220810213448843.png" alt="image-20220810213448843" style="zoom:67%;" />
+
+<h4 id="（5）线程加入规则"><a href="#（5）线程加入规则" class="headerlink" title="（5）线程加入规则"></a>（5）线程加入规则</h4><p>Thread 对象的结束先行发生于 join() 方法返回。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220810213714334.png" alt="image-20220810213714334" style="zoom:67%;" />
+
+<h4 id="（6）线程中断规则"><a href="#（6）线程中断规则" class="headerlink" title="（6）线程中断规则"></a>（6）线程中断规则</h4><p>对线程 interrupt() 方法的调用先行发生于被中断线程的代码检测到中断事件的发生，可以通过 interrupted() 方法检测到是否有中断发生。</p>
+<h4 id="（7）对象终结"><a href="#（7）对象终结" class="headerlink" title="（7）对象终结"></a>（7）对象终结</h4><p>一个对象的初始化完成(构造函数执行结束)先行发生于它的 finalize() 方法的开始</p>
+<h4 id="（8）传递性"><a href="#（8）传递性" class="headerlink" title="（8）传递性"></a>（8）传递性</h4><p>如果操作 A 先行发生于操作 B，操作 B 先行发生于操作 C，那么操作 A 先行发生于操作 C</p>
+<h3 id="6，线程安全不是一个非真即假的命题"><a href="#6，线程安全不是一个非真即假的命题" class="headerlink" title="6，线程安全不是一个非真即假的命题"></a>6，线程安全不是一个非真即假的命题</h3><p>一个类在可以被多个线程安全调用时就是线程安全的。</p>
+<p>线程安全不是一个非真即假的命题，可以将共享数据按照安全程度的强弱顺序分成以下五类: 不可变、绝对线程安全、相对线程安全、线程兼容和线程对立</p>
+<h4 id="（1）不可变"><a href="#（1）不可变" class="headerlink" title="（1）不可变"></a>（1）不可变</h4><p>不可变(Immutable)的对象一定是线程安全的，不需要再采取任何的线程安全保障措施。只要一个不可变的对象被正确地构建出来，永远也不会看到它在多个线程之中处于不一致的状态。</p>
+<p>不可变的类型:</p>
+<ul>
+<li>final 关键字修饰的基本数据类型</li>
+<li>String</li>
+<li>枚举类型</li>
+<li>Number 部分子类，如Long和Double，但是AtomicInteger 和 AtomicLong 则是可变的。</li>
+</ul>
+<h4 id="（2）绝对线程安全"><a href="#（2）绝对线程安全" class="headerlink" title="（2）绝对线程安全"></a>（2）绝对线程安全</h4><p>不管运行时环境如何，调用者都不需要任何额外的同步措施。</p>
+<h4 id="（3）相对线程安全"><a href="#（3）相对线程安全" class="headerlink" title="（3）相对线程安全"></a>（3）相对线程安全</h4><p>相对线程安全需要保证对这个对象单独的操作是线程安全的，在调用的时候不需要做额外的保障措施。但是对于一些特定顺序的连续调用，就可能需要在调用端使用额外的同步手段来保证调用的正确性</p>
+<p>在 Java 语言中，大部分的线程安全类都属于这种类型，例如 Vector、HashTable、Collections 的 synchronizedCollection() 方法包装的集合等。</p>
+<p>如果删除元素的线程删除了 Vector 的一个元素，而获取元素的线程试图访问一个已经被删除的元素，那么就会抛出 ArrayIndexOutOfBoundsException。必须要对删除和访问元素的方法采取限制，比如用Sychronized来进行修饰。</p>
+<h4 id="（4）线程兼容"><a href="#（4）线程兼容" class="headerlink" title="（4）线程兼容"></a>（4）线程兼容</h4><p>线程兼容是指对象本身并不是线程安全的，但是可以通过在调用端正确地使用同步手段来保证对象在并发环境中可以安全地使用，我们平常说一个类不是线程安全的，绝大多数时候指的是这一种情况。</p>
+<p>Java API 中大部分的类都是属于线程兼容的，如与前面的 Vector 和 HashTable 相对应的集合类 ArrayList 和 HashMap 等。</p>
+<h4 id="（5）线程对立"><a href="#（5）线程对立" class="headerlink" title="（5）线程对立"></a>（5）线程对立</h4><p>线程对立是指无论调用端是否采取了同步措施，都无法在多线程环境中并发使用的代码。由于 Java 语言天生就具备多线程特性，线程对立这种排斥多线程的代码是很少出现的，而且通常都是有害的，应当尽量避免。</p>
+<h3 id="7，线程安全的实现方法"><a href="#7，线程安全的实现方法" class="headerlink" title="7，线程安全的实现方法"></a>7，线程安全的实现方法</h3><h4 id="（1）互斥同步"><a href="#（1）互斥同步" class="headerlink" title="（1）互斥同步"></a>（1）互斥同步</h4><p><a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-thread-basic.html#%E7%BA%BF%E7%A8%8B%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5">synchronized 和 ReentrantLock。</a></p>
+<h4 id="（2）非阻塞同步"><a href="#（2）非阻塞同步" class="headerlink" title="（2）非阻塞同步"></a>（2）非阻塞同步</h4><p>互斥同步中，线程阻塞和唤醒是有成本的，会造成性能问题。互斥不同是一种悲观的并发策略，它总是认为操作会导致线程问题，所以需要进行上锁，从而导致了线程切换的成本。</p>
+<p>随着硬件指令集的发展，我们可以使用<strong>基于冲突检测的乐观并发策略</strong>（不需要线程阻塞，是乐观的）: 先进行操作，如果没有其它线程争用共享数据，那操作就成功了，否则采取补偿措施(不断地重试，直到成功为止)。</p>
+<p>乐观锁需要操作和冲突检测这两个步骤具备原子性，这里就不能再使用互斥同步来保证了，只能靠硬件来完成。硬件支持的原子性操作最典型的是: 比较并交换(Compare-and-Swap，CAS)。CAS 指令需要有 3 个操作数，分别是内存地址 V、旧的预期值 A 和新值 B。当执行操作时，只有当 V 的值等于 A，才将 V 的值更新为 B。</p>
+<p><strong>如果一个变量初次读取的时候是 A 值，它的值被改成了 B，后来又被改回为 A，那 CAS 操作就会误认为它从来没有被改变过</strong>。<a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-juc-AtomicInteger.html">J.U.C 包提供了一个带有标记的原子引用类 AtomicStampedReference</a> 来解决这个问题，它可以通过控制变量值的版本来保证 CAS 的正确性。大部分情况下 ABA 问题不会影响程序并发的正确性，如果需要解决 ABA 问题，改用传统的互斥同步可能会比原子类更高效。</p>
+<h4 id="（3）无同步方案"><a href="#（3）无同步方案" class="headerlink" title="（3）无同步方案"></a>（3）无同步方案</h4><p>要保证线程安全，并不是一定就要进行同步。如果一个方法本来就不涉及共享数据，那它自然就无须任何同步措施去保证正确性。有以下几种情况：</p>
+<p><strong>栈封闭：</strong></p>
+<p>多个线程访问同一个方法的局部变量时，不会出现线程安全问题，因为局部变量存储在虚拟机栈中，属于线程私有的</p>
+<p><strong>线程本地存储：</strong></p>
+<p>如果一段代码中所需要的数据必须与其他代码共享，那就看看这些共享数据的代码是否能保证在同一个线程中执行。如果能保证，我们就可以把共享数据的可见范围限制在同一个线程之内，这样，无须同步也能保证线程之间不出现数据争用的问题</p>
+<p>符合这种特点的应用并不少见，大部分使用消费队列的架构模式(如“生产者-消费者”模式)都会将产品的消费过程尽量在一个线程中消费完。其中最重要的一个应用实例就是经典 <strong>Web 交互模型中的“一个请求对应一个服务器线程”(Thread-per-Request)的处理方式</strong>，这种处理方式的广泛应用使得很多 Web 服务端应用都可以使用线程本地存储来解决线程安全问题。</p>
+<p>可以使用 <strong>java.lang.ThreadLocal 类来实现线程本地存储功能。</strong><a target="_blank" rel="noopener" href="https://pdai.tech/md/java/thread/java-thread-x-threadlocal.html"> ThreadLocal详解</a></p>
+<p><strong>可重入代码：</strong></p>
+<p>这种代码也叫做纯代码(Pure Code)，可以在代码执行的任何时刻中断它，转而去执行另外一段代码(包括递归调用它本身)，而在控制权返回后，原来的程序不会出现任何错误。</p>
+<p>可重入代码有一些共同的特征，例如不依赖存储在堆上的数据和公用的系统资源、用到的状态量都由参数中传入、不调用非可重入的方法等。</p>
 
       
     </div>
@@ -701,7 +788,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一，理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1，背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1，为什么需要多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">2，并发问题的根源</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一，理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1，背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1，为什么需要多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">2，并发问题的根源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CJAVA%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84-JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">3，JAVA是怎么解决并发问题的: JMM(Java内存模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%8Cvolatile%EF%BC%8C-Sychronized%EF%BC%8Cfinal"><span class="nav-number">1.1.4.</span> <span class="nav-text">4，关键字，volatile， Sychronized，final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8CHappens-Before"><span class="nav-number">1.1.5.</span> <span class="nav-text">5，Happens-Before</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%8D%95%E4%B8%80%E7%BA%BF%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">（1）单一线程原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%AE%A1%E7%A8%8B%E9%94%81%E5%AE%9A%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">（2）管程锁定原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89volatile%E5%8F%98%E9%87%8F%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">（3）volatile变量规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%90%AF%E5%8A%A8%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">（4）线程启动规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%8A%A0%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.5.</span> <span class="nav-text">（5）线程加入规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.6.</span> <span class="nav-text">（6）线程中断规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E5%AF%B9%E8%B1%A1%E7%BB%88%E7%BB%93"><span class="nav-number">1.1.5.7.</span> <span class="nav-text">（7）对象终结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%888%EF%BC%89%E4%BC%A0%E9%80%92%E6%80%A7"><span class="nav-number">1.1.5.8.</span> <span class="nav-text">（8）传递性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E7%9C%9F%E5%8D%B3%E5%81%87%E7%9A%84%E5%91%BD%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">6，线程安全不是一个非真即假的命题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">（1）不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%BB%9D%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">（2）绝对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%9B%B8%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">（3）相对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%85%BC%E5%AE%B9"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">（4）线程兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%AF%B9%E7%AB%8B"><span class="nav-number">1.1.6.5.</span> <span class="nav-text">（5）线程对立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.7.</span> <span class="nav-text">7，线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">（1）互斥同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">（2）非阻塞同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">（3）无同步方案</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -735,7 +822,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">113.7k</span>
+    <span title="Site words total count">116.8k</span>
   
 </div>
 
