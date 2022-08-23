@@ -115,8 +115,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220822152746419.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220822153223112.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220822154352201.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823154909785.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823172349595.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823195647273.png">
 <meta property="article:published_time" content="2022-04-25T11:15:08.000Z">
-<meta property="article:modified_time" content="2022-08-22T07:43:59.227Z">
+<meta property="article:modified_time" content="2022-08-23T12:38:16.272Z">
 <meta property="article:author" content="George Zhao">
 <meta property="article:tag" content="xxx">
 <meta name="twitter:card" content="summary">
@@ -425,7 +428,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12.5k
+                  15.6k
                 </span>
               
 
@@ -441,7 +444,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  45
+                  58
                 </span>
               
             </div>
@@ -838,321 +841,254 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h1 id="七，JUC类总体概览和学习导览"><a href="#七，JUC类总体概览和学习导览" class="headerlink" title="七，JUC类总体概览和学习导览"></a>七，JUC类总体概览和学习导览</h1><p><img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823154909785.png" alt="image-20220823154909785"></p>
+<p>JUC类分为5大部分，我们根据特点分为以下4个学习的模块，括号里是重点</p>
+<ul>
+<li>Lock框架和Tools类（Condition,Lock,ReadWriteLock接口； CountDownLatch，Semaphore工具类）</li>
+<li>Collections: 并发集合（ConcurrentHashMap）</li>
+<li>Atomic: 原子类（AtomicBoolean，AtomicInteger，AtomicLong三个类）</li>
+<li>Executors: 线程池（ThreadPoolExecutor ，ScheduledThreadExecutor，FutureTask，Executor）</li>
+</ul>
+<h2 id="1，Lock框架和Tools类"><a href="#1，Lock框架和Tools类" class="headerlink" title="1，Lock框架和Tools类"></a>1，Lock框架和Tools类</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>接口: Condition</td>
+<td>Condition为接口类型，它将 Object 监视器方法(wait、notify 和 notifyAll)分解成截然不同的对象，以便通过将这些对象与任意 Lock 实现组合使用，为每个对象提供多个等待 set (wait-set)。</td>
+</tr>
+<tr>
+<td>接口: Lock</td>
+<td>Lock为接口类型，Lock实现提供了比使用synchronized方法和语句可获得的更广泛的锁定操作。此实现允许更灵活的结构，可以具有差别很大的属性，可以支持多个相关的Condition对象。</td>
+</tr>
+<tr>
+<td>接口: ReadWriteLock</td>
+<td>ReadWriteLock为接口类型， 维护了一对相关的锁，一个用于只读操作，另一个用于写入操作。只要没有 writer，读取锁可以由多个 reader 线程同时保持。写入锁是独占的</td>
+</tr>
+<tr>
+<td>抽象类: AbstractOwnableSynchonizer</td>
+<td></td>
+</tr>
+<tr>
+<td>抽象类(long): AbstractQueuedLongSynchronizer</td>
+<td></td>
+</tr>
+<tr>
+<td>核心抽象类(int): AbstractQueuedSynchonizer</td>
+<td>AbstractQueuedSynchonizer为抽象类，其为实现依赖于先进先出 (FIFO) 等待队列的阻塞锁和相关同步器(信号量、事件，等等)提供一个框架。此类的设计目标是成为依靠单个原子 int 值来表示状态的大多数同步器的一个有用基础。</td>
+</tr>
+<tr>
+<td>锁常用类: LockSupport</td>
+<td></td>
+</tr>
+<tr>
+<td>锁常用类: ReentrantLock</td>
+<td>ReentrantLock为常用类，它是一个可重入的互斥锁 Lock，它具有与使用 synchronized 方法和语句所访问的隐式监视器锁相同的一些基本行为和语义，但功能更强大。</td>
+</tr>
+<tr>
+<td>锁常用类: ReentrantReadWriteLock</td>
+<td></td>
+</tr>
+<tr>
+<td>锁常用类: StampedLock</td>
+<td></td>
+</tr>
+<tr>
+<td>工具常用类: CountDownLatch</td>
+<td>CountDownLatch为常用类，它是一个同步辅助类，在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待。</td>
+</tr>
+<tr>
+<td>工具常用类: CyclicBarrier</td>
+<td></td>
+</tr>
+<tr>
+<td>工具常用类: Phaser</td>
+<td></td>
+</tr>
+<tr>
+<td>工具常用类: Semaphore</td>
+<td>Semaphore为常用类，其是一个计数信号量，从概念上讲，信号量维护了一个许可集。如有必要，在许可可用前会阻塞每一个 acquire()，然后再获取该许可。每个 release() 添加一个许可，从而可能释放一个正在阻塞的获取者。</td>
+</tr>
+<tr>
+<td>工具常用类: Exchanger</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="2，Collections-并发集合"><a href="#2，Collections-并发集合" class="headerlink" title="2，Collections: 并发集合"></a>2，Collections: 并发集合</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Queue: ArrayBlockingQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: LinkedBlockingQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: LinkedBlockingDeque</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: ConcurrentLinkedQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: ConcurrentLinkedDeque</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: DelayQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: PriorityBlockingQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: SynchronousQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: LinkedTransferQueue</td>
+<td></td>
+</tr>
+<tr>
+<td>List: CopyOnWriteArrayList</td>
+<td></td>
+</tr>
+<tr>
+<td>Set: CopyOnWriteArraySet</td>
+<td></td>
+</tr>
+<tr>
+<td>Set: ConcurrentSkipListSet</td>
+<td></td>
+</tr>
+<tr>
+<td>Map: ConcurrentHashMap</td>
+<td>是线程安全HashMap的。ConcurrentHashMap在JDK 7之前是通过Lock和segment(分段锁)实现，JDK 8 之后改为CAS+synchronized来保证并发安全。</td>
+</tr>
+<tr>
+<td>Map: ConcurrentSkipListMap</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="3，Atomic：原子类"><a href="#3，Atomic：原子类" class="headerlink" title="3，Atomic：原子类"></a>3，Atomic：原子类</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基础类型：AtomicBoolean，AtomicInteger，AtomicLong</td>
+<td>AtomicBoolean，AtomicInteger，AtomicLong是类似的，分别针对bool，interger，long的原子类。</td>
+</tr>
+<tr>
+<td>数组：AtomicIntegerArray，AtomicLongArray，BooleanArray</td>
+<td>AtomicIntegerArray，AtomicLongArray，AtomicBooleanArray是数组原子类。</td>
+</tr>
+<tr>
+<td>引用：AtomicReference，AtomicMarkedReference，AtomicStampedReference</td>
+<td></td>
+</tr>
+<tr>
+<td>FieldUpdater：AtomicLongFieldUpdater，AtomicIntegerFieldUpdater，AtomicReferenceFieldUpdater</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="4，Excutors：线程池"><a href="#4，Excutors：线程池" class="headerlink" title="4，Excutors：线程池"></a>4，Excutors：线程池</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>接口: Executor</td>
+<td>Executor接口提供一种将任务提交与每个任务将如何运行的机制(包括线程使用的细节、调度等)分离开来的方法。通常使用 Executor 而不是显式地创建线程。</td>
+</tr>
+<tr>
+<td>ScheduledExecutorService</td>
+<td></td>
+</tr>
+<tr>
+<td>AbstractExecutorService</td>
+<td></td>
+</tr>
+<tr>
+<td>FutureTask</td>
+<td>FutureTask 为 Future 提供了基础实现，如获取任务执行结果(get)和取消任务(cancel)等。如果任务尚未完成，获取任务执行结果时将会阻塞。一旦执行结束，任务就不能被重启或取消(除非使用runAndReset执行计算)。FutureTask 常用来封装 Callable 和 Runnable，也可以作为一个任务提交到线程池中执行</td>
+</tr>
+<tr>
+<td>核心: ThreadPoolExecutor</td>
+<td>ThreadPoolExecutor实现了AbstractExecutorService接口，也是一个 ExecutorService，它使用可能的几个池线程之一执行每个提交的任务，通常使用 Executors 工厂方法配置。 线程池可以解决两个不同问题: 由于减少了每个任务调用的开销，它们通常可以在执行大量异步任务时提供增强的性能，并且还可以提供绑定和管理资源(包括执行任务集时使用的线程)的方法。</td>
+</tr>
+<tr>
+<td>核心: ScheduledThreadExecutor</td>
+<td></td>
+</tr>
+<tr>
+<td>核心: Fork&#x2F;Join框架</td>
+<td></td>
+</tr>
+<tr>
+<td>工具类: Executors</td>
+<td>Executors是一个工具类，用其可以创建ExecutorService、ScheduledExecutorService、ThreadFactory、Callable等对象。它的使用融入到了ThreadPoolExecutor, ScheduledThreadExecutor和ForkJoinPool中。 ¶ 参考文章</td>
+</tr>
+</tbody></table>
+<h1 id="八，JUC原子类-CAS-Unsafe和原子类详解"><a href="#八，JUC原子类-CAS-Unsafe和原子类详解" class="headerlink" title="八，JUC原子类: CAS, Unsafe和原子类详解"></a>八，JUC原子类: CAS, Unsafe和原子类详解</h1><h2 id="1，CAS"><a href="#1，CAS" class="headerlink" title="1，CAS"></a>1，CAS</h2><p><img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823172349595.png" alt="image-20220823172349595"></p>
+<h3 id="1，什么是CAS"><a href="#1，什么是CAS" class="headerlink" title="1，什么是CAS"></a>1，什么是CAS</h3><p>CAS操作需要输入两个数值，一个旧值(期望操作前的值)和一个新值，在操作期间先比较下在旧值有没有发生变化，如果没有发生变化，才交换成新值，发生了变化则不交换。</p>
+<p>CAS操作是原子性的，所以多线程并发使用CAS更新数据时，可以不使用锁。JDK中大量使用了CAS来更新数据而防止加锁(synchronized 重量级锁)来保持原子更新。</p>
+<h3 id="2，CAS问题"><a href="#2，CAS问题" class="headerlink" title="2，CAS问题"></a>2，CAS问题</h3><p><strong>ABA问题：</strong></p>
+<p>一个值原来是A，变成了B，又变成了A，那么使用CAS进行检查时则会发现它的值没有发生变化，但是实际上却变化了。</p>
+<p>ABA问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加1，那么A-&gt;B-&gt;A就会变成1A-&gt;2B-&gt;3A。</p>
+<p>从Java 1.5开始，JDK的Atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
+<p><strong>循环时间长开销大：</strong></p>
+<p>自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。</p>
+<p><strong>只能保证一个共享变量的原子操作：</strong></p>
+<p>当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁。</p>
+<h2 id="2，Unsafe类"><a href="#2，Unsafe类" class="headerlink" title="2，Unsafe类"></a>2，Unsafe类</h2><h3 id="1，简介"><a href="#1，简介" class="headerlink" title="1，简介"></a>1，简介</h3><p>java中的原子类就是通过UnSafe类实现的，主要提供一些用于执行低级别、不安全操作的方法，如直接访问系统内存资源、自主管理内存资源等，这些方法在提升Java运行效率、增强Java语言底层资源操作能力方面起到了很大的作用。但是很容易导致程序出错，需要谨慎使用。</p>
+<p>这个类尽管里面的方法都是 public 的，但是并没有办法使用它们，JDK API 文档也没有提供任何关于这个类的方法的解释。总而言之，对于 Unsafe 类的使用都是受限制的，只有授信的代码才能获得该类的实例，当然 JDK 库里面的类是可以随意使用的。</p>
+<p><img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220823195647273.png" alt="image-20220823195647273"></p>
+<h3 id="2，Unsafe与CAS"><a href="#2，Unsafe与CAS" class="headerlink" title="2，Unsafe与CAS"></a>2，Unsafe与CAS</h3><p>Unsafe中，内部使用自旋的方式进行CAS更新(while循环进行CAS更新，如果更新失败，则循环再次重试)。Unsafe只提供了3种CAS方法：compareAndSwapObject、compareAndSwapInt和compareAndSwapLong。都是native方法</p>
+<h3 id="3，Unsafe底层"><a href="#3，Unsafe底层" class="headerlink" title="3，Unsafe底层"></a>3，Unsafe底层</h3><p>这里不做具体了解</p>
+<h3 id="4，Unsafe其他功能"><a href="#4，Unsafe其他功能" class="headerlink" title="4，Unsafe其他功能"></a>4，Unsafe其他功能</h3><p>Unsafe 提供了硬件级别的操作，比如说获取某个属性在内存中的位置，比如说修改对象的字段值，即使它是私有的。不过 Java 本身就是为了屏蔽底层的差异，对于一般的开发而言也很少会有这样的需求。</p>
+<p><a target="_blank" rel="noopener" href="https://tech.meituan.com/2019/02/14/talk-about-java-magic-class-unsafe.html">Java魔法类：Unsafe应用解析</a></p>
+<h2 id="3，AtomicInteger（其他原子类也类似）"><a href="#3，AtomicInteger（其他原子类也类似）" class="headerlink" title="3，AtomicInteger（其他原子类也类似）"></a>3，AtomicInteger（其他原子类也类似）</h2><h3 id="1，使用-1"><a href="#1，使用-1" class="headerlink" title="1，使用"></a>1，使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span>：获取当前的值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndSet</span><span class="params">(<span class="keyword">int</span> newValue)</span>：获取当前的值，并设置新的值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndIncrement</span><span class="params">()</span>：获取当前的值，并自增</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndDecrement</span><span class="params">()</span>：获取当前的值，并自减</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndAdd</span><span class="params">(<span class="keyword">int</span> delta)</span>：获取当前的值，并加上预期的值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lazySet</span><span class="params">(<span class="keyword">int</span> newValue)</span>: 最终会设置成newValue,使用lazySet设置值后，可能导致其他线程在之后的一小段时间内还是可以读到旧的值。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2，源码"><a href="#2，源码" class="headerlink" title="2，源码"></a>2，源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicInteger</span> <span class="keyword">extends</span> <span class="title">Number</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Unsafe unsafe = Unsafe.getUnsafe();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> valueOffset;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//用于获取value字段相对当前对象的“起始地址”的偏移量</span></span><br><span class="line">            valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclaredField(<span class="string">&quot;value&quot;</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(ex); &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回当前值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//递增加detla</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndAdd</span><span class="params">(<span class="keyword">int</span> delta)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//三个参数，1、当前的实例 2、value实例变量的偏移量 3、当前value要加上的数(value+delta)。</span></span><br><span class="line">        <span class="keyword">return</span> unsafe.getAndAddInt(<span class="keyword">this</span>, valueOffset, delta);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//递增加1</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">incrementAndGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> unsafe.getAndAddInt(<span class="keyword">this</span>, valueOffset, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们可以看到 AtomicInteger 底层用的是<span class="keyword">volatile</span>的变量和CAS来进行更改数据的。 </span><br><span class="line">    <span class="keyword">volatile</span>保证线程的可见性，多线程并发时，一个线程修改数据，可以保证其它线程立马看到修改后的值 </span><br><span class="line">    CAS 保证数据更新的原子性</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4，AtomicStampedReference解决CAS的ABA问题"><a href="#4，AtomicStampedReference解决CAS的ABA问题" class="headerlink" title="4，AtomicStampedReference解决CAS的ABA问题"></a>4，AtomicStampedReference解决CAS的ABA问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicStampedReference</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> T reference;  <span class="comment">//维护对象引用</span></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> stamp;  <span class="comment">//用于标志版本</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Pair</span><span class="params">(T reference, <span class="keyword">int</span> stamp)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.reference = reference;</span><br><span class="line">            <span class="keyword">this</span>.stamp = stamp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">static</span> &lt;T&gt; <span class="function">Pair&lt;T&gt; <span class="title">of</span><span class="params">(T reference, <span class="keyword">int</span> stamp)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Pair&lt;T&gt;(reference, stamp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> Pair&lt;V&gt; pair;</span><br><span class="line">    ....</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      * expectedReference ：更新之前的原始值</span></span><br><span class="line"><span class="comment">      * newReference : 将要更新的新值</span></span><br><span class="line"><span class="comment">      * expectedStamp : 期待更新的标志版本</span></span><br><span class="line"><span class="comment">      * newStamp : 将要更新的标志版本</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(V   expectedReference,</span></span></span><br><span class="line"><span class="params"><span class="function">                             V   newReference,</span></span></span><br><span class="line"><span class="params"><span class="function">                             <span class="keyword">int</span> expectedStamp,</span></span></span><br><span class="line"><span class="params"><span class="function">                             <span class="keyword">int</span> newStamp)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取当前的(元素值，版本号)对</span></span><br><span class="line">        Pair&lt;V&gt; current = pair;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">            <span class="comment">// 引用没变</span></span><br><span class="line">            expectedReference == current.reference &amp;&amp;</span><br><span class="line">            <span class="comment">// 版本号没变</span></span><br><span class="line">            expectedStamp == current.stamp &amp;&amp;</span><br><span class="line">            <span class="comment">// 新引用等于旧引用</span></span><br><span class="line">            ((newReference == current.reference &amp;&amp;</span><br><span class="line">            <span class="comment">// 新版本号等于旧版本号</span></span><br><span class="line">            newStamp == current.stamp) ||</span><br><span class="line">            <span class="comment">// 构造新的Pair对象并CAS更新</span></span><br><span class="line">            casPair(current, Pair.of(newReference, newStamp)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">casPair</span><span class="params">(Pair&lt;V&gt; cmp, Pair&lt;V&gt; val)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 调用Unsafe的compareAndSwapObject()方法CAS更新pair的引用为新引用</span></span><br><span class="line">        <span class="keyword">return</span> UNSAFE.compareAndSwapObject(<span class="keyword">this</span>, pairOffset, cmp, val);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果元素值和版本号都没有变化，并且和新的也相同，返回true；</li>
+<li>如果元素值和版本号都没有变化，并且和新的不完全相同，就构造一个新的Pair对象并执行CAS更新pair。</li>
+</ul>
+<p>以看到，java中的实现跟我们上面讲的ABA的解决方法是一致的。</p>
+<ul>
+<li>首先，使用版本号控制；</li>
+<li>其次，不重复使用节点(Pair)的引用，每次都新建一个新的Pair来作为CAS比较的对象，而不是复用旧的；</li>
+<li>最后，外部传入元素值及版本号，而不是节点(Pair)的引用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个使用举例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> AtomicStampedReference&lt;Integer&gt; atomicStampedRef =</span><br><span class="line">        <span class="keyword">new</span> AtomicStampedReference&lt;&gt;(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Thread main = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;操作线程&quot;</span> + Thread.currentThread() +<span class="string">&quot;,初始值 a = &quot;</span> + atomicStampedRef.getReference());</span><br><span class="line">        <span class="keyword">int</span> stamp = atomicStampedRef.getStamp(); <span class="comment">//获取当前标识别</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>); <span class="comment">//等待1秒 ，以便让干扰线程执行</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">boolean</span> isCASSuccess = atomicStampedRef.compareAndSet(<span class="number">1</span>,<span class="number">2</span>,stamp,stamp +<span class="number">1</span>);  <span class="comment">//此时expectedReference未发生改变，但是stamp已经被修改了,所以CAS失败</span></span><br><span class="line">        System.out.println(<span class="string">&quot;操作线程&quot;</span> + Thread.currentThread() +<span class="string">&quot;,CAS操作结果: &quot;</span> + isCASSuccess);</span><br><span class="line">    &#125;,<span class="string">&quot;主操作线程&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Thread other = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">        Thread.yield(); <span class="comment">// 确保thread-main 优先执行</span></span><br><span class="line">atomicStampedRef.compareAndSet(<span class="number">1</span>,<span class="number">2</span>,atomicStampedRef.getStamp(),atomicStampedRef.getStamp() +<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;操作线程&quot;</span> + Thread.currentThread() +<span class="string">&quot;,【increment】 ,值 = &quot;</span>+ atomicStampedRef.getReference());</span><br><span class="line">        atomicStampedRef.compareAndSet(<span class="number">2</span>,<span class="number">1</span>,atomicStampedRef.getStamp(),atomicStampedRef.getStamp() +<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;操作线程&quot;</span> + Thread.currentThread() +<span class="string">&quot;,【decrement】 ,值 = &quot;</span>+ atomicStampedRef.getReference());</span><br><span class="line">    &#125;,<span class="string">&quot;干扰线程&quot;</span>);</span><br><span class="line"></span><br><span class="line">    main.start();</span><br><span class="line">    other.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">&gt; 操作线程Thread[主操作线程,<span class="number">5</span>,main],初始值 a = <span class="number">2</span></span><br><span class="line">&gt; 操作线程Thread[干扰线程,<span class="number">5</span>,main],【increment】 ,值 = <span class="number">2</span></span><br><span class="line">&gt; 操作线程Thread[干扰线程,<span class="number">5</span>,main],【decrement】 ,值 = <span class="number">1</span></span><br><span class="line">&gt; 操作线程Thread[主操作线程,<span class="number">5</span>,main],CAS操作结果: <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="九，-JUC锁-锁核心类AQS详解"><a href="#九，-JUC锁-锁核心类AQS详解" class="headerlink" title="九， JUC锁: 锁核心类AQS详解"></a>九， JUC锁: 锁核心类AQS详解</h1><h1 id="十，JUC锁-ReentrantLock详解"><a href="#十，JUC锁-ReentrantLock详解" class="headerlink" title="十，JUC锁: ReentrantLock详解"></a>十，JUC锁: ReentrantLock详解</h1><h1 id="十一，-JUC集合-ConcurrentHashMap详解"><a href="#十一，-JUC集合-ConcurrentHashMap详解" class="headerlink" title="十一， JUC集合: ConcurrentHashMap详解"></a>十一， JUC集合: ConcurrentHashMap详解</h1><h1 id="十二，JUC线程池-ThreadPoolExecutor详解"><a href="#十二，JUC线程池-ThreadPoolExecutor详解" class="headerlink" title="十二，JUC线程池: ThreadPoolExecutor详解"></a>十二，JUC线程池: ThreadPoolExecutor详解</h1><h1 id="十三，JUC工具类-Semaphore详解"><a href="#十三，JUC工具类-Semaphore详解" class="headerlink" title="十三，JUC工具类: Semaphore详解"></a>十三，JUC工具类: Semaphore详解</h1><h1 id="十四，Java-并发-ThreadLocal详解"><a href="#十四，Java-并发-ThreadLocal详解" class="headerlink" title="十四，Java 并发 - ThreadLocal详解"></a>十四，Java 并发 - ThreadLocal详解</h1>
       
     </div>
     
@@ -1400,7 +1336,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一，理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1，背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1，为什么需要多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">2，并发问题的根源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CJAVA%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84-JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">3，JAVA是怎么解决并发问题的: JMM(Java内存模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%8Cvolatile%EF%BC%8C-Sychronized%EF%BC%8Cfinal"><span class="nav-number">1.1.4.</span> <span class="nav-text">4，关键字，volatile， Sychronized，final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8CHappens-Before"><span class="nav-number">1.1.5.</span> <span class="nav-text">5，Happens-Before</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%8D%95%E4%B8%80%E7%BA%BF%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">（1）单一线程原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%AE%A1%E7%A8%8B%E9%94%81%E5%AE%9A%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">（2）管程锁定原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89volatile%E5%8F%98%E9%87%8F%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">（3）volatile变量规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%90%AF%E5%8A%A8%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">（4）线程启动规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%8A%A0%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.5.</span> <span class="nav-text">（5）线程加入规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.6.</span> <span class="nav-text">（6）线程中断规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E5%AF%B9%E8%B1%A1%E7%BB%88%E7%BB%93"><span class="nav-number">1.1.5.7.</span> <span class="nav-text">（7）对象终结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%888%EF%BC%89%E4%BC%A0%E9%80%92%E6%80%A7"><span class="nav-number">1.1.5.8.</span> <span class="nav-text">（8）传递性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E7%9C%9F%E5%8D%B3%E5%81%87%E7%9A%84%E5%91%BD%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">6，线程安全不是一个非真即假的命题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">（1）不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%BB%9D%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">（2）绝对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%9B%B8%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">（3）相对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%85%BC%E5%AE%B9"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">（4）线程兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%AF%B9%E7%AB%8B"><span class="nav-number">1.1.6.5.</span> <span class="nav-text">（5）线程对立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.7.</span> <span class="nav-text">7，线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">（1）互斥同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">（2）非阻塞同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">（3）无同步方案</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">二，线程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%92%8C%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1，线程状态转换和方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%96%B0%E5%BB%BA%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">1，新建：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%8F%AF%E8%BF%90%E8%A1%8C%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">2，可运行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">3，阻塞：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E6%97%A0%E9%99%90%E6%9C%9F%E7%AD%89%E5%BE%85%EF%BC%88Waiting%EF%BC%89"><span class="nav-number">2.1.4.</span> <span class="nav-text">4，无限期等待（Waiting）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8C%E9%99%90%E6%9C%9F%E7%AD%89%E5%BE%85%EF%BC%88Timed-Waiting%EF%BC%89"><span class="nav-number">2.1.5.</span> <span class="nav-text">5，限期等待（Timed  Waiting）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%AD%BB%E4%BA%A1"><span class="nav-number">2.1.6.</span> <span class="nav-text">6.死亡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">2，线程使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%9F%BA%E7%A1%80%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">3，基础线程机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CExecutor"><span class="nav-number">2.3.1.</span> <span class="nav-text">1，Executor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CDaemon"><span class="nav-number">2.3.2.</span> <span class="nav-text">2，Daemon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8Csleep"><span class="nav-number">2.3.3.</span> <span class="nav-text">3，sleep()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-yield"><span class="nav-number">2.3.4.</span> <span class="nav-text">4,yield()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD"><span class="nav-number">2.4.</span> <span class="nav-text">4，线程中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CInterruptException"><span class="nav-number">2.4.1.</span> <span class="nav-text">1，InterruptException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CInterrupted"><span class="nav-number">2.4.2.</span> <span class="nav-text">2，Interrupted()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CExecutor-%E7%9A%84%E4%B8%AD%E6%96%AD%E6%93%8D%E4%BD%9C"><span class="nav-number">2.4.3.</span> <span class="nav-text">3，Executor 的中断操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">2.5.</span> <span class="nav-text">5，线程互斥同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Csynchronized"><span class="nav-number">2.5.1.</span> <span class="nav-text">1，synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CReentrantLock"><span class="nav-number">2.5.2.</span> <span class="nav-text">2，ReentrantLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%B8%A4%E7%A7%8D%E9%94%81%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">2.5.3.</span> <span class="nav-text">3，两种锁的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8A%A8%E4%BD%9C"><span class="nav-number">2.5.4.</span> <span class="nav-text">4，线程之间的动作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%8CJava%E9%94%81%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三，Java锁的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%B9%90%E8%A7%82%E9%94%81-VS-%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number">3.1.</span> <span class="nav-text">1，乐观锁 VS 悲观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.2.</span> <span class="nav-text">2，实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86"><span class="nav-number">3.1.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%87%AA%E6%97%8B%E9%94%81-VS-%E8%87%AA%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B%E9%94%81"><span class="nav-number">3.2.</span> <span class="nav-text">2，自旋锁 VS 自适应自旋锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">3.2.1.</span> <span class="nav-text">1，预备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">3.2.2.</span> <span class="nav-text">2，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E6%97%A0%E9%94%81-VS-%E5%81%8F%E5%90%91%E9%94%81-VS-%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81-VS-%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">3.3.</span> <span class="nav-text">3，无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">2，实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E5%85%AC%E5%B9%B3%E9%94%81-VS-%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="nav-number">3.4.</span> <span class="nav-text">4，公平锁 VS 非公平锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-number">3.4.2.</span> <span class="nav-text">2，优缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86-2"><span class="nav-number">3.4.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81-VS-%E9%9D%9E%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">3.5.</span> <span class="nav-text">5，可重入锁 VS 非可重入锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-3"><span class="nav-number">3.5.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-2"><span class="nav-number">3.5.2.</span> <span class="nav-text">2，实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E7%8B%AC%E4%BA%AB%E9%94%81%EF%BC%88%E6%8E%92%E5%AE%83%E9%94%81%EF%BC%89-VS-%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">3.5.3.</span> <span class="nav-text">6，独享锁（排它锁） VS 共享锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-4"><span class="nav-number">3.5.4.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-3"><span class="nav-number">3.5.5.</span> <span class="nav-text">2，实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9Asynchronized%E8%AF%A6%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">四，关键字：synchronized详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">1，使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%AF%B9%E8%B1%A1%E9%94%81"><span class="nav-number">4.1.1.</span> <span class="nav-text">1，对象锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E7%B1%BB%E9%94%81"><span class="nav-number">4.1.2.</span> <span class="nav-text">2，类锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8Csynchronized%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">2，synchronized原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%8A%A0%E9%94%81%E5%92%8C%E9%87%8A%E6%94%BE%E9%94%81%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.1.</span> <span class="nav-text">1，加锁和释放锁的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%85%A5%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">4.2.2.</span> <span class="nav-text">2，可重入原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%9D%E8%AF%81%E5%8F%AF%E8%A7%81%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.3.</span> <span class="nav-text">3，保证可见性的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CJVM%E4%B8%AD%E9%94%81%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.2.4.</span> <span class="nav-text">3，JVM中锁的优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CSynchronized%E5%92%8CLock%E6%AF%94%E8%BE%83"><span class="nav-number">4.3.</span> <span class="nav-text">3，Synchronized和Lock比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CSynchronized%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">4.3.1.</span> <span class="nav-text">1，Synchronized的缺陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CLock%E8%83%BD%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">4.3.2.</span> <span class="nav-text">2，Lock能解决的问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">4.3.3.</span> <span class="nav-text">3，总结：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9AVolatile%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">五，关键字：Volatile详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%BD%9C%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">1，作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%8E%92%E5%BA%8F"><span class="nav-number">5.1.1.</span> <span class="nav-text">1，防止重排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">5.1.2.</span> <span class="nav-text">2，实现可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%9A%E5%8D%95%E6%AC%A1%E8%AF%BB-x2F-%E5%86%99"><span class="nav-number">5.1.3.</span> <span class="nav-text">3，保证原子性：单次读&#x2F;写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">5.2.</span> <span class="nav-text">2，实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%8F%AF%E8%A7%81%E6%80%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">1，可见性实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%9C%89%E5%BA%8F%E6%80%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.2.</span> <span class="nav-text">2，有序性实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.3.</span> <span class="nav-text">3，应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F1%EF%BC%9A%E7%8A%B6%E6%80%81%E6%A0%87%E5%BF%97"><span class="nav-number">5.3.1.</span> <span class="nav-text">模式1：状态标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F2%EF%BC%9A%E7%8B%AC%E7%AB%8B%E8%A7%82%E5%AF%9F-independent-observation"><span class="nav-number">5.3.2.</span> <span class="nav-text">模式2：独立观察(independent observation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F3%EF%BC%9A%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5-double-checked"><span class="nav-number">5.3.3.</span> <span class="nav-text">模式3：双重检查(double-checked)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9Afinal%E8%AF%A6%E8%A7%A3"><span class="nav-number">6.</span> <span class="nav-text">六，关键字：final详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="nav-number">6.1.</span> <span class="nav-text">1，基础使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-number">6.1.1.</span> <span class="nav-text">1，修饰类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BF%AE%E9%A5%B0%E6%96%B9%E6%B3%95"><span class="nav-number">6.1.2.</span> <span class="nav-text">2，修饰方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%AE%E9%A5%B0%E5%8F%82%E6%95%B0"><span class="nav-number">6.1.3.</span> <span class="nav-text">3，修饰参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E4%BF%AE%E9%A5%B0%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.4.</span> <span class="nav-text">4，修饰变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8Cfinal-%E5%9F%9F%E9%87%8D%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="nav-number">6.2.</span> <span class="nav-text">2，final 域重排序规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Cfinal%E5%9F%9F%E4%B8%BA%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.1.</span> <span class="nav-text">1，final域为基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8Cfinal%E5%9F%9F%E4%B8%BA%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.2.</span> <span class="nav-text">2，final域为引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E9%87%8D%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93"><span class="nav-number">6.2.3.</span> <span class="nav-text">3，重排序总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8Cfinal%E5%86%8D%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3"><span class="nav-number">6.3.</span> <span class="nav-text">3，final再深入理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Cfinal%E5%BC%95%E7%94%A8%E4%B8%8D%E8%83%BD%E4%BB%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E9%80%B8%E5%87%BA"><span class="nav-number">6.3.1.</span> <span class="nav-text">1，final引用不能从构造函数逸出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BD%BF%E7%94%A8final%E7%9A%84%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">6.3.2.</span> <span class="nav-text">2，使用final的限制条件和局限性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一，理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1，背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1，为什么需要多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">2，并发问题的根源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CJAVA%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84-JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">3，JAVA是怎么解决并发问题的: JMM(Java内存模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%8Cvolatile%EF%BC%8C-Sychronized%EF%BC%8Cfinal"><span class="nav-number">1.1.4.</span> <span class="nav-text">4，关键字，volatile， Sychronized，final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8CHappens-Before"><span class="nav-number">1.1.5.</span> <span class="nav-text">5，Happens-Before</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%8D%95%E4%B8%80%E7%BA%BF%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">（1）单一线程原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%AE%A1%E7%A8%8B%E9%94%81%E5%AE%9A%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">（2）管程锁定原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89volatile%E5%8F%98%E9%87%8F%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">（3）volatile变量规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%90%AF%E5%8A%A8%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">（4）线程启动规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%8A%A0%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.5.</span> <span class="nav-text">（5）线程加入规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD%E8%A7%84%E5%88%99"><span class="nav-number">1.1.5.6.</span> <span class="nav-text">（6）线程中断规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E5%AF%B9%E8%B1%A1%E7%BB%88%E7%BB%93"><span class="nav-number">1.1.5.7.</span> <span class="nav-text">（7）对象终结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%888%EF%BC%89%E4%BC%A0%E9%80%92%E6%80%A7"><span class="nav-number">1.1.5.8.</span> <span class="nav-text">（8）传递性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E7%9C%9F%E5%8D%B3%E5%81%87%E7%9A%84%E5%91%BD%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">6，线程安全不是一个非真即假的命题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">（1）不可变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%BB%9D%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">（2）绝对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%9B%B8%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">（3）相对线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%85%BC%E5%AE%B9"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">（4）线程兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BA%BF%E7%A8%8B%E5%AF%B9%E7%AB%8B"><span class="nav-number">1.1.6.5.</span> <span class="nav-text">（5）线程对立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.7.</span> <span class="nav-text">7，线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">（1）互斥同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">（2）非阻塞同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">（3）无同步方案</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">二，线程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%92%8C%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1，线程状态转换和方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%96%B0%E5%BB%BA%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">1，新建：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%8F%AF%E8%BF%90%E8%A1%8C%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">2，可运行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">3，阻塞：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E6%97%A0%E9%99%90%E6%9C%9F%E7%AD%89%E5%BE%85%EF%BC%88Waiting%EF%BC%89"><span class="nav-number">2.1.4.</span> <span class="nav-text">4，无限期等待（Waiting）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8C%E9%99%90%E6%9C%9F%E7%AD%89%E5%BE%85%EF%BC%88Timed-Waiting%EF%BC%89"><span class="nav-number">2.1.5.</span> <span class="nav-text">5，限期等待（Timed  Waiting）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%AD%BB%E4%BA%A1"><span class="nav-number">2.1.6.</span> <span class="nav-text">6.死亡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">2，线程使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%9F%BA%E7%A1%80%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">3，基础线程机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CExecutor"><span class="nav-number">2.3.1.</span> <span class="nav-text">1，Executor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CDaemon"><span class="nav-number">2.3.2.</span> <span class="nav-text">2，Daemon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8Csleep"><span class="nav-number">2.3.3.</span> <span class="nav-text">3，sleep()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-yield"><span class="nav-number">2.3.4.</span> <span class="nav-text">4,yield()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD"><span class="nav-number">2.4.</span> <span class="nav-text">4，线程中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CInterruptException"><span class="nav-number">2.4.1.</span> <span class="nav-text">1，InterruptException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CInterrupted"><span class="nav-number">2.4.2.</span> <span class="nav-text">2，Interrupted()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CExecutor-%E7%9A%84%E4%B8%AD%E6%96%AD%E6%93%8D%E4%BD%9C"><span class="nav-number">2.4.3.</span> <span class="nav-text">3，Executor 的中断操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">2.5.</span> <span class="nav-text">5，线程互斥同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Csynchronized"><span class="nav-number">2.5.1.</span> <span class="nav-text">1，synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CReentrantLock"><span class="nav-number">2.5.2.</span> <span class="nav-text">2，ReentrantLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%B8%A4%E7%A7%8D%E9%94%81%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">2.5.3.</span> <span class="nav-text">3，两种锁的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8A%A8%E4%BD%9C"><span class="nav-number">2.5.4.</span> <span class="nav-text">4，线程之间的动作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%8CJava%E9%94%81%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三，Java锁的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%B9%90%E8%A7%82%E9%94%81-VS-%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number">3.1.</span> <span class="nav-text">1，乐观锁 VS 悲观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.2.</span> <span class="nav-text">2，实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86"><span class="nav-number">3.1.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E8%87%AA%E6%97%8B%E9%94%81-VS-%E8%87%AA%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B%E9%94%81"><span class="nav-number">3.2.</span> <span class="nav-text">2，自旋锁 VS 自适应自旋锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">3.2.1.</span> <span class="nav-text">1，预备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">3.2.2.</span> <span class="nav-text">2，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E6%97%A0%E9%94%81-VS-%E5%81%8F%E5%90%91%E9%94%81-VS-%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81-VS-%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">3.3.</span> <span class="nav-text">3，无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">2，实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E5%85%AC%E5%B9%B3%E9%94%81-VS-%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="nav-number">3.4.</span> <span class="nav-text">4，公平锁 VS 非公平锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-number">3.4.2.</span> <span class="nav-text">2，优缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86-2"><span class="nav-number">3.4.3.</span> <span class="nav-text">3，关联知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81-VS-%E9%9D%9E%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">3.5.</span> <span class="nav-text">5，可重入锁 VS 非可重入锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-3"><span class="nav-number">3.5.1.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-2"><span class="nav-number">3.5.2.</span> <span class="nav-text">2，实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E7%8B%AC%E4%BA%AB%E9%94%81%EF%BC%88%E6%8E%92%E5%AE%83%E9%94%81%EF%BC%89-VS-%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">3.5.3.</span> <span class="nav-text">6，独享锁（排它锁） VS 共享锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E6%A6%82%E5%BF%B5-4"><span class="nav-number">3.5.4.</span> <span class="nav-text">1，概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0-3"><span class="nav-number">3.5.5.</span> <span class="nav-text">2，实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9Asynchronized%E8%AF%A6%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">四，关键字：synchronized详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">1，使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%AF%B9%E8%B1%A1%E9%94%81"><span class="nav-number">4.1.1.</span> <span class="nav-text">1，对象锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E7%B1%BB%E9%94%81"><span class="nav-number">4.1.2.</span> <span class="nav-text">2，类锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8Csynchronized%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">2，synchronized原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%8A%A0%E9%94%81%E5%92%8C%E9%87%8A%E6%94%BE%E9%94%81%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.1.</span> <span class="nav-text">1，加锁和释放锁的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%85%A5%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">4.2.2.</span> <span class="nav-text">2，可重入原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%9D%E8%AF%81%E5%8F%AF%E8%A7%81%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.3.</span> <span class="nav-text">3，保证可见性的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CJVM%E4%B8%AD%E9%94%81%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.2.4.</span> <span class="nav-text">3，JVM中锁的优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CSynchronized%E5%92%8CLock%E6%AF%94%E8%BE%83"><span class="nav-number">4.3.</span> <span class="nav-text">3，Synchronized和Lock比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8CSynchronized%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">4.3.1.</span> <span class="nav-text">1，Synchronized的缺陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CLock%E8%83%BD%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">4.3.2.</span> <span class="nav-text">2，Lock能解决的问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">4.3.3.</span> <span class="nav-text">3，总结：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9AVolatile%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">五，关键字：Volatile详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E4%BD%9C%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">1，作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%8E%92%E5%BA%8F"><span class="nav-number">5.1.1.</span> <span class="nav-text">1，防止重排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">5.1.2.</span> <span class="nav-text">2，实现可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%9A%E5%8D%95%E6%AC%A1%E8%AF%BB-x2F-%E5%86%99"><span class="nav-number">5.1.3.</span> <span class="nav-text">3，保证原子性：单次读&#x2F;写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">5.2.</span> <span class="nav-text">2，实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E5%8F%AF%E8%A7%81%E6%80%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">1，可见性实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%9C%89%E5%BA%8F%E6%80%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.2.</span> <span class="nav-text">2，有序性实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.3.</span> <span class="nav-text">3，应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F1%EF%BC%9A%E7%8A%B6%E6%80%81%E6%A0%87%E5%BF%97"><span class="nav-number">5.3.1.</span> <span class="nav-text">模式1：状态标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F2%EF%BC%9A%E7%8B%AC%E7%AB%8B%E8%A7%82%E5%AF%9F-independent-observation"><span class="nav-number">5.3.2.</span> <span class="nav-text">模式2：独立观察(independent observation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F3%EF%BC%9A%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5-double-checked"><span class="nav-number">5.3.3.</span> <span class="nav-text">模式3：双重检查(double-checked)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9Afinal%E8%AF%A6%E8%A7%A3"><span class="nav-number">6.</span> <span class="nav-text">六，关键字：final详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="nav-number">6.1.</span> <span class="nav-text">1，基础使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-number">6.1.1.</span> <span class="nav-text">1，修饰类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BF%AE%E9%A5%B0%E6%96%B9%E6%B3%95"><span class="nav-number">6.1.2.</span> <span class="nav-text">2，修饰方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E4%BF%AE%E9%A5%B0%E5%8F%82%E6%95%B0"><span class="nav-number">6.1.3.</span> <span class="nav-text">3，修饰参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E4%BF%AE%E9%A5%B0%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.4.</span> <span class="nav-text">4，修饰变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8Cfinal-%E5%9F%9F%E9%87%8D%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="nav-number">6.2.</span> <span class="nav-text">2，final 域重排序规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Cfinal%E5%9F%9F%E4%B8%BA%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.1.</span> <span class="nav-text">1，final域为基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8Cfinal%E5%9F%9F%E4%B8%BA%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.2.</span> <span class="nav-text">2，final域为引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E9%87%8D%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93"><span class="nav-number">6.2.3.</span> <span class="nav-text">3，重排序总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8Cfinal%E5%86%8D%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3"><span class="nav-number">6.3.</span> <span class="nav-text">3，final再深入理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8Cfinal%E5%BC%95%E7%94%A8%E4%B8%8D%E8%83%BD%E4%BB%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E9%80%B8%E5%87%BA"><span class="nav-number">6.3.1.</span> <span class="nav-text">1，final引用不能从构造函数逸出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E4%BD%BF%E7%94%A8final%E7%9A%84%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">6.3.2.</span> <span class="nav-text">2，使用final的限制条件和局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%EF%BC%8CJUC%E7%B1%BB%E6%80%BB%E4%BD%93%E6%A6%82%E8%A7%88%E5%92%8C%E5%AD%A6%E4%B9%A0%E5%AF%BC%E8%A7%88"><span class="nav-number">7.</span> <span class="nav-text">七，JUC类总体概览和学习导览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CLock%E6%A1%86%E6%9E%B6%E5%92%8CTools%E7%B1%BB"><span class="nav-number">7.1.</span> <span class="nav-text">1，Lock框架和Tools类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8CCollections-%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88"><span class="nav-number">7.2.</span> <span class="nav-text">2，Collections: 并发集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CAtomic%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%B1%BB"><span class="nav-number">7.3.</span> <span class="nav-text">3，Atomic：原子类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8CExcutors%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">7.4.</span> <span class="nav-text">4，Excutors：线程池</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%EF%BC%8CJUC%E5%8E%9F%E5%AD%90%E7%B1%BB-CAS-Unsafe%E5%92%8C%E5%8E%9F%E5%AD%90%E7%B1%BB%E8%AF%A6%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">八，JUC原子类: CAS, Unsafe和原子类详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CCAS"><span class="nav-number">8.1.</span> <span class="nav-text">1，CAS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AFCAS"><span class="nav-number">8.1.1.</span> <span class="nav-text">1，什么是CAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CCAS%E9%97%AE%E9%A2%98"><span class="nav-number">8.1.2.</span> <span class="nav-text">2，CAS问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8CUnsafe%E7%B1%BB"><span class="nav-number">8.2.</span> <span class="nav-text">2，Unsafe类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E7%AE%80%E4%BB%8B"><span class="nav-number">8.2.1.</span> <span class="nav-text">1，简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8CUnsafe%E4%B8%8ECAS"><span class="nav-number">8.2.2.</span> <span class="nav-text">2，Unsafe与CAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8CUnsafe%E5%BA%95%E5%B1%82"><span class="nav-number">8.2.3.</span> <span class="nav-text">3，Unsafe底层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8CUnsafe%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="nav-number">8.2.4.</span> <span class="nav-text">4，Unsafe其他功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CAtomicInteger%EF%BC%88%E5%85%B6%E4%BB%96%E5%8E%9F%E5%AD%90%E7%B1%BB%E4%B9%9F%E7%B1%BB%E4%BC%BC%EF%BC%89"><span class="nav-number">8.3.</span> <span class="nav-text">3，AtomicInteger（其他原子类也类似）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E4%BD%BF%E7%94%A8-1"><span class="nav-number">8.3.1.</span> <span class="nav-text">1，使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%BA%90%E7%A0%81"><span class="nav-number">8.3.2.</span> <span class="nav-text">2，源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8CAtomicStampedReference%E8%A7%A3%E5%86%B3CAS%E7%9A%84ABA%E9%97%AE%E9%A2%98"><span class="nav-number">8.3.3.</span> <span class="nav-text">4，AtomicStampedReference解决CAS的ABA问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%EF%BC%8C-JUC%E9%94%81-%E9%94%81%E6%A0%B8%E5%BF%83%E7%B1%BBAQS%E8%AF%A6%E8%A7%A3"><span class="nav-number">9.</span> <span class="nav-text">九， JUC锁: 锁核心类AQS详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%EF%BC%8CJUC%E9%94%81-ReentrantLock%E8%AF%A6%E8%A7%A3"><span class="nav-number">10.</span> <span class="nav-text">十，JUC锁: ReentrantLock详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%EF%BC%8C-JUC%E9%9B%86%E5%90%88-ConcurrentHashMap%E8%AF%A6%E8%A7%A3"><span class="nav-number">11.</span> <span class="nav-text">十一， JUC集合: ConcurrentHashMap详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%EF%BC%8CJUC%E7%BA%BF%E7%A8%8B%E6%B1%A0-ThreadPoolExecutor%E8%AF%A6%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">十二，JUC线程池: ThreadPoolExecutor详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%EF%BC%8CJUC%E5%B7%A5%E5%85%B7%E7%B1%BB-Semaphore%E8%AF%A6%E8%A7%A3"><span class="nav-number">13.</span> <span class="nav-text">十三，JUC工具类: Semaphore详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%EF%BC%8CJava-%E5%B9%B6%E5%8F%91-ThreadLocal%E8%AF%A6%E8%A7%A3"><span class="nav-number">14.</span> <span class="nav-text">十四，Java 并发 - ThreadLocal详解</span></a></li></ol></div>
             
 
           </div>
@@ -1434,7 +1370,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">125.6k</span>
+    <span title="Site words total count">128.8k</span>
   
 </div>
 
