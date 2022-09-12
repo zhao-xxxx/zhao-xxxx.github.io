@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="xxx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介：该文章目标是理清redis常考点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-4-Redis">
+<meta property="og:url" content="https://www.noteofzhao.xyz/2022/04/25/js-5-Redis/index.html">
+<meta property="og:site_name" content="zhao-space">
+<meta property="og:description" content="简介：该文章目标是理清redis常考点">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907163155845.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907163657575.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907165627100.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907170419921.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907170516147.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912165224082.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912163316880.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912165658434.png">
+<meta property="article:published_time" content="2022-04-25T11:16:33.000Z">
+<meta property="article:modified_time" content="2022-09-12T10:48:13.649Z">
+<meta property="article:author" content="George Zhao">
+<meta property="article:tag" content="xxx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907163155845.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+      (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="https://www.noteofzhao.xyz/2022/04/25/js-5-Redis/"/>
+
+
+
+
+
+
+
+  <title>js-4-Redis | zhao-space</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhao-space</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">--keep moving</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.noteofzhao.xyz/2022/04/25/js-5-Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhao-space">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js-4-Redis</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-25T19:16:33+08:00">
+                2022-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/xxx/" itemprop="url" rel="index">
+                    <span itemprop="name">xxx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> View
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>简介：</strong>该文章目标是理清redis常考点</p>
+<span id="more"></span>
+
+<h1 id="一，Redis基础概念和数据类型"><a href="#一，Redis基础概念和数据类型" class="headerlink" title="一，Redis基础概念和数据类型"></a>一，Redis基础概念和数据类型</h1><h2 id="1，Redis是什么？为什么要用？"><a href="#1，Redis是什么？为什么要用？" class="headerlink" title="1，Redis是什么？为什么要用？"></a>1，Redis是什么？为什么要用？</h2><p>Redis是一款内存高速缓存数据库，是一个key-value存储系统（键值存储系统），支持丰富的数据类型，如：String、list、set、zset、hash。</p>
+<p>Redis有很多优势，比如数据类型丰富，操作都是原子性的，可以持久化，以及实现分布式</p>
+<h2 id="2，Redis使用场景"><a href="#2，Redis使用场景" class="headerlink" title="2，Redis使用场景"></a>2，Redis使用场景</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>热点数据的缓存</td>
+<td>有两中方式：1，读取前，先去读Redis，如果没有数据，读取数据库，将数据拉入Redis；2， 插入数据时，同时写入Redis。</td>
+</tr>
+<tr>
+<td>限时业务的使用</td>
+<td>可以使用expire命令设置一个键的生存时间，到时间后redis会删除它。利用这一特性可以运用在限时的优惠活动信息、手机验证码等业务场景</td>
+</tr>
+<tr>
+<td>计数器相关问题</td>
+<td>ncrby命令可以实现原子性的递增，所以可以运用于高并发的秒杀活动、分布式序列号的生成、具体业务还体现在比如限制一个手机号发多少条短信、一个接口一分钟限制多少请求</td>
+</tr>
+<tr>
+<td>分布式锁</td>
+<td>这个主要利用redis的setnx命令进行，setnx：”set if not exists”就是如果不存在则成功设置缓存同时返回1，否则返回0</td>
+</tr>
+<tr>
+<td>延时操作</td>
+<td>比如在订单生产后我们占用了库存，10分钟后去检验用户是否真正购买，如果没有购买将该单据设置无效，同时还原库存。</td>
+</tr>
+<tr>
+<td>排行榜相关</td>
+<td>做一个SortedSet, 并以用户的openid作为上面的username, 以用户的点赞数作为上面的score, 然后针对每个用户做一个hash, 通过zrangebyscore就可以按照点赞数获取排行榜，再根据username获取用户的hash信息</td>
+</tr>
+<tr>
+<td>相互关系</td>
+<td>微博应用中，每个用户关注的人存在一个集合中，就很容易实现求两个人的共同好友功能。</td>
+</tr>
+<tr>
+<td>简单队列</td>
+<td>由于Redis有list push和list pop这样的命令，所以能够很方便的执行队列操作</td>
+</tr>
+</tbody></table>
+<h2 id="3，五种基本数据类型"><a href="#3，五种基本数据类型" class="headerlink" title="3，五种基本数据类型"></a>3，五种基本数据类型</h2><p>首先对redis来说，所有的key（键）都是字符串。我们在谈基础数据结构时，讨论的是存储值的数据类型，主要包括常见的5种数据类型，分别是：String、List、Set、Zset、Hash。</p>
+<h3 id="（1）String"><a href="#（1）String" class="headerlink" title="（1）String"></a>（1）String</h3><p>String类型是二进制安全的， redis 的 string 可以包含任何数据。如数字，字符串，jpg图片或者序列化的对象。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907163155845.png" alt="image-20220907163155845" style="zoom:67%;" />
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简述</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>获取存储在给定键中的值</td>
+<td>GET name</td>
+</tr>
+<tr>
+<td>SET</td>
+<td>设置存储在给定键中的值</td>
+<td>SET name value</td>
+</tr>
+<tr>
+<td>DEL</td>
+<td>删除存储在给定键中的值</td>
+<td>DEL name</td>
+</tr>
+<tr>
+<td>INCR</td>
+<td>将键存储的值加1</td>
+<td>INCR key</td>
+</tr>
+<tr>
+<td>DECR</td>
+<td>将键存储的值减1</td>
+<td>DECR key</td>
+</tr>
+<tr>
+<td>INCRBY</td>
+<td>将键存储的值加上整数</td>
+<td>INCRBY key amount</td>
+</tr>
+<tr>
+<td>DECRBY</td>
+<td>将键存储的值减去整数</td>
+<td>DECRBY key amount</td>
+</tr>
+</tbody></table>
+<p><strong>实战场景</strong></p>
+<ul>
+<li><strong>缓存</strong>： 经典使用场景，把常用信息，字符串，图片或者视频等信息放到redis中，redis作为缓存层，mysql做持久化层，降低mysql的读写压力。</li>
+<li><strong>计数器</strong>：redis是单线程模型，一个命令执行完才会执行下一个，同时数据可以一步落地到其他的数据源。</li>
+<li><strong>session</strong>：常见方案spring session + redis实现session共享，</li>
+</ul>
+<h3 id="（2）List"><a href="#（2）List" class="headerlink" title="（2）List"></a>（2）List</h3><p>使用List结构，我们可以轻松地实现最新消息排队功能（比如新浪微博的TimeLine）。List的另一个应用就是消息队列，可以利用List的 PUSH 操作，将任务存放在List中，然后工作线程再用 POP 操作将任务取出进行执行。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907163657575.png" alt="image-20220907163657575" style="zoom:67%;" />
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简述</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RPUSH</td>
+<td>将给定值推入到列表右端</td>
+<td>RPUSH key value</td>
+</tr>
+<tr>
+<td>LPUSH</td>
+<td>将给定值推入到列表左端</td>
+<td>LPUSH key value</td>
+</tr>
+<tr>
+<td>RPOP</td>
+<td>从列表的右端弹出一个值，并返回被弹出的值</td>
+<td>RPOP key</td>
+</tr>
+<tr>
+<td>LPOP</td>
+<td>从列表的左端弹出一个值，并返回被弹出的值</td>
+<td>LPOP key</td>
+</tr>
+<tr>
+<td>LRANGE</td>
+<td>获取列表在给定范围上的所有值</td>
+<td>LRANGE key 0 -1</td>
+</tr>
+<tr>
+<td>LINDEX</td>
+<td>通过索引获取列表中的元素。你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</td>
+<td>LINDEX key index</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>实战场景</strong><ul>
+<li><strong>微博TimeLine</strong>: 有人发布微博，用lpush加入时间轴，展示新的列表信息。</li>
+<li><strong>消息队列</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="（3）Set"><a href="#（3）Set" class="headerlink" title="（3）Set"></a>（3）Set</h3><p>Redis 的 Set 是 String 类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是 O(1)</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907165627100.png" alt="image-20220907165627100" style="zoom:67%;" />
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简述</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SADD</td>
+<td>向集合添加一个或多个成员</td>
+<td>SADD key value</td>
+</tr>
+<tr>
+<td>SCARD</td>
+<td>获取集合的成员数</td>
+<td>SCARD key</td>
+</tr>
+<tr>
+<td>SMEMBERS</td>
+<td>返回集合中的所有成员</td>
+<td>SMEMBERS key member</td>
+</tr>
+<tr>
+<td>SISMEMBER</td>
+<td>判断 member 元素是否是集合 key 的成员</td>
+<td>SISMEMBER key member</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>实战场景</strong><ul>
+<li><strong>标签</strong>（tag）,给用户添加标签，或者用户给消息添加标签，这样有同一标签或者类似标签的可以给推荐关注的事或者关注的人。</li>
+<li><strong>点赞，或点踩，收藏等</strong>，可以放到set中实现</li>
+</ul>
+</li>
+</ul>
+<h3 id="（4）Zset"><a href="#（4）Zset" class="headerlink" title="（4）Zset"></a>（4）Zset</h3><p>Redis 的 Zset和 set 一样也是 string 类型元素的集合,且不允许重复的成员。不同的是每个元素都会关联一个 double 类型的分数。redis 正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907170419921.png" alt="image-20220907170419921" style="zoom:67%;" />
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简述</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ZADD</td>
+<td>将一个带有给定分值的成员添加到有序集合里面</td>
+<td>ZADD zset-key 178 member1</td>
+</tr>
+<tr>
+<td>ZRANGE</td>
+<td>根据元素在有序集合中所处的位置，从有序集合中获取多个元素</td>
+<td>ZRANGE zset-key 0-1 withccores</td>
+</tr>
+<tr>
+<td>ZREM</td>
+<td>如果给定元素成员存在于有序集合中，那么就移除这个元素</td>
+<td>ZREM zset-key member1</td>
+</tr>
+</tbody></table>
+<p><strong>实战场景</strong></p>
+<ul>
+<li><strong>排行榜</strong>：有序集合经典使用场景。例如小说视频等网站需要对用户上传的小说视频做排行榜，榜单可以按照用户关注数，更新时间，字数等打分，做排行</li>
+</ul>
+<h3 id="（5）Hash"><a href="#（5）Hash" class="headerlink" title="（5）Hash"></a>（5）Hash</h3><p>一个 string 类型的 field（字段） 和 value（值） 的映射表，hash 特别适合用于存储对象。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220907170516147.png" alt="image-20220907170516147" style="zoom:67%;" />
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简述</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HSET</td>
+<td>添加键值对</td>
+<td>HSET hash-key sub-key1 value1</td>
+</tr>
+<tr>
+<td>HGET</td>
+<td>获取指定散列键的值</td>
+<td>HGET hash-key key1</td>
+</tr>
+<tr>
+<td>HGETALL</td>
+<td>获取散列中包含的所有键值对</td>
+<td>HGETALL hash-key</td>
+</tr>
+<tr>
+<td>HDEL</td>
+<td>如果给定键存在于散列中，那么就移除这个键</td>
+<td>HDEL hash-key sub-key1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>实战场景<ul>
+<li><strong>缓存</strong>： 能直观，相比string更节省空间，的维护缓存信息，如用户信息，视频信息等。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4，三种特殊数据类型"><a href="#4，三种特殊数据类型" class="headerlink" title="4，三种特殊数据类型"></a>4，三种特殊数据类型</h2><h3 id="（1）HyperLogLogs（基数统计）"><a href="#（1）HyperLogLogs（基数统计）" class="headerlink" title="（1）HyperLogLogs（基数统计）"></a>（1）HyperLogLogs（基数统计）</h3><p>A &#x3D; {1, 2, 3, 4, 5}， B &#x3D; {3, 5, 6, 7, 9}；那么基数（不重复的元素）&#x3D; 1, 2, 4, 6, 7, 9。这个结构可以非常省内存的去统计各种计数，比如注册 IP 数、每日访问 IP 数、页面实时UV、在线用户数，共同好友数等。</p>
+<h3 id="（2）Bitmap（位存储）"><a href="#（2）Bitmap（位存储）" class="headerlink" title="（2）Bitmap（位存储）"></a>（2）Bitmap（位存储）</h3><p>Bitmap 即位图数据结构，都是操作二进制位来进行记录，只有0 和 1 两个状态。</p>
+<p>可以用来统计用户信息，活跃，不活跃！ 登录，未登录！ 打卡，不打卡！ <strong>两个状态的，都可以使用 Bitmaps</strong>！如果存储一年的打卡状态需要多少内存呢？ 365 天 &#x3D; 365 bit 1字节 &#x3D; 8bit 46 个字节左右！</p>
+<h3 id="（3）geospatial（地理位置）"><a href="#（3）geospatial（地理位置）" class="headerlink" title="（3）geospatial（地理位置）"></a>（3）geospatial（地理位置）</h3><p>这个功能可以推算地理位置的信息: 两地之间的距离, 方圆几里的人</p>
+<h1 id="二，Redis持久化"><a href="#二，Redis持久化" class="headerlink" title="二，Redis持久化"></a>二，Redis持久化</h1><h2 id="1，简介"><a href="#1，简介" class="headerlink" title="1，简介"></a>1，简介</h2><p>Redis是个基于内存的数据库。那服务一旦宕机，内存中的数据将全部丢失。</p>
+<p>通常的解决方案是从后端数据库恢复这些数据，但后端数据库有性能瓶颈，如果是大数据量的恢复，1、会对数据库带来巨大的压力，2、数据库的性能不如Redis。导致程序响应慢。</p>
+<p>所以对Redis来说，实现数据的持久化，避免从后端数据库中恢复数据，是至关重要的。</p>
+<h2 id="2，RDB持久化"><a href="#2，RDB持久化" class="headerlink" title="2，RDB持久化"></a>2，RDB持久化</h2><p>RDB 就是 Redis DataBase 的缩写，中文名为快照&#x2F;内存快照，RDB持久化是把当前进程数据生成快照保存到磁盘上的过程，由于是某一时刻的快照，那么快照中的值要早于或者等于内存中的值。</p>
+<h3 id="（1）如何触发"><a href="#（1）如何触发" class="headerlink" title="（1）如何触发"></a>（1）如何触发</h3><p><strong>手动触发</strong>：</p>
+<p>save命令：阻塞当前Redis服务器，直到RDB过程完成为止，对于内存 比较大的实例会造成长时间<strong>阻塞</strong>，线上环境不建议使用</p>
+<p>bgsave命令：Redis进程执行fork操作创建子进程，RDB持久化过程由子进程负责，子进程先将数据写入到临时的rdb文件中，待快照数据写入完成后再原子替换旧的rdb文件。阻塞只发生在fork阶段，一般时间很短。</p>
+<p><strong>自动触发</strong>：</p>
+<p>1，redis.conf中配置<code>save m n</code>，即在m秒内有n次修改时，自动触发bgsave生成rdb文件；</p>
+<p>2，执行debug reload命令重新加载redis时也会触发bgsave操作；</p>
+<p>3，默认情况下执行shutdown命令时，如果没有开启aof持久化，那么也会触发bgsave操作；</p>
+<h3 id="（2）在redis-conf中配置RDB"><a href="#（2）在redis-conf中配置RDB" class="headerlink" title="（2）在redis.conf中配置RDB"></a>（2）在redis.conf中配置RDB</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 周期性执行条件的设置格式为</span></span><br><span class="line"><span class="attr">save</span> <span class="string">&lt;seconds&gt; &lt;changes&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 默认的设置为：</span></span><br><span class="line"><span class="attr">save</span> <span class="string">900 1 #如果900秒内有1条Key信息发生变化，则进行快照；</span></span><br><span class="line"><span class="attr">save</span> <span class="string">300 10</span></span><br><span class="line"><span class="attr">save</span> <span class="string">60 10000</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 以下设置方式为关闭RDB快照功能</span></span><br><span class="line"><span class="attr">save</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 文件名称</span></span><br><span class="line"><span class="attr">dbfilename</span> <span class="string">dump.rdb</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 文件保存路径</span></span><br><span class="line"><span class="attr">dir</span> <span class="string">/home/work/app/redis/data/</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 如果持久化出错，主进程是否停止写入</span></span><br><span class="line"><span class="meta">stop-writes-on-bgsave-error</span> <span class="string">yes</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 是否压缩</span></span><br><span class="line"><span class="attr">rdbcompression</span> <span class="string">yes</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 导入时是否检查</span></span><br><span class="line"><span class="attr">rdbchecksum</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）几个问题"><a href="#（3）几个问题" class="headerlink" title="（3）几个问题"></a>（3）几个问题</h3><p><strong>问：由于生产环境中我们为Redis开辟的内存区域都比较大（例如6GB），那么将内存中的数据同步到硬盘的过程可能就会持续比较长的时间，而实际情况是这段时间Redis服务一般都会收到数据写操作请求。那么如何保证数据一致性呢？</strong></p>
+<p>RDB中的核心思路是Copy-on-Write，来保证在进行快照操作的这段时间，需要压缩写入磁盘上的数据在内存中不会发生变化。在正常的快照操作中，一方面Redis主进程会fork一个新的快照进程专门来做这个事情，这样保证了Redis服务不会停止对客户端包括写请求在内的任何响应。另一方面这段时间发生的数据变化会以副本的方式存放在另一个新的内存区域，待快照操作结束后才会同步到原来的内存区域。</p>
+<p><strong>问：在进行快照操作的这段时间，如果发生服务崩溃怎么办</strong>？</p>
+<p>在没有将数据全部写入到磁盘前，这次快照操作都不算成功。如果出现了服务崩溃的情况，将以上一次完整的RDB快照文件作为恢复内存数据的参考。</p>
+<p><strong>问：可以每秒做一次快照吗</strong>？</p>
+<p>不太好，每次快照都是由 bgsave 子进程在后台执行，也不会阻塞主线程。</p>
+<p>虽然 bgsave 执行时不阻塞主线程，但是，<strong>如果频繁地执行全量快照，也会带来两方面的开销</strong>：</p>
+<ul>
+<li>一方面，频繁将全量数据写入磁盘，会给磁盘带来很大压力，多个快照竞争有限的磁盘带宽，前一个快照还没有做完，后一个又开始做了，容易造成恶性循环。</li>
+<li>另一方面，bgsave 子进程需要通过 fork 操作从主线程创建出来。虽然，子进程在创建后不会再阻塞主线程，但是，fork 这个创建过程本身会阻塞主线程，而且主线程的内存越大，阻塞时间越长。如果频繁 fork 出 bgsave 子进程，这就会频繁<strong>阻塞主线程</strong>了。</li>
+</ul>
+<h3 id="（4）优缺点"><a href="#（4）优缺点" class="headerlink" title="（4）优缺点"></a>（4）优缺点</h3><p><strong>优点</strong></p>
+<ul>
+<li>RDB文件是某个时间节点的快照，压缩后的文件体积远远小于内存大小，适用于备份、全量复制等场景；</li>
+<li>Redis加载RDB文件恢复数据要远远快于AOF方式；</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>RDB方式实时性不够，无法做到秒级的持久化；</li>
+<li>每次调用bgsave都需要fork子进程，fork子进程属于重量级操作，频繁执行成本较高；</li>
+</ul>
+<h2 id="3，AOF持久化"><a href="#3，AOF持久化" class="headerlink" title="3，AOF持久化"></a>3，AOF持久化</h2><p>AOF采用写后日志的方式，记录对数据操作，也就是将每一次操作命令存下来，恢复数据的时候再执行一遍。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912165224082.png" alt="image-20220912165224082" style="zoom:80%;" />
+
+
+
+<h3 id="（1）如何实现AOF"><a href="#（1）如何实现AOF" class="headerlink" title="（1）如何实现AOF"></a>（1）如何实现AOF</h3><p>AOF日志记录Redis的每个写命令，步骤分为：命令追加（append）、文件写入（write）和文件同步（sync）。</p>
+<p><strong>命令追加</strong> 当AOF持久化功能打开了，服务器在执行完一个写命令之后，会以协议格式将被执行的写命令追加到服务器的 aof_buf 缓冲区。</p>
+<p><strong>文件写入和同步</strong> 关于何时将 aof_buf 缓冲区的内容写入AOF文件中，Redis提供了三种写回策略：</p>
+<p><code>Always</code>，同步写回：每个写命令执行完，立马同步地将日志写回磁盘；</p>
+<p><code>Everysec</code>，每秒写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，每隔一秒把缓冲区中的内容写入磁盘；</p>
+<p><code>No</code>，操作系统控制的写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，由操作系统决定何时将缓冲区内容写回磁盘。</p>
+<h3 id="（2）redis-conf中配置AOF"><a href="#（2）redis-conf中配置AOF" class="headerlink" title="（2）redis.conf中配置AOF"></a>（2）redis.conf中配置AOF</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># appendonly参数开启AOF持久化</span></span><br><span class="line"><span class="attr">appendonly</span> <span class="string">no</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># AOF持久化的文件名，默认是appendonly.aof</span></span><br><span class="line"><span class="attr">appendfilename</span> <span class="string">&quot;appendonly.aof&quot;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># AOF文件的保存位置和RDB文件的位置相同，都是通过dir参数设置的</span></span><br><span class="line"><span class="attr">dir</span> <span class="string">./</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 同步策略</span></span><br><span class="line"><span class="comment"># appendfsync always</span></span><br><span class="line"><span class="attr">appendfsync</span> <span class="string">everysec</span></span><br><span class="line"><span class="comment"># appendfsync no</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># aof重写期间是否同步</span></span><br><span class="line"><span class="meta">no-appendfsync-on-rewrite</span> <span class="string">no</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 重写触发配置</span></span><br><span class="line"><span class="meta">auto-aof-rewrite-percentage</span> <span class="string">100</span></span><br><span class="line"><span class="meta">auto-aof-rewrite-min-size</span> <span class="string">64mb</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 加载aof出错如何处理</span></span><br><span class="line"><span class="meta">aof-load-truncated</span> <span class="string">yes</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 文件重写策略</span></span><br><span class="line"><span class="meta">aof-rewrite-incremental-fsync</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）深入理解AOF重写"><a href="#（3）深入理解AOF重写" class="headerlink" title="（3）深入理解AOF重写"></a>（3）深入理解AOF重写</h3><p><strong>指令的简化</strong>：</p>
+<p>AOF会记录每个写命令到AOF文件，随着时间越来越长，AOF文件会变得越来越大。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912163316880.png" alt="image-20220912163316880" style="zoom:80%;" />
+
+<p><strong>重写时新数据如何处理？</strong></p>
+<p>重写过程总结为：“一个拷贝，两处日志”。在fork出子进程时的拷贝，以及在重写时，如果有新数据写入，主线程就会将命令记录到两个aof日志内存缓冲区中。</p>
+<p>如果AOF写回策略配置的是always，则直接将命令写回旧的日志文件，并且保存一份命令至AOF重写缓冲区，这些操作对新的日志文件是不存在影响的。（旧的日志文件：主线程使用的日志文件，新的日志文件：bgrewriteaof进程使用的日志文件）</p>
+<p>而在bgrewriteaof子进程完成会日志文件的重写操作后，会提示主线程已经完成重写操作，主线程会将AOF重写缓冲中的命令追加到新的日志文件后面。</p>
+<p>最后通过修改文件名的方式，保证文件切换的原子性。</p>
+<p>在AOF重写日志期间发生宕机的话，因为日志文件还没切换，所以恢复数据时，用的还是旧的日志文件。</p>
+<img src="https://raw.githubusercontent.com/zhao-xxxx/Picture/main/img/image-20220912165658434.png" alt="image-20220912165658434" style="zoom:80%;" />
+
+<p><strong>为什么AOF重写不复用原AOF日志</strong>？</p>
+<p>两方面原因：</p>
+<ol>
+<li>父子进程写同一个文件会产生竞争问题，影响父进程的性能。</li>
+<li>如果AOF重写过程中失败了，相当于污染了原本的AOF文件，无法做恢复数据使用。</li>
+</ol>
+<h2 id="4，RDB和AOF混用的方式"><a href="#4，RDB和AOF混用的方式" class="headerlink" title="4，RDB和AOF混用的方式"></a>4，RDB和AOF混用的方式</h2><p>内存快照以一定的频率执行，在两次快照之间，使用 AOF 日志记录这期间的所有命令操作。</p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/xxx/" rel="tag"><i class="fa fa-tag"></i> xxx</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/04/25/jc-3-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" rel="next" title="jc-3-多线程">
+                <i class="fa fa-chevron-left"></i> jc-3-多线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/04/25/js-6-nacos/" rel="prev" title="js-5-Dubbo">
+                js-5-Dubbo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/photo.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                 
+					<a href="/tags/index.html">
+					 
+					<span class="site-state-item-count">4</span>
+					<span class="site-state-item-name">标签</span>
+				</a>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhao-xxxx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:17302550892@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+		  
+		  
+		  
+		    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+			  <div class="links-of-blogroll-title">
+			    <!-- modify icon to fire by szw -->
+			    <i class="fa fa-history fa-" aria-hidden="true"></i>
+			    近期文章
+			  </div>
+			  <ul class="links-of-blogroll-list">
+			    
+			    
+				  <li class="recent_posts_li">
+				    <a href="/2022/04/25/js-3-mybatis(&plus)/" title="js-3-mybatis" target="_blank">js-3-mybatis</a>
+				  </li>
+			    
+				  <li class="recent_posts_li">
+				    <a href="/2022/04/25/jc-6-%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="jc-6-数据结构" target="_blank">jc-6-数据结构</a>
+				  </li>
+			    
+				  <li class="recent_posts_li">
+				    <a href="/2022/04/25/jc-5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="jc-5-操作系统" target="_blank">jc-5-操作系统</a>
+				  </li>
+			    
+				  <li class="recent_posts_li">
+				    <a href="/2022/04/25/jc-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="jc-4-计算机网络" target="_blank">jc-4-计算机网络</a>
+				  </li>
+			    
+				  <li class="recent_posts_li">
+				    <a href="/2022/04/25/js-7-linux/" title="js-6-linux" target="_blank">js-6-linux</a>
+				  </li>
+			    
+			  </ul>
+		    </div>
+		  
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%8CRedis%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">一，Redis基础概念和数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CRedis%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1，Redis是什么？为什么要用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8CRedis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.2.</span> <span class="nav-text">2，Redis使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8C%E4%BA%94%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">3，五种基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89String"><span class="nav-number">1.3.1.</span> <span class="nav-text">（1）String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89List"><span class="nav-number">1.3.2.</span> <span class="nav-text">（2）List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89Set"><span class="nav-number">1.3.3.</span> <span class="nav-text">（3）Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89Zset"><span class="nav-number">1.3.4.</span> <span class="nav-text">（4）Zset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89Hash"><span class="nav-number">1.3.5.</span> <span class="nav-text">（5）Hash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8C%E4%B8%89%E7%A7%8D%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">4，三种特殊数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89HyperLogLogs%EF%BC%88%E5%9F%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%EF%BC%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">（1）HyperLogLogs（基数统计）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89Bitmap%EF%BC%88%E4%BD%8D%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">（2）Bitmap（位存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89geospatial%EF%BC%88%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%EF%BC%89"><span class="nav-number">1.4.3.</span> <span class="nav-text">（3）geospatial（地理位置）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8CRedis%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">二，Redis持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8C%E7%AE%80%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">1，简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8CRDB%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">2，RDB持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%A6%82%E4%BD%95%E8%A7%A6%E5%8F%91"><span class="nav-number">2.2.1.</span> <span class="nav-text">（1）如何触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%9C%A8redis-conf%E4%B8%AD%E9%85%8D%E7%BD%AERDB"><span class="nav-number">2.2.2.</span> <span class="nav-text">（2）在redis.conf中配置RDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.3.</span> <span class="nav-text">（3）几个问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.4.</span> <span class="nav-text">（4）优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CAOF%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.3.</span> <span class="nav-text">3，AOF持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0AOF"><span class="nav-number">2.3.1.</span> <span class="nav-text">（1）如何实现AOF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89redis-conf%E4%B8%AD%E9%85%8D%E7%BD%AEAOF"><span class="nav-number">2.3.2.</span> <span class="nav-text">（2）redis.conf中配置AOF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3AOF%E9%87%8D%E5%86%99"><span class="nav-number">2.3.3.</span> <span class="nav-text">（3）深入理解AOF重写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8CRDB%E5%92%8CAOF%E6%B7%B7%E7%94%A8%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">4，RDB和AOF混用的方式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">George Zhao</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">146.6k</span>
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitor
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Total Visit
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-tororo"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
